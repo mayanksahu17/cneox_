@@ -1,0 +1,20 @@
+.iq-video-thumb {
+    position: relative;
+    margin-bottom: 1rem;
+    img {
+        object-fit: cover;
+        height: 10rem;
+    }
+    .iq-btn-thumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: var(--bs-white);
+        border-color: var(--bs-white);
+        transform: translate(-50%, -50%);
+        &:hover, &:focus {
+            background-color: var(--bs-white);
+            border-color: var(--bs-white);
+        }
+    }
+}

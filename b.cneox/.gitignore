@@ -1,0 +1,30 @@
+# Node.js build artifacts
+node_modules/
+build/
+public/
+ngrok.exe
+# Logs and debugging files
+*.log
+*.log.*
+*.debug.log
+
+# Environment variables
+.env
+Searching
+
+# IDE-specific files and folders
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS files
+.DS_Store
+Thumbs.db
+
+# Compiled output
+dist/
+
+# Dependency lock files
+package-lock.json

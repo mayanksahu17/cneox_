@@ -1,0 +1,12 @@
+.input-group.search-input {
+    &:focus-within {
+        .input-group-text {
+            border-color: $primary;
+        }
+    }
+}
+.comment-text{
+    .form-control{
+        padding-right: 4rem;
+    }
+}

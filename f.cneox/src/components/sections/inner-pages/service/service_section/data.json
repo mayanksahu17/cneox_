@@ -1,0 +1,28 @@
+[
+  
+  {
+    "icon_black": "assets/img/th-1/service-icon-black-2.svg",
+    "icon_orange": "assets/img/th-1/service-icon-orange-2.svg",
+    "title": "EV",
+    "text": "EVs are driving the shift to clean transportation with a market reaching $1.8 trillion by 2030"
+  },
+  
+  {
+    "icon_black": "assets/img/th-1/service-icon-black-4.svg",
+    "icon_orange": "assets/img/th-1/service-icon-orange-4.svg",
+    "title": "Cryptocurrencies",
+    "text": "Crypto (Bitcoin, Ethereum) bets on the disruptive power of blockchain for finance's future"
+  },
+  {
+    "icon_black": "assets/img/th-1/service-icon-black-5.svg",
+    "icon_orange": "assets/img/th-1/service-icon-orange-5.svg",
+    "title": "Forbes Top 500 Companies",
+    "text": "Crown bankers leverage expertise to invest in Forbes Top 500, maximizing returns through market analysis and exclusive deals."
+  },
+ {
+  "icon_black": "assets/img/th-1/service-icon-black-5.svg",
+  "icon_orange": "assets/img/th-1/service-icon-orange-5.svg",
+  "title": "Solar Energy",
+  "text": "Crown Bankers' experts simplify solar investments by researching and diversifying portfolios in promising companies."
+}
+]

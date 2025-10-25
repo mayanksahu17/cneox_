@@ -1,0 +1,60 @@
+.profile-img {
+    margin-top: -4.375rem !important;
+    img {
+        border: 4px solid $white;
+    }
+}
+.comment-attagement {
+    position: absolute;
+    left: auto;
+    right: 1.875rem;
+    font-size: 1.25rem;
+}
+
+.scrolling-text {
+    font-family: "Poppins",sans-serif;
+    font-size: 4.7rem;
+    line-height: 156px;
+    font-weight: 600;
+    text-transform: capitalize;
+    transform: rotate(-90deg);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--bs-body-color);
+}
+.vertical-scroll img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+}   
+@include media-breakpoint-down(xl){ 
+    .vertical-scroll-res{
+        display: none;
+    }
+}
+@include media-breakpoint-down(lg){ 
+    .academy-img{
+        display: none;
+    }
+}
+.scrolling-text1 {
+    font-family: "Poppins",sans-serif;
+    font-size: 5rem;
+    line-height: 156px;
+    font-weight: 600;
+    text-transform: capitalize;
+    transform: rotate(360deg);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--bs-body-color);
+}
+.vertical-scroll1{
+    position: absolute;
+    right: 3.7rem;
+    top: 0;
+}   
+@include media-breakpoint-down(xl){ 
+    .vertical-scroll-res1{
+        display: none;
+    }
+}

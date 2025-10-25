@@ -1,0 +1,327 @@
+{{#extend layout title="watchlist" active="special-watchlist" path="../" isBreadCrumb="true" }}
+{{#content "content"}}
+<div class="row">
+   <div class="col-lg-12">
+       <div class="card">
+           <div class="card-body">
+                <h3>Watchlists</h3>
+                <div class="d-flex flex-wrap ">
+                    <button type="button" class="btn btn-outline-primary me-3 mt-3">My Watchlist #1</button>
+                    <button type="button" class="btn btn-outline-primary me-3 mt-3">Tech Basket</button>
+                    <button type="button" class="btn btn-outline-primary me-3 mt-3">Winner List</button>
+                    <button type="button" class="btn btn-outline-primary border-0 mt-3">+ Create New Watchlist</button>
+                </div>
+                <h5 class="mt-4">My Watchlist</h5>
+                <div class="d-flex justify-content-between align-items-center flex-wrap py-4">
+                    <div class="d-flex flex-column">
+                        <span>52 items</span>
+                        <span>updated 02/08/2021 at 02:45 PM</span>
+                    </div>
+                    <div class="iq-add-symbol">
+                        <button type="button" class="btn btn-primary d-flex align-items-center">
+                            <svg width="15" class="me-2" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.75 9.65415C4.336 9.65415 4 9.31815 4 8.90415V1.57715C4 1.16315 4.336 0.827148 4.75 0.827148C5.164 0.827148 5.5 1.16315 5.5 1.57715V8.90415C5.5 9.31815 5.164 9.65415 4.75 9.65415Z" fill="currentColor"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.4165 5.99023H1.0835C0.668496 5.99023 0.333496 5.65423 0.333496 5.24023C0.333496 4.82623 0.668496 4.49023 1.0835 4.49023H8.4165C8.8305 4.49023 9.1665 4.82623 9.1665 5.24023C9.1665 5.65423 8.8305 5.99023 8.4165 5.99023Z" fill="currentColor"/>
+                            </svg>
+                            Add Symbols
+                        </button>
+                    </div>
+                </div> 
+                <div class="table-responsive">
+                    <table id="datatable" class="table mb-0" data-toggle="data-table">
+                        <thead class="">
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>%Change</th>
+                                <th>Tech</th>
+                                <th>Hybrid</th>
+                                <th>Market Cap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Bitcoin</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Ethereum</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Monero</td>
+                                <td>147.00</td>
+                                <td><div class="badge bg-success-subtle text-light p-2">
+                                    +58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{path}}assets/images/coins/01.png" class="img-fluid avatar-30 ms-3 avatar-rounded" alt="img10"></td>
+                                <td class="text-primary">Litecoin</td>
+                                <td>147.00</td>
+                                <td ><div class="badge bg-danger-subtle text-light p-2">
+                                    -58.62%
+                                </div></td>
+                                <td>2.22</td>
+                                <td>2.32</td>
+                                <td>32.15B</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+       </div>
+    </div>
+</div>
+{{/content}}
+{{/extend}}

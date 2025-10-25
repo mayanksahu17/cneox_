@@ -1,0 +1,71 @@
+.iq-transaction{
+    &:first-child{
+        padding: 1rem 1rem 1rem 0;
+    }
+    padding:1rem 1rem 1rem 0;
+    .transaction-data{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .transaction-content{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+.account-process{
+    li{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        &:first-child{
+            padding-top: unset;
+            border-top: unset;
+        }
+        &:last-child{
+            padding-bottom: unset;
+        }
+    }
+}
+
+.academy-list{
+    li{
+        padding: 1rem 0;
+        &:first-child{
+            padding: 0 0 1rem 0;
+        }
+        &:last-child{
+            border-bottom: unset;
+            padding-bottom: unset;
+        }
+    }
+}
+
+.iq-option-buy{
+    >div{
+        padding-bottom: 2rem;
+    }
+    border-bottom: 2px dashed;
+}
+
+.stars{
+    path{
+        stroke: $primary;
+    }
+    &:hover{
+        fill: $primary;
+    }
+}
+
+.list-rotate{
+    transform: rotate( 90deg );
+    cursor: pointer;
+}
+.portfolio-sub-card{
+    background-color: var(--bs-body-bg);
+}
+
+@include media-breakpoint-down(sm) {
+    .iq-add-symbol{
+        margin-top: 1rem;
+    }
+}

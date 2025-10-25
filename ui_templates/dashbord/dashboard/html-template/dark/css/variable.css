@@ -1,0 +1,30 @@
+:root {
+    --iq-primary: #f9b707;
+    --iq-primary-light: #fdf0cd;
+    --iq-primary-dark: #ff6c00;
+    --body-bg:#000411;
+    --iq-dark:#020716;
+    --iq-title-text: #fff;
+    --iq-body-text: #b3b3c0;
+    --iq-border:#0d1018;
+    --iq-icon:#dbdbdb;
+    --white: #fff;
+    --iq-black: #000;
+    --iq-success: #27b345;
+    --iq-menu-text: #1a1a1a;
+    --iq-bg-light-color: #f9f9f9;
+    --iq-secondary: #666;
+    --iq-secondary-light: #c1c1c1;
+    --iq-secondary-dark: #7d7d7d;
+    --iq-light: #E9EDF4;
+    --iq-light-border: #ced4da;
+    --iq-dark-border: #e0e0e0;
+    --iq-gray:#f7f7f7;
+    --iq-loader-bg:#333;
+    --iq-menu-hover:#999;
+    --iq-footer-bg: #040918;
+    --iq-copyright-bg: #050C21;
+
+    --border-radius: 8px;
+  }
+  

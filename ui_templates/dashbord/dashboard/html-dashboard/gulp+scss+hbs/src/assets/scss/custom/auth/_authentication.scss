@@ -1,0 +1,209 @@
+.sign-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &.sign-bg-right {
+    left: auto;
+    right: 0;
+  }
+}
+
+.gradient-main {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.login-bottom {
+  margin-top: -12.5rem;
+}
+
+@include media-breakpoint-up(xxl) {
+  .auth-card {
+    padding: 0 6.25rem;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .res-hide {
+    display: none;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .login-header {
+    height: 12.5rem !important;
+  }
+
+  .login-bottom {
+    margin-top: -6.25rem;
+  }
+}
+
+.auth-bg {
+  margin: 0;
+
+  background: var(--#{$prefix}gray-200);
+  height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+.auth-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50%;
+  background: var(--#{$prefix}gray-900);
+  z-index: 0;
+}
+
+.sign-in-img {
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+
+@include media-breakpoint-down(xl) {
+  .sign-in-img {
+    right: unset;
+    top: 330px;
+
+    svg {
+      width: 540px !important;
+    }
+  }
+}
+
+.maintainance-search {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+@include media-breakpoint-down(xl) {
+  .sign-up-img2 {
+    right: unset;
+    top: unset;
+
+    svg {
+      width: 450px !important;
+    }
+  }
+}
+
+.sign-up-img2 {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+}
+
+.rpw-img1 {
+  position: absolute;
+  right: 0;
+  top: 90px;
+
+  svg {
+    width: 600px !important;
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .rpw-img1 {
+    left: unset;
+    top: 385px;
+
+    svg {
+      width: 500px !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .rpw {
+    justify-content: center;
+  }
+}
+
+.lockscreen-img1 {
+  position: absolute;
+  right: 0;
+  top: 15%;
+}
+
+@include media-breakpoint-down(xl) {
+  .lockscreen-img1 {
+    top: 32%;
+
+    svg {
+      width: 500px !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .lockscreen {
+    justify-content: center;
+  }
+}
+
+.cm-img1 {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+@include media-breakpoint-down(xl) {
+  .cm-img1 {
+    top: 32%;
+
+    svg {
+      width: 400px !important;
+    }
+  }
+}
+
+.error-404 {
+  position: absolute;
+  right: 11%;
+  top: 15%;
+}
+
+@include media-breakpoint-down(xl) {
+  .error-404 {
+    top: 28%;
+    right: 3%;
+
+    svg {
+      width: 450px !important;
+    }
+  }
+}
+
+.error-500 {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+
+@include media-breakpoint-down(xl) {
+  .error-500 {
+    top: 28%;
+    right: 3%;
+
+    svg {
+      width: 450px !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .maintenance-img {
+    svg {
+      display: none;
+    }
+  }
+}

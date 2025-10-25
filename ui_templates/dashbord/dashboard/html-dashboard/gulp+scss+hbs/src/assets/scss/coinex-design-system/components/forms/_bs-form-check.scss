@@ -1,0 +1,14 @@
+.form-check-input {
+    transition: all 300ms ease;
+    &:checked{
+        transition: all 300ms ease;
+    }
+}
+.form-switch {
+    .form-check-input { 
+        transition: all 300ms ease;
+        &:checked{
+            transition: all 300ms ease;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+:focus{
+	outline: none;
+}
+
+// Small
+//
+// Add the correct font size in all browsers
+
+small {
+    color: #bfbfbf;
+}
+
+// Scroll Css
+::-webkit-scrollbar { width: 8px; height: 8px; border-radius: 20px; }
+
+/* Scroll Track */
+::-webkit-scrollbar-track { background: var(--bs-body-bg); border-radius: 20px; }
+
+/* Scroll Handle */
+::-webkit-scrollbar-thumb { background: var(--bs-border-color); border-radius: 20px; transition: all 400ms ease; cursor: pointer; }
+
+/* Scroll Handle on hover */
+::-webkit-scrollbar-thumb:hover { background: var(--bs-border-color); border-radius: 20px;transition: all 400ms ease }

@@ -1,0 +1,81 @@
+import FsLightbox from "fslightbox-react";
+import { useState } from "react";
+
+const FunFact = () => {
+  // To open the lightbox change the value of the "toggler" prop.
+  const [toggler, setToggler] = useState(false);
+
+  return (
+    <>
+      {/*...::: FunFact Section Start :::... */}
+      <section id="funfact-section">
+        <div className="mx-auto max-w-[1500px] px-5">
+          <div className="jos grid grid-cols-1 overflow-hidden rounded-[30px] bg-black lg:rounded-[50px] xl:grid-cols-[minmax(400px,_1fr)_1.5fr] xxl:grid-cols-[1fr_minmax(800px,_1fr)]">
+            {/* FunFact Left Block */}
+            <div className="relative overflow-hidden rounded-[30px] lg:rounded-[50px]">
+              <img
+                src="assets/img/th-1/funfact-image.jpg"
+                alt="funfact-image"
+                width="721"
+                height="784"
+                className="h-80 w-full object-cover object-center lg:h-[35rem] xl:h-full"
+              />
+              {/* Video Play Button */}
+              {/* <button className="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2">
+                <div
+                  // onClick={() => setToggler(!toggler)}
+                  className="relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300 hover:bg-colorOrangyRed hover:text-white"
+                >
+                  Play
+                  <div className="absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-gray-600 opacity-30"></div>
+                </div>
+              </button> */}
+              {/* Video Play Button */}
+            </div>
+            <FsLightbox
+              toggler={toggler}
+              sources={[
+                "assets/img/th-1/Crafting-a-Vision-for-Financial-Excellence.png",
+              ]}
+            />
+            {/* Funfacct Left Block */}
+
+            {/* Funfact Right Block */}
+            <div className="self-center px-6 py-16 sm:py-20 md:px-16 xl:px-10 xl:py-24 xxl:py-32 xxl:pl-16 xxl:pr-28">
+              {/* Section Content Block */}
+              <div className="mb-8 lg:mb-16 xl:mb-6">
+                <h2 className="text-white">
+                  Crafting a Vision for Financial Excellence
+                </h2>
+              </div>
+              {/* Section Content Block */}
+              <div className="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
+                <p className="mb-7 last:mb-0">
+                  At Crown Bankers, we envision reshaping financial excellence
+                  through innovative solutions and strategic investments.
+                  Trailblazing opportunities for growth and stability, we
+                  empower clients to navigate evolving markets with confidence.
+                  Our commitment to a prosperous future drives every financial
+                  decision, ensuring security and success for our clients.
+                </p>
+              </div>
+              {/* Horizontal Separator */}
+              <div className="my-14 h-[1px] w-full bg-colorCodGray"></div>
+              {/* Counter Scroll */}
+              <ul className="flex flex-col justify-center gap-x-11 gap-y-8 text-center sm:flex-row md:text-left xl:justify-normal xl:text-left xxl:gap-x-20">
+                {/* Counter Items */}
+
+                {/* Counter Items */}
+              </ul>
+              {/* Counter Scroll */}
+            </div>
+            {/* Funfact Right Block */}
+          </div>
+        </div>
+      </section>
+      {/*...::: Funfact Section End :::... */}
+    </>
+  );
+};
+
+export default FunFact;

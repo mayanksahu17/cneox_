@@ -1,0 +1,29 @@
+/*!
+* Version: 4.1.1
+* Template: Coinex - Responsive Bootstrap 5 Admin Dashboard Template
+* Author: iqonic.design
+* Design and Developed by: iqonic.design
+* NOTE: This file contains the styling for responsive Template.
+*
+*/
+
+// Configuration
+@import "./bootstrap/functions";
+// Variables
+@import "./coinex-design-system/variables";
+@import "./coinex-design-system/variables-dark";
+@import "./coinex-design-system/variables/index";
+@import "./bootstrap/variables";
+@import "./bootstrap/variables-dark";
+@import "./bootstrap/maps";
+@import "./bootstrap/mixins";
+@import "./bootstrap/utilities";
+
+// Coinex Design System Mixin And Helper
+@import "./coinex-design-system/helper/functions";
+@import "./coinex-design-system/helper/mixins";
+@import "./coinex-design-system/helper/reboot";
+@import "./coinex-design-system/helper/root";
+
+@import "./custom/auth/authentication";
+@import "./custom/additional.scss";

@@ -1,0 +1,26 @@
+.img-right-banner-top {
+    width: 89%;
+}
+
+.form-control::placeholder {
+    color: #878787;
+}
+
+input.form-control::-webkit-calendar-picker-indicator {
+    filter: contrast(0);
+}
+
+.iq-user-profile-bg {
+    img {
+        max-height: 576px;
+    }
+}
+
+.carousel-indicators {
+    list-style: none;
+}
+
+.leaflet-bottom,
+.leaflet-top{
+    z-index: 400;
+}

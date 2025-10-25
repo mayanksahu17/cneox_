@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>COINEX - Crypto Currency HTML Template </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="css/typography.css">
+    <!-- REVOLUTION STYLE SHEETS --> 
+   <link rel="stylesheet" type="text/css" href="revslider/css/settings.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <!-- Style customizer (Remove these two lines please) -->
+    <link rel="stylesheet" href="javascript:void(0)" data-style="styles">
+    <link rel="stylesheet" href="css/style-customizer.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113778816-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-113778816-1');
+</script>
+</head>
+
+<body>
+    <!-- loading -->
+    <div id="loading">
+        <div id="loading-center">
+            <img src="images/loader.gif" alt="loder">
+        </div>
+    </div>
+    <!-- loading End -->
+    <!-- Header -->
+    <header>
+        <div class="topbar-chart">
+            <div class="container-fluid">
+                <div class="row">
+                    <script>
+                        baseUrl = "https://widgets.cryptocompare.com/";
+                        var scripts = document.getElementsByTagName("script");
+                        var embedder = scripts[scripts.length - 1];
+                        var cccTheme = { "General": { "background": "var(--iq-dark)", "priceText": "var(--white)" }, "Currency": { "color": "var(--white)" } };
+                        (function() {
+                            var appName = encodeURIComponent(window.location.hostname);
+                            if (appName == "") { appName = "local"; }
+                            var s = document.createElement("script");
+                            s.type = "text/javascript";
+                            s.async = true;
+                            var theUrl = baseUrl + 'serve/v1/coin/scroller?fsyms=BTC,ETH,USDT,BUSD,CFX,XRP,SOL&tsyms=USD';
+                            s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                            embedder.parentNode.appendChild(s);
+                        })();
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="iq-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo">
+                            <a href="index.html"><img id="logo_dark" class="img-fluid" src="images/logo.png" alt="logo"></a>
+                        </div>
+                        <nav> <a id="resp-menu" class="responsive-menu" href="javascript:void(0)"><i class="fa fa-reorder"></i> Menu</a>
+                            <ul class="menu text-end">
+                                <li><a class="active" href="javascript:void(0)">HOME</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="home-2.html">Home 2</a></li>
+                                        <li><a class="active" href="home-3.html">Home 3</a></li>
+                                        <li><a href="home-4.html">Home 4</a></li>
+                                        <li><a href="home-5.html">Home 5</a></li>
+                                        <li><a href="app-landing-page.html">App Landing Page</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="javascript:void(0)">Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="services-1.html">Services 1</a></li>
+                                                <li><a href="services-2.html">Services 2</a></li>
+                                                <li><a href="services-3.html">Services 3</a></li>
+                                                <li><a href="services-details.html">Services Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="history.html">History</a></li>
+                                        <li><a href="event.html">Event</a></li>
+                                        <li><a href="customer-support.html">Customer Support</a></li>
+                                        <li><a href="clients.html">Clients</a></li>
+                                        <li><a href="javascript:void(0)">Team <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="team-1.html">Team 1</a></li>
+                                                <li><a href="team-2.html">Team 2</a></li>
+                                                <li><a href="team-details.html">Team Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Pricing <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="pricing.html">Pricing 1</a></li>
+                                                <li><a href="pricing-1.html">Pricing 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Faq <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="faqs-1.html">Faq 1</a></li>
+                                                <li><a href="faqs-2.html">Faq 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Coming Soon <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="coming-soon-1.html">Coming Soon 1</a></li>
+                                                <li><a href="coming-soon-2.html">Coming Soon 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Error <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="error-404-1.html">Error 404 1</a></li>
+                                                <li><a href="error-404-2.html">Error 404 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0)">Breadcrumb <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                            <ul>
+                                                <li><a href="breadcrumb-left.html">Breadcrumb left</a></li>
+                                                <li><a href="breadcrumb-right.html">Breadcrumb Right</a></li>
+                                                <li><a href="breadcrumb-center.html">Breadcrumb Center</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="video.html">Video</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Coin</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="market-data.html">Market Data</a></li>
+                                        <li><a href="wallet.html">wallet</a></li>
+                                        <li><a href="buy-sell.html">buy & sell</a></li>
+                                        <li><a href="exchange.html">Exchange</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-2-columns.html">2 Columns</a></li>
+                                        <li><a href="blog-3-columns.html">3 Columns</a></li>
+                                        <li><a href="blog-fullwidth.html">Full Width</a></li>
+                                        <li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
+                                        <li><a href="blog-right-sidebar.html">Right Sidebar</a></li>
+                                        <li><a href="blog-single.html">Single Page</a></li>
+                                        <li><a href="blog-single-left-sidebar.html">Single Left Sidebar</a></li>
+                                        <li><a href="blog-single-right-sidebar.html">Single Right Sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-2-columns.html">Shop 2 columns</a></li>
+                                        <li><a href="shop-single.html">Shop Single</a></li>
+                                        <li><a href="shop-cart.html">Shop Cart</a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Contact</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="contact-1.html">Contact Us 1</a></li>
+                                        <li><a href="contact-2.html">Contact Us 2</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="iq-search"> <a class="search-btn not_click" href="javascript:void(0);"> <span>Search Button</span></a>
+                                        <div class="search-box not-click">
+                                            <input type="email" class="form-control not-click" id="exampleInputEmail1" placeholder="Search">
+                                            <i class="fa fa-search" aria-hidden="true"></i> </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <div class="clearfix"></div>
+    <!-- Banner -->
+    <div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="coinex18" data-source="gallery" style="margin:0px auto;background:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+        <!-- START REVOLUTION SLIDER 5.4.6.3 fullwidth mode -->
+        <div id="rev_slider_3_1" class="rev_slider fullwidthabanner tp-overflow-hidden" style="display:none;" data-version="5.4.6.3">
+            <ul>
+                <!-- SLIDE  -->
+                <li data-index="rs-9" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="500" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="revslider/assets/transparent.png" data-bgcolor='#000000' style='background:#000000' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                    <!-- LAYERS -->
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-9-layer-11" data-x="right" data-hoffset="-292" data-y="bottom" data-voffset="-25" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5;"><img src="revslider/assets/19086-14.png" alt="" data-ww="966px" data-hh="653px" data-no-retina> </div>
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1" id="slide-9-layer-2" data-x="-109" data-y="-20" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":1020,"speed":1000,"frame":"0","from":"x:left;y:top;z:{-20,20};opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 6;"><img src="revslider/assets/2c90a-15.png" alt="" data-ww="244px" data-hh="191px" data-no-retina> </div>
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1" id="slide-9-layer-4" data-x="-110" data-y="bottom" data-voffset="30" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":1530,"speed":1000,"frame":"0","from":"x:left;y:middle;z:{-20,20};opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7;"><img src="revslider/assets/2c90a-15.png" alt="" data-ww="222px" data-hh="174px" data-no-retina> </div>
+                    <!-- LAYER NR. 4 -->
+                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1" id="slide-9-layer-3" data-x="right" data-hoffset="-173" data-y="-109" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":2110,"speed":1000,"frame":"0","from":"x:[175%];y:[-175%];opacity:{0,1};","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 8;"><img src="revslider/assets/086e2-16.png" alt="" data-ww="267px" data-hh="256px" data-no-retina> </div>
+                    <!-- LAYER NR. 5 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-9-layer-9" data-x="30" data-y="186" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":3110,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9; white-space: nowrap; font-size: 65px; line-height: 80px; font-weight: 300; color: #ffffff; letter-spacing: 0px; font-family: 'Roboto', sans-serif;  text-transform:uppercase;">the most important
+                        <br>invention in <span class="iq-font-yellow ">history!</span></div>
+                    <!-- LAYER NR. 6 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-9-layer-5" data-x="30" data-y="center" data-voffset="2" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":3960,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 11; white-space: nowrap; font-size: 14px; line-height: 26px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Open Sans', sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        <br> industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing
+                        <br> and typesetting industry. Lorem Ipsum has been the industry's standard. </div>
+                    <!-- LAYER NR. 7 -->
+                    <div class="tp-caption button rev-btn " id="slide-9-layer-8" data-x="30" data-y="455" data-width="['auto']" data-height="['auto']" data-type="button" data-responsive_offset="on" data-frames='[{"delay":4500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":""}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[1,1,1,1]" data-paddingright="[35,35,35,35]" data-paddingbottom="[1,1,1,1]" data-paddingleft="[35,35,35,35]">Read More</div>
+                </li>
+                <!-- SLIDE  -->
+                <li data-index="rs-10" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="500" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="revslider/assets/transparent.png" data-bgcolor='#151d2e' style='background:#151d2e' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                    <!-- LAYERS -->
+                    <!-- LAYER NR. 8 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-9" data-x="30" data-y="247" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":3220,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5; white-space: nowrap; font-size: 62px; line-height: 68px; font-weight: 700; color: #ffffff; letter-spacing: 0px; font-family: 'Roboto', sans-serif;  text-transform:uppercase;"><span class="iq-font-yellow ">explore Bitcoin</span> </div>
+                    <!-- LAYER NR. 9 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-10" data-x="30" data-y="318" data-width="['558']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":3960,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 6; min-width: 558px; max-width: 558px; white-space: nowrap; font-size: 60px; line-height: 68px; font-weight: 300; color: #ffffff; letter-spacing: 0px; font-family: 'Roboto', sans-serif;  text-transform:uppercase;">It's free market ! </div>
+                    <!-- LAYER NR. 10 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-5" data-x="30" data-y="center" data-voffset="45" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":4660,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; font-size: 14px; line-height: 26px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Open Sans', sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        <br> industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing
+                        <br> and typesetting industry. Lorem Ipsum has been the industry's standard. </div>
+                    <!-- LAYER NR. 11 -->
+                    <div class="tp-caption button white rev-btn " id="slide-10-layer-8" data-x="30" data-y="505" data-width="['auto']" data-height="['auto']" data-type="button" data-responsive_offset="on" data-frames='[{"delay":4930,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":""}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[1,1,1,1]" data-paddingright="[35,35,35,35]" data-paddingbottom="[1,1,1,1]" data-paddingleft="[35,35,35,35]">Read More</div>
+                    <!-- LAYER NR. 12 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-16" data-x="right" data-hoffset="-55" data-y="59" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;"><img src="revslider/assets/89b8d-17.png" alt="" data-ww="466px" data-hh="745px" data-no-retina> </div>
+                    <!-- LAYER NR. 13 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-14" data-x="133" data-y="bottom" data-voffset="4" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":2500,"speed":1000,"frame":"0","from":"y:bottom;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 10;"><img src="revslider/assets/8ce56-18.png" alt="" data-ww="186px" data-hh="170px" data-no-retina> </div>
+                    <!-- LAYER NR. 14 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-10-layer-15" data-x="-500" data-y="center" data-voffset="21" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 11;"><img src="revslider/assets/94f40-19.png" alt="" data-ww="556px" data-hh="719px" data-no-retina> </div>
+                </li>
+                <!-- SLIDE  -->
+                <li data-index="rs-11" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="500" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="revslider/assets/transparent.png" data-bgcolor='#000000' style='background:#000000' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                    <!-- LAYERS -->
+                    <!-- LAYER NR. 15 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-9" data-x="30" data-y="217" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":4670,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5; white-space: nowrap; font-size: 62px; line-height: 62px; font-weight: 300; color: #ffffff; letter-spacing: 0px; font-family: 'Roboto', sans-serif;  text-transform:uppercase;">Provides To Make Better </div>
+                    <!-- LAYER NR. 16 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-10" data-x="30" data-y="center" data-voffset="-60" data-width="['587']" data-height="['70']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":5730,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 6; min-width: 587px; max-width: 587px; max-width: 70px; max-width: 70px; white-space: nowrap; font-size: 68px; line-height: 60px; font-weight: 700; color: #ffffff; letter-spacing: 0px; font-family: 'Roboto', sans-serif;  text-transform:uppercase;"><span class="iq-font-yellow ">cryptocurrency ! </span></div>
+                    <!-- LAYER NR. 17 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-5" data-x="30" data-y="center" data-voffset="21" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":6800,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; font-size: 14px; line-height: 26px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Open Sans', sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        <br> industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing
+                        <br> and typesetting industry. Lorem Ipsum has been the industry's standard. </div>
+                    <!-- LAYER NR. 18 -->
+                    <div class="tp-caption button rev-btn " id="slide-11-layer-8" data-x="30" data-y="485" data-width="['auto']" data-height="['auto']" data-type="button" data-responsive_offset="on" data-frames='[{"delay":7470,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":""}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[1,1,1,1]" data-paddingright="[35,35,35,35]" data-paddingbottom="[1,1,1,1]" data-paddingleft="[35,35,35,35]">Read More</div>
+                    <!-- LAYER NR. 19 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-14" data-x="right" data-hoffset="99" data-y="7" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":2390,"speed":1000,"frame":"0","from":"y:top;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;"><img src="revslider/assets/594af-22.png" alt="" data-ww="128px" data-hh="127px" data-no-retina> </div>
+                    <!-- LAYER NR. 20 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-15" data-x="right" data-hoffset="237" data-y="center" data-voffset="-216" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":3180,"speed":1000,"frame":"0","from":"y:top;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 10;"><img src="revslider/assets/37db8-23.png" alt="" data-ww="115px" data-hh="114px" data-no-retina> </div>
+                    <!-- LAYER NR. 21 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-16" data-x="right" data-hoffset="61" data-y="center" data-voffset="-81" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":3930,"speed":1000,"frame":"0","from":"y:top;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 11;"><img src="revslider/assets/59100-24.png" alt="" data-ww="188px" data-hh="187px" data-no-retina> </div>
+                    <!-- LAYER NR. 22 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-13" data-x="right" data-hoffset="-16" data-y="center" data-voffset="87" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 12;"><img src="revslider/assets/48723-21.png" alt="" data-ww="410px" data-hh="279px" data-no-retina> </div>
+                    <!-- LAYER NR. 23 -->
+                    <div class="tp-caption   tp-resizeme" id="slide-11-layer-18" data-x="center" data-hoffset="4" data-y="bottom" data-voffset="-58" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 13;"><img src="revslider/assets/ae6ae-25.png" alt="" data-ww="1920px" data-hh="230px" data-no-retina> </div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Us -->
+        <section class="overview-block-pt device-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12">
+                        <h2 class="iq-font-black">One Touch &<br>
+<span class="iq-font-yellow">wallet and Buy Bitcoin !</span>
+</h2>
+                        <p class="iq-mt-25">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <div class="calculator iq-mt-25">
+                            <script src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
+                        </div>
+                        <a class="button mt-3 iq-mb-100" href="javascript:void(0)">
+                            <span class="button-inner-box">
+                                <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                <span class="text-btn">Read More</span>
+                                <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                            </span>
+                        </a>   
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="hand-tab"><img class="img-fluid" alt="image" src="images/device/hand-tab.gif"></div>
+                        <div class="hand"><img class="img-fluid" alt="img" src="images/device/hand.png"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Us -->
+        <!-- How it Works -->
+        <section class="overview-block-ptb125 iq-feature4 iq-bg iq-over-black-80 jarallax" style="background-image: url('images/bg/bg-5.png'); background-position: center center; background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="iq-Work-box text-center text-white stap-up">
+                            <div class="Work-icon">
+                                <div class="step">1</div>
+                                <i aria-hidden="true" class="ion-ios-compose-outline"></i>
+                            </div>
+                            <h4 class=" iq-mt-20 iq-font-yellow mb-3">Fill Up Your Form</h4>
+                            <p>Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 re-mt-30">
+                        <div class="iq-Work-box text-center text-white stap-dowen">
+                            <div class="Work-icon">
+                                <div class="step">2</div>
+                                <i aria-hidden="true" class="ion-ios-paper-outline"></i>
+                            </div>
+                            <h4 class=" iq-mt-20 iq-font-yellow mb-3">Payment</h4>
+                            <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 re-mt-30">
+                        <div class="iq-Work-box text-center text-white">
+                            <div class="Work-icon">
+                                <div class="step">3</div>
+                                <i aria-hidden="true" class="ion-ios-cart-outline"></i>
+                            </div>
+                            <h4 class=" iq-mt-20 iq-font-yellow mb-3">Buy or Sell Coin</h4>
+                            <p>Dummy text of the printing and typesetting Ipsum is simply d industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- How it Works -->
+        <!-- Features -->
+        <section class="overview-block-ptb iq-fea-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="heading-title">
+                            <h2 class="title  iq-mb-25">Bitcoin Features</h2>
+                            <p>Here is 3 Easy Steps to Busy & Sell Bitcoin. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row h-100">
+                    <div class="col-lg-4 col-md-12 text-end">
+                        <div class="d-flex align-items-center">
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3" ><a href="services-details.html"> Fast Transaction</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                                </div>
+                                <div class="ms-3">
+                                    <img class="img-fluid" src="images/services/icon/01.png" alt="">
+                                </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3" ><a href="services-details.html"> Secure and Stable</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                                </div>
+                                <div class="ms-3">
+                                    <img class="img-fluid" src="images/services/icon/02.png" alt="">
+                                </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3" ><a href="services-details.html"> Coin Exchange</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                                </div>
+                                <div class="ms-3">
+                                    <img class="img-fluid" src="images/services/icon/03.png" alt="">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 align-self-center text-center">
+                        <img class="img-fluid" src="images/feature/features-img1.png" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <img class="img-fluid" src="images/services/icon/04.png" alt="">
+                            </div>
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3"><a href="services-details.html">Mobile Apps</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                            </div>  
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <img class="img-fluid" src="images/services/icon/05.png" alt="">
+                            </div>
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3"><a href="services-details.html">24/7 Trading</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                            </div>  
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <img class="img-fluid" src="images/services/icon/06.png" alt="">
+                            </div>
+                            <div class="iq-feature2 iq-mtb-20">
+                                <h4 class="mb-3"><a href="services-details.html">Free Consulting</a></h4>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="particles text-center"><img class="img-fluid" src="images/particles.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+        <!-- Features -->
+        <!-- About Us -->
+        <section class="overview-block-ptb iq-bg iq-over-black-80 jarallax iq-about-us" style="background-image: url('images/bg/bg-13.jpg'); background-position: left center; background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row h-100">
+                    <div class="col-lg-6 col-md-12 align-self-center">
+                        <img class="img-fluid" src="images/about-us/calculator-bitcoin.png" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <h2 class="text-white ">Everything <br>
+                        <span class="iq-font-yellow">You Need To Know!</span>
+                        </h2>
+                        <p class="text-white iq-mt-25 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        <a class="button mt-3 " href="javascript:void(0)">
+                            <span class="button-inner-box">
+                                <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                <span class="text-btn">Read More</span>
+                                <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                            </span>
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Us -->
+        <!-- Bitcoin Growth Schedule -->
+        <section class="overview-block-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="heading-title">
+                            <h2 class="title  iq-mb-25">Bitcoin Growth Schedule</h2>
+                            <p>Here is 3 Easy Steps to Busy & Sell Bitcoin. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="chart-01"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bitcoin Growth Schedule -->
+        <!-- Counter -->
+        <div class="iq-our-clients particles-bg iq-ptb-50 iq-bg iq-over-dark-90 jarallax" style="background-image: url('images/bg/bg-2.jpg'); background-position: center center; background-repeat: no-repeat;">
+            <canvas id="canvas"></canvas>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 iq-mtb-20">
+                        <div class="counter"><i class="ion-ios-folder-outline text-white" aria-hidden="true"></i>
+                            <div class="right text-left">
+                                <h3 class="timer text-white" data-to="1540" data-speed="10000">1540</h3>
+                                <small class="text-white text-uppercase">Project</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 iq-mtb-20">
+                        <div class="counter"> <i class="ion-ios-paper-outline text-white" aria-hidden="true"></i>
+                            <div class="right text-left">
+                                <h3 class="timer text-white" data-to="2530" data-speed="10000">2530</h3>
+                                <small class="text-white">AWARDS</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 iq-mtb-20">
+                        <div class="counter"> <i class="ion-ios-person-outline text-white" aria-hidden="true"></i>
+                            <div class="right text-left">
+                                <h3 class="timer text-white" data-to="8120" data-speed="10000">8120</h3>
+                                <small class="text-white">CLIENTS</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 iq-mtb-20">
+                        <div class="counter"> <i class="ion-ios-star-outline text-white" aria-hidden="true"></i>
+                            <div class="right text-left">
+                                <h3 class="timer text-white" data-to="1620" data-speed="10000">1620</h3>
+                                <small class="text-white">RATES</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Counter -->
+        <!-- Pricing -->
+        <section class="overview-block-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="heading-title">
+                            <h2 class="title  iq-mb-20">Bitcoin Pricing</h2>
+                            <p>Here is 3 Easy Steps to Busy & Sell Bitcoin. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="position-relative">
+                            <div class="pricing ">
+                                <h2 class="mb-2"><sup>$</sup>250<small >/month</small></h2>
+                                <p class="mb-0">For most businesses that want to otpimize web queries</p>
+                                <div class="sale-box">
+                                    <span class="sale-text">FEATURED</span>
+                                    </div>
+                            </div>
+                            <div class="pricing-btn">
+                                <button  type="submit" class="button dark white rounded-pill text-uppercase">Standard</button>
+                            </div>
+                            <div class="iq-pricing-detail text-center">
+                                <ul class="pricing-content">
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>All limited links</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>Own analytics platform</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Chat support</li>
+                                    <li class="mb-5"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Optimize hashtags</li>
+                                </ul>
+                                <a class="button mt-4" href="https://1.envato.market/MXNo22?u=https%3A%2F%2Fthemeforest.net%2Fcheckout%2Ffrom_item%2F21176834%3Flicense%3Dregular">
+                                <span class="button-inner-box">
+                                    <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                    <span class="text-btn">Purchase now</span>
+                                    <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                </span>
+                            </a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="position-relative">
+                            <div class="pricing ">
+                                <h2 class="mb-2"><sup>$</sup>275<small >/month</small></h2>
+                                <p class="mb-0">For most businesses that want to otpimize web queries</p>
+                                <div class="sale-box">
+                                    <span class="sale-text">FEATURED</span>
+                                    </div>
+                            </div>
+                            <div class="pricing-btn">
+                                <button  type="submit" class="button dark white rounded-pill text-uppercase">Standard</button>
+                            </div>
+                            <div class="iq-pricing-detail text-center">
+                                <ul class="pricing-content">
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>All limited links</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>Own analytics platform</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Chat support</li>
+                                    <li class="mb-5"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Optimize hashtags</li>
+                                </ul>
+                                <a class="button mt-4" href="javascript:void(0)">
+                                <span class="button-inner-box">
+                                    <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                    <span class="text-btn">Purchase now</span>
+                                    <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                </span>
+                            </a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="position-relative">
+                            <div class="pricing active">
+                                <h2 class="mb-2"><sup>$</sup>300<small >/month</small></h2>
+                                <p class="mb-0">For most businesses that want to otpimize web queries</p>
+                                <div class="sale-box">
+                                    <span class="sale-text">FEATURED</span>
+                                    </div>
+                            </div>
+                            <div class="pricing-btn">
+                                <button  type="submit" class="button rounded-pill text-uppercase">premium</button>
+                            </div>
+                            <div class="iq-pricing-detail text-center">
+                                <ul class="pricing-content">
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>All limited links</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>Own analytics platform</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Chat support</li>
+                                    <li class="mb-5"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Optimize hashtags</li>
+                                </ul>
+                                <a class="button mt-4" href="javascript:void(0)">
+                                <span class="button-inner-box">
+                                    <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                    <span class="text-btn">Purchase now</span>
+                                    <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                </span>
+                            </a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="position-relative">
+                            <div class="pricing ">
+                                <h2 class="mb-2"><sup>$</sup>375<small >/month</small></h2>
+                                <p class="mb-0">For most businesses that want to otpimize web queries</p>
+                                <div class="sale-box">
+                                    <span class="sale-text">FEATURED</span>
+                                    </div>
+                            </div>
+                            <div class="pricing-btn">
+                                <button  type="submit" class="button dark white rounded-pill text-uppercase">Standard</button>
+                            </div>
+                            <div class="iq-pricing-detail text-center">
+                                <ul class="pricing-content">
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>All limited links</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-checkmark-round"></i>Own analytics platform</li>
+                                    <li class="mb-3"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Chat support</li>
+                                    <li class="mb-5"><i aria-hidden="true" class="me-3 ion-close-round iq-font-yellow"></i>Optimize hashtags</li>
+                                </ul>
+                                <a class="button mt-4" href="javascript:void(0)">
+                                <span class="button-inner-box">
+                                    <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                    <span class="text-btn">Purchase now</span>
+                                    <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                </span>
+                            </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing -->
+        <!-- Testimonial -->
+        <div class="iq-news overview-block-ptb iq-testimonial2 jarallax grey-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-sm-8">
+                        <div class="owl-carousel owl-theme dots-left owl-dot-round" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="30">
+                            <div class="item">
+                                <div class="feedback d-flex justify-content-between">
+                                    <div class="iq-avtar iq-mr-40"> <img alt="" src="images/feedback/01.jpg" class="img-fluid"></div>
+                                    <div class="iq-info">
+                                        <p>“Bitcoin has no physical form - it technically exists online as a complete digital asset. If you do see it, it is in the form of lines of code in an <span class="text-warning"> alphanumeric string.</span> But the bottom line is, it is a store of value void of manipulation by government.”</p>
+                                        <div class="avtar-name">
+                                            <h6 class="mt-3">Rinks Cooper</h6>
+                                            <small>CEO, CoinEx</small>
+                                        </div>
+                                    </div>
+                                    <div class="iq-mr-20"> <img alt="" src="images/home/icon/05.svg" class="img-fluid"></div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feedback d-flex justify-content-between">
+                                    <div class="iq-avtar iq-mr-40"> <img alt="" src="images/feedback/02.jpg" class="img-fluid"></div>
+                                    <div class="iq-info">
+                                        <p>“Bitcoin has no physical form - it technically exists online as a complete digital asset. If you do see it, it is in the form of lines of code in an <span class="text-warning"> alphanumeric string.</span> But the bottom line is, it is a store of value void of manipulation by government.”</p>
+                                        <div class="avtar-name">
+                                            <h6 class="mt-3">JD Scot</h6>
+                                            <small>CEO, CoinEx</small>
+                                        </div>
+                                    </div>
+                                    <div class="iq-mr-20"> <img alt="" src="images/home/icon/05.svg" class="img-fluid"></div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feedback d-flex justify-content-between">
+                                    <div class="iq-avtar iq-mr-40"> <img alt="" src="images/feedback/03.jpg" class="img-fluid"></div>
+                                    <div class="iq-info">
+                                        <p>“Bitcoin has no physical form - it technically exists online as a complete digital asset. If you do see it, it is in the form of lines of code in an <span class="text-warning"> alphanumeric string.</span> But the bottom line is, it is a store of value void of manipulation by government.”</p>
+                                        <div class="avtar-name">
+                                            <h6 class="mt-3">Haris Morgan</h6>
+                                            <small>CEO, CoinEx</small>
+                                        </div>
+                                    </div>
+                                    <div class="iq-mr-20"> <img alt="" src="images/home/icon/05.svg" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial -->
+          <!-- Latest News -->
+          <div class="iq-news overview-block-ptb white-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="heading-title">
+                            <h2 class="title  iq-mb-25">Latest News</h2>
+                            <p>Here is 3 Easy Steps to Busy & Sell Bitcoin. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="iq-news-box">
+                            <div class="iq-news-image clearfix">
+                                <img class="img-fluid" src="images/blog/01.jpg" alt="#">
+                                <div class="news-date"><small><i class="fa fa-calendar" aria-hidden="true"></i> 12 Aug</small></div>
+                            </div>
+                            <div class="iq-news-detail iq-pall-30 grey-bg">
+                                <div class="news-title mb-4 mt-3"> <a href="javascript:void(0)"><h5 class="">How One Fund Used the Carry Trade to Beat Bitcoin</h5> </a> </div>
+                                <div class="d-flex align-items-center mt-2">
+                                    <small class="border-end pe-2 text-black">Power by:Michale Scott</small>
+                                    <small class="iq-font-yellow  ms-2 ">Business</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="iq-news-box">
+                            <div class="iq-news-image clearfix">
+                                <img class="img-fluid" src="images/blog/02.jpg" alt="#">
+                                <div class="news-date"><small><i class="fa fa-calendar" aria-hidden="true"></i> 13 Aug </small></div>
+                            </div>
+                            <div class="iq-news-detail iq-pall-30 grey-bg">
+                                <div class="news-title mb-4 mt-3"> <a href="javascript:void(0)"><h5 class="">The Best Set and Forget Strategies for Investing in Bitcoin</h5> </a> </div>
+                                <div class="d-flex align-items-center mt-2">
+                                    <small class="border-end pe-2 text-black">Power by:Michale Scott</small>
+                                    <small class="iq-font-yellow  ms-2 ">Business</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="iq-news-box">
+                            <div class="iq-news-image clearfix">
+                                <img class="img-fluid" src="images/blog/03.jpg" alt="#">
+                                <div class="news-date"><small><i class="fa fa-calendar" aria-hidden="true"></i> 14 Aug</small></div>
+                            </div>
+                            <div class="iq-news-detail iq-pall-30 grey-bg">
+                                <div class="news-title mb-4 mt-2"> <a href="javascript:void(0)"><h5 class="">What is Central Bank Digital Currency (CBDC)?</h5> </a> </div>
+                                <div class="d-flex align-items-center mt-2">
+                                    <small class="border-end pe-2">Power by:Michale Scott</small>
+                                    <small class="iq-font-yellow  ms-2 ">Business</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Consultant -->
+        <section class="overview-block-ptb yellow-bg quote-form">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="heading-title text-white">
+                            <h3 class="title dark iq-mb-20">Do You Need a Consultant?</h3>
+                            <p class="text-dark">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" id="contactform" method="post" action="../php/contact-form.php">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="section-field iq-mb-20">
+                                        <input id="name" type="text" placeholder="Name*" name="name">
+                                    </div>
+                                    <div class="section-field iq-mb-20">
+                                        <input id="email" type="text" placeholder="Email*" name="email">
+                                    </div>
+                                    <div class="section-field iq-mb-20">
+                                        <select class="form-control" id="exampleFormControlSubject1">
+                                            <option>Subject 1</option>
+                                            <option>Subject 2</option>
+                                            <option>Subject 3</option>
+                                            <option>Subject 4</option>
+                                            <option>Subject 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="section-field">
+                                        <textarea class="input-message iq-mb-10" placeholder="Message*" name="message"></textarea>
+                                        <input type="hidden" name="action" value="sendEmail" />
+                                        <a href="javascript:void(0)" type="submit" class="button dark white">Submit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Consultant -->
+    </div>
+    <!-- Main Content End -->
+    <!--=================================
+Footer -->
+    <footer class="iq-footer-2">
+        <div class="footer-top iq-bg iq-bg-fixed overview-block-pt iq-pb-40">
+            <div class="container">
+                <div class="row gap-lg-0 gap-4">
+                    <div class="col-lg-3 col-md-6 iq-contact">
+                        <div class="logo iq-mt-0 iq-mb-20"><img id="logo_img" class="img-fluid" src="images/logo-white.png" alt="#"> </div>
+                        <div class="iq-mb-10">
+                            <div class="blog"><i class="ion-ios-telephone-outline"></i>
+                                <div class="content"> +0123 456 789
+                                    <br>+0123 456 789</div>
+                            </div>
+                        </div>
+                        <div class="iq-mb-10">
+                            <div class="blog "><i class="ion-ios-email-outline"></i>
+                                <div class="content"> mail@coinex.com
+                                    <br>mail@coinex.com</div>
+                            </div>
+                        </div>
+                        <div class="blog"><i class="ion-ios-location-outline"></i>
+                            <div class="content"> 1234 North Luke Lane, South Bend,IN 360001</div>
+                        </div>
+                        <ul class="iq-media-blog iq-mt-30">
+                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-google"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 heading-left">
+                        <h5 class="title  text-white">Popular Posts</h5>
+                        <ul class="iq-post">
+                            <li>
+                                <div class="post-img"> <img src="images/blog/01.jpg" alt="#"> </div>
+                                <div class="post-blog"> <a href="javascript:void(0)">Ipsum is simply dummy text simply dummy.</a>
+                                    <div class="iq-font-yellow iq-date"><i class="fa fa-calendar"></i> Nov 10, 2016</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="post-img"> <img src="images/blog/02.jpg" alt="#"> </div>
+                                <div class="post-blog"> <a href="javascript:void(0)">Simply dummy text of the printing ipsum is simply.</a>
+                                    <div class="iq-font-yellow iq-date"><i class="fa fa-calendar"></i> Nov 10, 2016</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="post-img"> <img src="images/blog/01.jpg" alt="#"> </div>
+                                <div class="post-blog"> <a href="javascript:void(0)">Simply dummy text of the printing ipsum is simply.</a>
+                                    <div class="iq-font-yellow iq-date"><i class="fa fa-calendar"></i> Nov 10, 2016</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-menu heading-left">
+                        <h5 class="title  text-white">Useful Links</h5>
+                        <ul class="iq-pl-0">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="services-1.html">Services</a></li>
+                            <li><a href="faqs-1.html">FAQ</a></li>
+                            <li><a href="contact-1.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 heading-left">
+                        <h5 class="title  text-white">Newsletter</h5>
+                        <p class="text-white">Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions.</p>
+                        <form class="form-inline iq-subscribe mt-2">
+                            <div class="form-group">
+                                <div class="input-group mb-3 mt-4 rounded"> 
+                                    <input type="text" class="form-control" placeholder="Enter your Email">
+                                    <a class="button rounded-end" href="javascript:void(0)">                                            
+                                        <span class="button-inner-box">                                             
+                                            <span class="icon-one icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>
+                                            <span class="text-btn">Go</span>                                              
+                                            <span class="icon-two icon"><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path></svg></span>                                         
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 iq-mtb-20">
+                        <div class="iq-copyright iq-mt-10 text-center">Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="javascript:void(0)"><span class="iq-font-yellow">CoinEx</span> </a> All Rights Reserved </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--=================================
+Footer -->
+    <!-- back-to-top -->
+    <div id="back-to-top">
+        <a class="top" id="top" href="#top"> <i class="ion-ios-upload-outline"></i> </a>
+    </div>
+    <!-- back-to-top End -->
+    <!-- style-customizer -->
+    <div class="iq-customizer closed">
+        <div class="buy-button"> <a class="opener" href="javascript:void(0)"><i class="fa fa-spinner fa-spin"></i></a> </div>
+        <div class="clearfix content-chooser">
+            <h3 class="iq-font-black">CoinEX Awesome Color</h3>
+            <p>This color combo available inside whole template. You can change on your wish, Even you can create your own with limitless possibilities! </p>
+            <ul class="iq-colorChange clearfix">
+                <li class="color-1 selected" data-style="color-1"></li>
+                <li class="color-2" data-style="color-2"></li>
+                <li class="color-3" data-style="color-3"></li>
+                <li class="color-4" data-style="color-4"></li>
+                <li class="color-5" data-style="color-5"></li>
+                <li class="color-6" data-style="color-6"></li>
+                <li class="color-7" data-style="color-7"></li>
+                <li class="color-8" data-style="color-8"></li>
+                <li class="color-9" data-style="color-9"></li>
+                <li class="color-10" data-style="color-10"></li>
+            </ul>
+            <a target="_blank" class="button" href="https://1.envato.market/MXNo22?u=https%3A%2F%2Fthemeforest.net%2Fcheckout%2Ffrom_item%2F21176834%3Flicense%3Dregular">Purchase Now</a>
+        </div>
+    </div>
+    <!-- style-customizer END -->
+    <!-- jquery-min JavaScript -->
+    <script src="js/jquery-min.js "></script>
+    <!-- popper JavaScript -->
+    <script src="js/popper.min.js "></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.min.js "></script>
+    <!-- Bitcoin widget JavaScript -->
+    <script src="js/widget.js "></script>
+    <!-- owl carousel JavaScript -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- All-plugins JavaScript -->
+    <script src="js/all-plugins.js "></script>
+    <!-- particles JavaScript -->
+    <script src="js/particles.js "></script>
+    <!-- Style Customizer -->
+    <script src="js/style-customizer.js"></script>
+    <!-- REVOLUTION JS FILES -->
+    <script src="revslider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="revslider/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="revslider/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="revslider/js/extensions/revolution.extension.video.min.js"></script>
+    <!--apexchart JavaScript -->
+    <script src="js/apexcharts.min.js "></script>
+    <!-- Custom JavaScript -->
+    <script src="js/custom.js "></script>
+    <script>
+    var revapi3,
+        tpj = jQuery;
+    tpj(document).ready(function() {
+        if (tpj("#rev_slider_3_1").revolution == undefined) {
+            revslider_showDoubleJqueryError("#rev_slider_3_1");
+        } else {
+            revapi3 = tpj("#rev_slider_3_1").show().revolution({
+                sliderType: "standard",
+                sliderLayout: "fullwidth",
+                dottedOverlay: "none",
+                delay: 9000,
+                navigation: {
+                    keyboardNavigation: "off",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    mouseScrollReverse: "default",
+                    onHoverStop: "off",
+                    arrows: {
+                        style: "persephone",
+                        enable: true,
+                        hide_onmobile: false,
+                        hide_onleave: false,
+                        tmp: '',
+                        left: {
+                            h_align: "left",
+                            v_align: "center",
+                            h_offset: 20,
+                            v_offset: 0
+                        },
+                        right: {
+                            h_align: "right",
+                            v_align: "center",
+                            h_offset: 20,
+                            v_offset: 0
+                        }
+                    }
+                },
+                visibilityLevels: [1240, 1024, 778, 480],
+                gridwidth: 1170,
+                gridheight: 790,
+                lazyType: "none",
+                parallax: {
+                    type: "mouse",
+                    origo: "enterpoint",
+                    speed: 400,
+                    speedbg: 0,
+                    speedls: 0,
+                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                },
+                shadow: 0,
+                spinner: "spinner0",
+                stopLoop: "off",
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+                shuffle: "off",
+                autoHeight: "off",
+                disableProgressBar: "on",
+                hideThumbsOnMobile: "off",
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                debugMode: false,
+                fallbacks: {
+                    simplifyAll: "off",
+                    nextSlideOnWindowFocus: "off",
+                    disableFocusListener: false,
+                }
+            });
+        }
+    }); /*ready*/
+    </script>
+</body>
+
+</html>

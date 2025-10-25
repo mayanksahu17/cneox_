@@ -1,0 +1,50 @@
+{{#extend "layouts/dashboard/simple" title="maintenance"  active="pages-maintenance" path="../" }}
+{{#content "scripts"}}
+<script src="{{path}}assets/js/countdown.js"></script>
+{{/content}}
+{{#content "content"}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="iq-maintenance text-center min-vh-100 h-100 d-flex flex-column justify-content-center"> 
+                <div class="maintenance-bottom maintenance-img pb-0">
+                    <div class="text-center">
+                        <img src="{{path}}assets/images/coins/maintenance.png" class="img-fluid" alt="maintenance">
+                    </div> 
+                    <div>
+                        <div class="bottom-text general-zindex">
+                            <h1 class="mb-2">Hang on! We are under maintenance</h1>
+                            <p>It will not take a long time till we get the error fiked. We wii live again in</p>
+                            <ul class="countdown d-flex justify-content-center align-items-center list-inline" data-date="Dec 31 2024 20:20:22">
+                                <li>
+                                    <span data-days>0</span>Days
+                                </li>
+                                <li>
+                                    <span data-hours>0</span>Hours
+                                </li>
+                                <li>
+                                    <span data-minutes>0</span>Minutes
+                                </li>
+                                <li>
+                                    <span data-seconds>0</span>Seconds
+                                </li>
+                            </ul>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="maintainance-search">
+                                        <div class="form-group input-group">
+                                            <input type="text" class="form-control maintain" placeholder="Enter your mail">
+                                            <a href="#" class="btn btn-primary">Notify Me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>        
+        </div>
+    </div>
+</div>
+{{/content}}
+{{/extend}} 
