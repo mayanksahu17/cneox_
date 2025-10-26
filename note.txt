@@ -1,0 +1,21 @@
+crownbankersofficial@gmail.com - 100003   done 
+
+officialcrownbankers@gmail.com - 100004 done 
+
+noreplymyprime@gmail.com  - 100005
+
+officialhydromonoinfo@gmail.com - 100006
+
+hydromonomarketing@gmail.com - 100007
+
+hydromonobchain@gmail.com  - 100008
+
+officialninexfold@gmail.com - 100009
+
+officialmikedirector@gmail.com  - 100010
+
+
+
+/api/admin
+POST
+      const { name, email, phone, password, security_pin } = req.body;

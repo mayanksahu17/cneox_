@@ -224,7 +224,7 @@ module.exports = {
   signup: async (req, res) => {
     try {
       const { name, email, phone, password, security_pin } = req.body;
-
+      console.log("v")
       // Check if email already exists
       const existingAdmin = await adminService.getAdminByEmail(email);
       if (existingAdmin) {

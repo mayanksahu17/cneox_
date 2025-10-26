@@ -192,6 +192,7 @@ module.exports = {
         .json({ message: "Internal Server Error", success: false });
     }
   },
+  
   getDepositData: async (req, res, next) => {
     // const hmacHeader = req.get("HMAC");
 

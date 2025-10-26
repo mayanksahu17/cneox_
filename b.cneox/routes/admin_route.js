@@ -6,7 +6,10 @@ const {
   authenticateTokenAdmin,
 } = require("../middleware/authenticateTokenAdmin");
 
-// router.post("/signup", adminController.signup);
+router.post("/signup", adminController.signup);
+
+// router.post("/", adminController.createAdmin);
+
 router.post("/signin", adminController.signin);
 router.post("/user-signin", authenticateTokenAdmin, adminController.userSignin);
 
@@ -17,9 +20,8 @@ router.get(
 );
 router.get("/stats", adminController.getStats);
 
-// router.post("/", adminController.createAdmin);
 
-// router.post("/verify/:id", authenticateTokenAdmin, adminController.verifyAdmin);
+router.post("/verify/:id", authenticateTokenAdmin, adminController.verifyAdmin);
 
 router.get(
   "/business/:userId",
