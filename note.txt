@@ -19,3 +19,12 @@ officialmikedirector@gmail.com  - 100010
 /api/admin
 POST
       const { name, email, phone, password, security_pin } = req.body;
+
+db server 
+ssh -i "cneox_.pem" ubuntu@ec2-13-49-231-194.eu-north-1.compute.amazonaws.com
+
+
+
+
+server 
+ssh -i "cneox_.pem" ubuntu@ec2-13-48-85-160.eu-north-1.compute.amazonaws.com
