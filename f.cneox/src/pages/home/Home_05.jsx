@@ -164,9 +164,10 @@ function Home() {
       <div ref={heroRef}>
         <Hero />
       </div>
-      <div ref={cardsRef}>
+      {/* <div ref={cardsRef}>
           <SimpleAppSection />
-      </div>
+      </div> */}
+      
 
       <div ref={cardsRef}>
         <SolarEnergycards />

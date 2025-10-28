@@ -18,25 +18,8 @@ export default function Hero() {
       title: "We Invest In The Future Of Planet!",
       description:
         "We are laying the foundation to supply world-class solar components globally by 2026. Our mission is to accelerate access to sustainable energy everywhere.",
-      image: "/home.mp4", // Cloud video from public folder
+      image: "/home.mp4",
     },
-    // {
-    //   id: 2,
-    //   tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
-    //   title: "Energize Society By Reliable Energy!",
-    //   description:
-    //     "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
-    //   image: "/home.mp4", // Cloud video from public folder
-    // }
-    // {
-    //   id: 2,
-    //   tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
-    //   title: "Energize Society By Reliable Energy!",
-    //   description:
-    //     "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
-    //   image:
-    //     "https://res.cloudinary.com/dfcbjgt3w/video/upload/v1742800328/NEW_CROWN_BANKERS_vqgvbs.mp4",
-    // },
   ];
 
   const nextSlide = useCallback(() => {
@@ -73,7 +56,7 @@ export default function Hero() {
   }, [currentSlide]);
 
   return (
-    <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
+    <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden bg-black">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -98,7 +81,8 @@ export default function Hero() {
               className="w-full h-full object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-black/30" />
+          {/* darker overlay for contrast */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
       ))}
 
@@ -106,7 +90,7 @@ export default function Hero() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 flex flex-col justify-center items-center transition-all duration-500 ease-in-out transform ${
+            className={`absolute inset-0 flex flex-col justify-center items-center transition-all duration-500 ease-in-out transform px-4 ${
               currentSlide === index
                 ? "opacity-100 translate-x-0"
                 : index < currentSlide ||
@@ -115,29 +99,33 @@ export default function Hero() {
                 : "opacity-0 translate-x-full"
             }`}
           >
-            <div className="text-white space-y-6 text-center max-w-2xl">
-              <p className="text-sm md:text-base font-medium font-sans">
+            <div className="space-y-6 text-center max-w-2xl">
+              <p className="text-sm md:text-base font-medium font-sans text-white/80">
                 {slide.tagline}
               </p>
-              <h1 className="text-4xl md:text-7xl lg:text-7xl font-bold leading-tight font-bethany">
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-bethany text-yellow-500">
                 {slide.title}
               </h1>
-              <p className="text-base md:text-lg mx-auto font-sans">
+
+              <p className="text-base md:text-lg mx-auto font-sans text-white/90">
                 {slide.description}
               </p>
+
               <div className="flex flex-wrap gap-4 pt-4 justify-center">
                 <Link
                   to="/sign-up"
-                  className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md transition-colors"
+                  className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-md transition-colors font-medium"
                 >
                   <span>Get Started</span>
                   <ArrowRight size={18} />
                 </Link>
+
                 <button
                   onClick={() =>
                     window.open("https://youtu.be/EWeTt4RbTVU", "_blank")
                   }
-                  className="flex items-center gap-2 bg-transparent hover:bg-green-700 text-white px-6 py-3 rounded-md transition-colors border-2 border-green-600"
+                  className="flex items-center gap-2 bg-transparent hover:bg-white/5 text-white px-6 py-3 rounded-md transition-colors border-2 border-yellow-500"
                 >
                   <span>Watch Video</span>
                   <CirclePlay size={18} />
@@ -146,24 +134,24 @@ export default function Hero() {
             </div>
           </div>
         ))}
+
+        {/* Optional arrow controls (uncomment if you want them) */}
+        {/* <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={30} />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={30} />
+        </button> */}
       </div>
-
-      {/* Arrows */}
-      {/* <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft size={30} />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
-        aria-label="Next slide"
-      >
-        <ChevronRight size={30} />
-      </button> */}
 
       {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
@@ -172,7 +160,7 @@ export default function Hero() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              currentSlide === index ? "bg-green-500" : "bg-white/60"
+              currentSlide === index ? "bg-yellow-500" : "bg-white/30"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

@@ -37,3 +37,45 @@ sudo nginx -t && sudo systemctl reload nginx
 
 # 10) sanity check
 curl -I http://127.0.0.1/ | head -n 5
+
+
+
+
+
+
+
+
+// 
+
+# 1. from your admin repo
+cd ~/cneox_/a.cneox
+
+# 2. build (you already did, but safe to include)
+npm ci
+npm run build
+
+# 3. create an atomic publish folder (timestamped)
+TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+sudo mkdir -p /var/www/cneox_admin_${TIMESTAMP}
+sudo cp -r dist/* /var/www/cneox_admin_${TIMESTAMP}/
+
+# 4. backup current admin (optional)
+sudo mkdir -p ~/deploy_backups
+sudo tar -czf ~/deploy_backups/cneox_admin_backup_${TIMESTAMP}.tar.gz -C /var/www cneox_admin || true
+
+# 5. swap (atomic)
+sudo mv /var/www/cneox_admin /var/www/cneox_admin_old_${TIMESTAMP} 2>/dev/null || true
+sudo mv /var/www/cneox_admin_${TIMESTAMP} /var/www/cneox_admin
+
+# 6. ensure permissions
+sudo chown -R www-data:www-data /var/www/cneox_admin
+sudo find /var/www/cneox_admin -type d -exec chmod 755 {} \;
+sudo find /var/www/cneox_admin -type f -exec chmod 644 {} \;
+
+# 7. expose via pm2 static serve on port 3000
+# pm2 >= 4 has `pm2 serve` command
+sudo pm2 serve /var/www/cneox_admin 3000 --name cneox-admin --spa
+
+# 8. make pm2 persistent across reboots (if not already)
+pm2 save
+sudo pm2 startup

@@ -24,14 +24,14 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
 
   return (
     <header
-      className="text-black bg-white site-header site-header--absolute is--white"
+      className="text-black bg-black site-header site-header--absolute is--black"
       id="sticky-menu"
     >
-      <div className="items-center justify-between hidden py-2 bg-white border-2 border-b border-gray-300 md:flex md:px-24">
+      <div className="items-center justify-between hidden py-2 bg-black  md:flex md:px-24">
         <div className="flex items-center space-x-6 text-sm text-gray-600">
           <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4" />
-            <span>Email: crownbankers.com@gmail.com </span>
+            {/* <Mail className="w-4 h-4" /> */}
+            {/* <span>Email: crownbankers.com@gmail.com </span> */}
           </div>
           {/* <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
@@ -47,18 +47,18 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
         </div>
 
         <div className="flex items-center space-x-5">
-          <Phone className="text-green-500" />
+          {/* <Phone className="text-green-500" /> */}
 
-          <div className="text-right">
+          {/* <div className="text-right">
             <Link
               to="tel:+44 7452 176974"
               className="text-xl font-bold text-gray-800"
             >
               +44 7452 176974
             </Link>
-          </div>
+          </div> */}
 
-          <div className="flex items-center space-x-2">
+          {/* <div className="flex items-center space-x-2">
             <Link
               to="https://www.facebook.com/realcrownbankers"
               target="_blank"
@@ -66,7 +66,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
               className="rounded-full bg-[#4CAF50] p-1.5 flex items-center justify-center"
             >
               <span className="sr-only">Facebook</span>
-              <Facebook className="w-4 h-4 text-white" />
+              <Facebook className="w-4 h-4 text-black" />
             </Link>
             <Link
               to="https://www.youtube.com/@official-CrownBankers"
@@ -75,7 +75,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
               className="rounded-full bg-[#4CAF50] p-1.5 flex items-center justify-center"
             >
               <span className="sr-only">YouTube</span>
-              <Youtube className="w-4 h-4 text-white" />
+              <Youtube className="w-4 h-4 text-black" />
             </Link>
             <Link
               to="https://chat.whatsapp.com/K0pOZclpfH9DsLxvTyeY5q"
@@ -84,9 +84,9 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
               className="rounded-full bg-[#4CAF50] p-1.5 flex items-center justify-center"
             >
               <span className="sr-only">WhatsApp</span>
-              <FiMessageCircle className="w-4 h-4 text-white" />
+              <FiMessageCircle className="w-4 h-4 text-black" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -96,7 +96,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
           {/* <Link to="/" className="flex items-center">
             <div className="relative h-18 w-36">
               <div className="flex items-center">
-                <div className="flex items-center justify-center bg-white rounded-md ">
+                <div className="flex items-center justify-center bg-black rounded-md ">
                   <img
                     src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742818322/logo1_mp91bc.png"
                     alt="logo1"
@@ -119,7 +119,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
           />
           {/* Header Navigation */}
           {/* Header User Event */}
-          <div className="flex items-center gap-6 text-white">
+          <div className="flex items-center gap-6 text-black">
             {/* <Link to="/login" className={loginCSS}>
               Login
             </Link>
@@ -131,7 +131,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
               <button
                 onClick={() => setMobileMenu(true)}
                 className={`mobile-menu-trigger ${
-                  light ? "is-white" : "is-black"
+                  light ? "is-black" : "is-black"
                 }`}
               >
                 <span />

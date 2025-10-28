@@ -76,21 +76,22 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
   return (
     <div>
       {/* Main navigation */}
-      <div className="flex items-center justify-between px-4 text-lg bg-white  ">
+      <div className="flex items-center justify-between px-4 text-lg bg-black text-white">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <div className="relative h-18 w-36">
               <div className="flex items-center">
-                <div className="flex items-center justify-center bg-white rounded-md ">
+                <div className="flex items-center justify-center rounded-md">
                   <img
                     src="/assets/logo1.png"
                     alt="logo1"
                     height={300}
                     width={350}
+                    className="h-10 w-auto"
                   />
                 </div>
                 <div>
-                  {/* <div className="text-xs text-gray-500">Invest Owen Risk</div> */}
+                  {/* <div className="text-xs text-white/70">Invest Owen Risk</div> */}
                 </div>
               </div>
             </div>
@@ -98,151 +99,12 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
 
           <nav className="hidden ml-8 lg:flex">
             <ul className="flex space-x-1">
-              <li>
-                <Link
-                  to="/"
-                  className={`flex items-center px-4 py-2 ${
-                    isActive("/")
-                      ? "text-green-500 border-b-2 border-green-500"
-                      : "text-gray-700 hover:text-green-500"
-                  }`}
-                >
-                  Home
-                  {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className={`flex items-center px-4 py-2 ${
-                    isActive("/services")
-                      ? "text-green-500 border-b-2 border-green-500"
-                      : "text-gray-700 hover:text-green-500"
-                  }`}
-                >
-                  Services
-                  {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
-                </Link>
-              </li>
-
-            <li
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown("services")}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <button
-                    className={`flex items-center px-4 py-2 ${
-                      isActive("/pages")
-                        ? "text-green-500 border-b-2 border-green-500"
-                        : "text-gray-700 hover:text-green-500"
-                    }`}
-                  >
-                    Pages
-                    <ChevronDown
-                      className={`ml-1 h-4 w-4 transition-transform ${
-                        activeDropdown === "services" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {activeDropdown === "services" && (
-                    <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
-                      <Link
-                        to="/pages/team"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Team
-                      </Link>
-                      <Link
-                        to="/pages/business-plan"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Business Plan
-                      </Link>
-                      <Link
-                        to="/pages/legal"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Legal
-                      </Link>
-                    </div>
-                  )}
-              </li>
-
-
-
-              <li
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown("projects")}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <button
-                    className={`flex items-center px-4 py-2 ${
-                      isActive("/reports")
-                        ? "text-green-500 border-b-2 border-green-500"
-                        : "text-gray-700 hover:text-green-500"
-                    }`}
-                  >
-                    Reports
-                    <ChevronDown
-                      className={`ml-1 h-4 w-4 transition-transform ${
-                        activeDropdown === "projects" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {activeDropdown === "projects" && (
-                    <div className="absolute left-0 z-10 w-56 py-2 bg-white rounded-md shadow-md top-full">
-                      <Link
-                        to="/reports/trade-view"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Trade View
-                      </Link>
-                      <Link
-                        to="/reports/solar-report"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Solar Purchase Document
-                      </Link>
-                    </div>
-                  )}
-                </li>
-                
-                {/* Add PDF Downloads to mobile menu */}
-              <Link
-                to="/pdf-downloads"
-                className={`-m-3 p-3 flex items-center rounded-md ${
-                  isActive("/pdf-downloads")
-                    ? "text-green-500 font-medium"
-                    : "text-gray-700 hover:text-green-500"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                PDF DOWNLOAD
-              </Link>
-
-
-              <li>
-                <Link
-                  to="/contact"
-                  className={`flex items-center px-4 py-2 ${
-                    isActive("/contact")
-                      ? "text-green-500 border-b-2 border-green-500"
-                      : "text-gray-700 hover:text-green-500"
-                  }`}
-                >
-                  Contact Us
-                </Link>
-              </li>
+             
             </ul>
           </nav>
         </div>
 
-        <div className="items-center hidden  lg:flex">
+        <div className="items-center hidden lg:flex">
           <div className="flex justify-start space-x-2">
             <Link to="/login">
               <WhiteRoundButton className="" text="Login" />
@@ -255,11 +117,11 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
         {/* ---------------------------------------------------------------------------------*/}
         {/* Mobile menu button */}
         <button
-          className="flex items-center border border-gray-900 lg:hidden"
+          className="flex items-center border border-gray-700 lg:hidden bg-transparent p-2 rounded"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
-            className="w-6 h-6 text-gray-700"
+            className="w-6 h-6 text-yellow-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -278,15 +140,15 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="pb-6 overflow-y-auto bg-white lg:hidden">
+        <div className="pb-6 overflow-y-auto bg-black text-white lg:hidden">
           <div className="px-5 pt-4">
             <nav className="grid gap-y-2">
               <Link
                 to="/"
                 className={`-m-3 p-3 flex items-center rounded-md ${
                   isActive("/")
-                    ? "text-green-500 font-medium"
-                    : "text-gray-700 hover:text-green-500"
+                    ? "text-yellow-500 font-medium"
+                    : "text-white/80 hover:text-yellow-500"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -296,22 +158,20 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 to="/services"
                 className={`-m-3 p-3 flex items-center rounded-md ${
                   isActive("/services")
-                    ? "text-green-500 font-medium"
-                    : "text-gray-700 hover:text-green-500"
+                    ? "text-yellow-500 font-medium"
+                    : "text-white/80 hover:text-yellow-500"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
 
-
-
               <Link
                 to="/pdf-downloads"
                 className={`-m-3 p-3 flex items-center rounded-md ${
                   isActive("/pdf-downloads")
-                    ? "text-green-500 font-medium"
-                    : "text-gray-700 hover:text-green-500"
+                    ? "text-yellow-500 font-medium"
+                    : "text-white/80 hover:text-yellow-500"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -323,8 +183,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   onClick={() => toggleDropdown("mobile-services")}
                   className={`-m-3 p-3 flex items-center rounded-md w-full text-left ${
                     isActive("/pages")
-                      ? "text-green-500 font-medium"
-                      : "text-gray-700 hover:text-green-500"
+                      ? "text-yellow-500 font-medium"
+                      : "text-white/80 hover:text-yellow-500"
                   }`}
                 >
                   Pages
@@ -340,8 +200,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/pages/team"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/pages/team")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -354,8 +214,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/pages/business-plan"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/pages/business-plan")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -368,8 +228,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/pages/legal"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/pages/legal")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -387,8 +247,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   onClick={() => toggleDropdown("mobile-projects")}
                   className={`-m-3 p-3 flex items-center rounded-md w-full text-left ${
                     isActive("/reports")
-                      ? "text-green-500 font-medium"
-                      : "text-gray-700 hover:text-green-500"
+                      ? "text-yellow-500 font-medium"
+                      : "text-white/80 hover:text-yellow-500"
                   }`}
                 >
                   Reports
@@ -404,8 +264,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/reports/trade-report"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/reports/trade-report")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -418,8 +278,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/reports/trade-view"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/reports/trade-view")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -432,8 +292,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       to="/reports/solar-purchase-document"
                       className={`block px-3 py-2 rounded-md text-base ${
                         isActive("/reports/solar-purchase-document")
-                          ? "text-green-500 font-medium"
-                          : "text-gray-700 hover:text-green-500"
+                          ? "text-yellow-500 font-medium"
+                          : "text-white/80 hover:text-yellow-500"
                       }`}
                       onClick={() => {
                         setActiveDropdown(null);
@@ -450,8 +310,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 to="/contact"
                 className={`-m-3 p-3 flex items-center rounded-md ${
                   isActive("/contact")
-                    ? "text-green-500 font-medium"
-                    : "text-gray-700 hover:text-green-500"
+                    ? "text-yellow-500 font-medium"
+                    : "text-white/80 hover:text-yellow-500"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -460,7 +320,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </nav>
 
             {/* Mobile menu buttons */}
-            <div className="flex pt-2 space-x-2 border-gray-100">
+            <div className="flex pt-2 space-x-2 border-t border-gray-800 mt-4">
               <Link to="/login" className="flex-1">
                 <WhiteRoundButton text="Login" className="w-full" />
               </Link>

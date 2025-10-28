@@ -1,0 +1,13 @@
+.text-gradient {
+  font-weight: 800;
+  background: linear-gradient(to right, #b200ff, #ff2d7e);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fixed-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}

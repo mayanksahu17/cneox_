@@ -1,0 +1,295 @@
+.mainShare {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem; 
+}
+
+.share-btn {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid rgba(128, 128, 128, 0.705);
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  scale: 0.8;
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  /* animation: blink 2s infinite; */
+    /* 1s is the duration of one cycle of animation. You can adjust it as you like. */
+    cursor: pointer;
+    /* makes it obvious that this can be clicked */
+}
+
+/* .share-icon{
+    background-color: white;
+} */
+
+.share-btn:hover {
+  /* background: #f1f1f1; */
+  scale: 0.9;
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
+}
+
+/* .card1[data-toggle1="true"] {
+  transform: translateY(50px) translateX(60px) scale(0);
+}
+.card2[data-toggle2="true"] {
+  transform: translateY(50px) translateX(-60px) scale(0);
+}
+
+.card3[data-toggle3="true"] {
+  transform: translateY(-50px) translateX(60px) scale(0);
+}
+
+.card4[data-toggle4="true"] {
+  transform: translateY(-50px) translateX(-60px) scale(0);
+} */
+
+.instagram {
+  margin-top: 1.2em;
+  margin-left: 1.5em; 
+  fill: #cc39a4;
+  /* justify-content: center; */
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 300ms cubic-bezier(0.76, -0.19, 0.15, 1.17);
+}
+
+.twitter {
+  margin-top: 1.2em;
+  margin-left: 1.5em;
+  fill: #03a9f4;
+}
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 300ms cubic-bezier(0.72, -0.26, 0.02, 1.46);
+  margin-right: 7px;
+}
+
+.github {
+  margin-top: -0.6em;
+  margin-left: 1.5em;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 300ms cubic-bezier(1, -0.31, 0.02, 1.46);
+}
+
+.discord {
+  margin-top: -0.4em;
+  margin-left: 1.2em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.card1:hover .instagram {
+  fill: white;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03a9f4;
+}
+
+.card2:hover .twitter {
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: rgb(39, 39, 39);
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+  fill: white;
+}
+
+/* -- YouTube Link Styles -- */
+
+/* #source-link {
+  top: 60px;
+}
+
+#source-link > i {
+  color: rgb(94, 106, 210);
+}
+
+#yt-link {
+  top: 10px;
+}
+
+#yt-link > i {
+  color: rgb(219, 31, 106);
+}
+
+.meta-link {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 5px;
+  left: 10px;
+  padding: 10px 20px;
+  position: fixed;
+  text-decoration: none;
+  transition: background-color 600ms, border-color 600ms;
+  z-index: 10000;
+}
+
+.meta-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meta-link > i,
+.meta-link > span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.meta-link > span {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  transition: color 600ms;
+} */
+@keyframes blink {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.6);
+  }
+
+  50% {
+    box-shadow: 0px 0px 60px 5px rgba(255, 255, 255, 0.9);
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.whatsapp-btn {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: #25D366;
+  /* WhatsApp color */
+  border: 1px solid rgba(128, 128, 128, 0.705);
+  border-radius: 50%;
+  /* transition: 0.2s ease-in-out; */
+  scale: 0.8;
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  /* right:1100px; */
+  /* right: 10%; */
+  animation: blink 2s infinite;
+  /* Adjust as needed to position before the share button */
+}
+.telegram-btn {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: #518cf8;
+  position: absolute;
+
+  /* WhatsApp color */
+  border: 1px solid rgba(128, 128, 128, 0.705);
+  border-radius: 50%;
+  /* transition: 0.2s ease-in-out; */
+  scale: 0.8;
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  /* right:1100px; */
+  /* right: 10%; */
+  animation: blink 2s infinite;
+  /* Adjust as needed to position before the share button */
+}
+
+.whatsapp-btn:hover {
+  scale: 0.9;
+  background-color: #128C7E;
+  /* Darker WhatsApp color */
+}
+@media (max-width: 768px) {
+  .whatsapp-btn {
+    right: -22px;
+  }}

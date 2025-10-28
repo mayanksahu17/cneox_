@@ -51,7 +51,6 @@ const services = [
   },
 ];
 
-
 // Clone the services list to simulate an infinite loop
 const loopedServices = [...services, ...services];
 
@@ -71,10 +70,7 @@ const BankingInvestmentSection = () => {
         scrollContainer.scrollLeft += scrollSpeed;
 
         // When we reach halfway, reset back to the start seamlessly
-        if (
-          scrollContainer.scrollLeft >=
-          scrollContainer.scrollWidth / 2
-        ) {
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0;
         }
       }, scrollDelay);
@@ -84,20 +80,20 @@ const BankingInvestmentSection = () => {
   }, []);
 
   return (
-    <div className="px-6 py-12 bg-white md:px-24">
-      <h3 className="text-[#4CAF50] text-5xl font-bold">
+    <section className="px-6 py-12 bg-black text-white md:px-24">
+      <h3 className="text-yellow-500 text-5xl font-bold">
         Fostering The Growth Of Financial Innovation
       </h3>
-      <h2 className="mt-2 text-3xl font-semibold text-gray-900 md:text-3xl">
+      <h2 className="mt-2 text-3xl font-semibold text-white/90 md:text-3xl">
         A Leading Provider Of Banking & Investment Solutions
       </h2>
-      <p className="max-w-3xl mt-4 text-gray-600">
-        CNEOX is focused on delivering modern financial solutions that
-        reduce operational costs, enhance banking efficiency, and improve the
-        overall financial ecosystem.
+      <p className="max-w-3xl mt-4 text-white/70">
+        CNEOX is focused on delivering modern financial solutions that reduce
+        operational costs, enhance banking efficiency, and improve the overall
+        financial ecosystem.
       </p>
 
-      <div className="flex gap-4 mt-6 place-items-end">
+      <div className="flex gap-4 mt-6 items-end">
         <Link to="/login">
           <WhiteRoundButton className="" text="Get Started ->" />
         </Link>
@@ -112,44 +108,55 @@ const BankingInvestmentSection = () => {
         <div className="flex space-x-6 px-2 md:px-0">
           {loopedServices.map((service, index) => (
             <div
-            key={index}
-            className="min-w-[300px] max-w-sm flex-shrink-0 bg-green-50 shadow-xl p-6 rounded-lg text-center border-4 border-[#4CAF50] hover:bg-[#4CAF50] group transition-all duration-300 flex flex-col justify-between h-[360px]"
-          >
-            <div>
-              <div className="mb-3 flex justify-center items-center h-16">
-                <img 
-                  src={service.icon} 
-                  alt={service.alt} 
-                  className="h-12 w-auto object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300" 
-                />
-              </div>
-              <h4
-                  className="text-lg font-semibold text-gray-900 group-hover:text-white leading-snug"
+              key={index}
+              className="min-w-[300px] max-w-sm flex-shrink-0 bg-gray-900 shadow-xl p-6 rounded-lg text-center border-2 border-yellow-500 hover:bg-yellow-500 group transition-all duration-300 flex flex-col justify-between h-[360px]"
+            >
+              <div>
+                <div className="mb-3 flex justify-center items-center h-16">
+                  <img
+                    src={service.icon}
+                    alt={service.alt}
+                    className="h-12 w-auto object-contain transition-all duration-300 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                  />
+                </div>
+
+                <h4
+                  className="text-lg font-semibold text-white group-hover:text-black leading-snug"
                   dangerouslySetInnerHTML={{ __html: service.title }}
                 />
 
-              <p className="mt-2 text-sm text-gray-500 group-hover:text-white whitespace-normal break-words leading-relaxed">
-                {service.description}
-              </p>
+                <p className="mt-2 text-sm text-white/70 group-hover:text-black whitespace-normal break-words leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
 
+              <Link
+                to={service.link}
+                className="flex items-center justify-center mt-4 font-semibold text-yellow-500 group-hover:text-black"
+              >
+                <span>Explore More</span>
+                <ArrowRight className="ml-1" />
+              </Link>
             </div>
-            <Link
-              to={service.link}
-              className="flex items-center justify-center mt-4 font-semibold text-green-600 group-hover:text-white"
-            >
-              <span>Explore More</span>
-              <ArrowRight className="ml-1" />
-            </Link>
-          </div>
-          
           ))}
         </div>
       </div>
+
       {/* Attribution notice at the bottom */}
-      <div className="mt-8 text-xs text-gray-400 text-center">
-        <p>Icons provided by <a href="https://www.flaticon.com/" className="underline hover:text-gray-600">Flaticon</a></p>
+      <div className="mt-8 text-xs text-white/50 text-center">
+        <p>
+          Icons provided by{" "}
+          <a
+            href="https://www.flaticon.com/"
+            className="underline hover:text-white/80"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Flaticon
+          </a>
+        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

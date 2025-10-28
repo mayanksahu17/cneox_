@@ -33,7 +33,7 @@ const QuoteRequestSection = () => {
       principalReturnPercentage: 60
     },
     { 
-      name: "Power Growth", 
+      name: "Power Growth (Pro)", 
       minAmount: 20000, 
       maxAmount: 50000, 
       duration: 130, 
@@ -94,7 +94,6 @@ const QuoteRequestSection = () => {
         }
       });
 
-
       setShowResults(true);
     } else {
       setPackageDetails({
@@ -110,48 +109,51 @@ const QuoteRequestSection = () => {
   };
 
   const formatCurrency = (value) => {
+    // value may be string — convert safely
+    const num = Number(value);
+    if (isNaN(num)) return "$0.00";
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 2
-    }).format(value);
+    }).format(num);
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-black">
       <section className="relative flex flex-col md:flex-row items-stretch min-h-[400px] py-6 sm:py-12 mx-4 md:mx-24 gap-6">
         {/* Left Side */}
-        <div className="w-full md:w-1/2 h-[300px] md:h-auto bg-cover bg-center flex items-center justify-center shadow-xl rounded-xl overflow-hidden">
+        <div className="w-full md:w-1/2 h-[300px] md:h-auto bg-cover bg-center flex items-center justify-center shadow-xl rounded-xl overflow-hidden relative">
           <img
             src="/assets/money.png"
             alt="Investment illustration"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Right Side */}
-        <div className="w-full md:w-1/2 bg-white/90 backdrop-blur-sm p-6 md:p-8 flex flex-col justify-center shadow-2xl rounded-2xl">
-          <h3 className="text-3xl md:text-4xl text-[#4CAF50] font-bold mb-8 text-center">
+        <div className="w-full md:w-1/2 bg-gray-900/70 p-6 md:p-8 flex flex-col justify-center shadow-2xl rounded-2xl border border-yellow-500">
+          <h3 className="text-3xl md:text-4xl text-yellow-500 font-bold mb-8 text-center">
             Calculate Your Earnings
           </h3>
 
           <div className="space-y-6">
             {/* Input */}
             <div>
-              <label htmlFor="investment" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="investment" className="block text-sm font-medium text-white/80 mb-2">
                 Investment Amount ($25 - $50,000)
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60">$</span>
                 <input
                   type="number"
                   id="investment"
                   value={investmentAmount}
                   onChange={handleAmountChange}
-                  className={`block w-full pl-8 pr-4 py-3 border ${
-                    !isValidAmount ? "border-red-500" : "border-gray-300"
-                  } rounded-lg shadow-sm focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent`}
+                  className={`block w-full pl-8 pr-4 py-3 rounded-lg shadow-sm bg-gray-800 text-white/90 border ${
+                    !isValidAmount ? "border-red-500" : "border-gray-700"
+                  } focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   placeholder="Enter investment amount"
                   min="25"
                   max="50000"
@@ -166,42 +168,42 @@ const QuoteRequestSection = () => {
 
             {/* Package Info */}
             {showResults && (
-              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
                 <div className="flex justify-between mb-2">
-                  <span className="text-gray-700 font-medium">Package:</span>
-                  <span className="text-[#4CAF50] font-semibold">{packageDetails.name}</span>
+                  <span className="text-white/80 font-medium">Package:</span>
+                  <span className="text-yellow-500 font-semibold">{packageDetails.name}</span>
                 </div>
                 <div className="flex justify-between mb-2">
-                  <span className="text-gray-700 font-medium">Duration:</span>
-                  <span className="text-[#4CAF50] font-semibold">{packageDetails.duration}</span>
+                  <span className="text-white/80 font-medium">Duration:</span>
+                  <span className="text-yellow-500 font-semibold">{packageDetails.duration}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-700 font-medium">Daily ROI:</span>
-                  <span className="text-[#4CAF50] font-semibold">{packageDetails.dailyRoi}</span>
+                  <span className="text-white/80 font-medium">Daily ROI:</span>
+                  <span className="text-yellow-500 font-semibold">{packageDetails.dailyRoi}</span>
                 </div>
               </div>
             )}
 
             {/* Results */}
             {showResults && (
-              <div className="bg-gray-50 rounded-lg p-4 space-y-3">
+              <div className="bg-gray-800 rounded-lg p-4 space-y-3 border border-gray-700">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600 font-medium">ROI Returns:</span>
-                  <span className="text-[#4CAF50] font-semibold">
+                  <span className="text-white/80 font-medium">ROI Returns:</span>
+                  <span className="text-yellow-500 font-semibold">
                     {packageDetails.roiReturns
                       ? `${formatCurrency(packageDetails.roiReturns.min)} - ${formatCurrency(packageDetails.roiReturns.max)}`
                       : "$0.00"}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600 font-medium">Principal Returns:</span>
-                  <span className="text-[#4CAF50] font-semibold">
+                  <span className="text-white/80 font-medium">Principal Returns:</span>
+                  <span className="text-yellow-500 font-semibold">
                     {formatCurrency(packageDetails.principalReturns)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600 font-medium">Total Returns:</span>
-                  <span className="text-[#4CAF50] font-semibold">
+                  <span className="text-white/80 font-medium">Total Returns:</span>
+                  <span className="text-yellow-500 font-semibold">
                     {packageDetails.totalReturns
                       ? `${formatCurrency(packageDetails.totalReturns.min)} - ${formatCurrency(packageDetails.totalReturns.max)}`
                       : "$0.00"}
@@ -213,13 +215,13 @@ const QuoteRequestSection = () => {
             {/* Button */}
             <button
               onClick={calculateReturns}
-              className="w-full bg-[#4CAF50] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#3d8b40] transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+              className="w-full bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/40 text-lg"
             >
               Calculate Returns
             </button>
 
             {/* Disclaimer */}
-            <p className="text-xs text-gray-500 text-center mt-4">
+            <p className="text-xs text-white/60 text-center mt-4">
               *Returns are estimated based on historical performance and market conditions. Actual returns may vary.
             </p>
           </div>
