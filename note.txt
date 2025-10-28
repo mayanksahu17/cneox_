@@ -15,7 +15,7 @@ officialninexfold@gmail.com - 100009
 officialmikedirector@gmail.com  - 100010
 
 
-
+16.171.216.124
 /api/admin
 POST
       const { name, email, phone, password, security_pin } = req.body;
