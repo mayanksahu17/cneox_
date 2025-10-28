@@ -8,7 +8,7 @@ const {
 
 router.post("/signup", adminController.signup);
 
-// router.post("/", adminController.createAdmin);
+router.post("/", adminController.createAdmin);
 
 router.post("/signin", adminController.signin);
 router.post("/user-signin", authenticateTokenAdmin, adminController.userSignin);
