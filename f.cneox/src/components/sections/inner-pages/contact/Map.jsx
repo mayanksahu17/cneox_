@@ -124,7 +124,7 @@ const LegalCompliance = () => {
               ref={descriptionRef}
               className="mb-6 text-sm leading-relaxed text-center text-gray-700 sm:text-base md:text-xl md:mx-8 lg:mx-16"
             >
-              Crown Bankers is fully compliant with the legal regulatory
+              CNEOX is fully compliant with the legal regulatory
               requirements in both the UK and New Zealand. Our company is
               officially registered in those countries, and our credentials can
               be verified on government-owned websites. We are committed to
@@ -132,7 +132,7 @@ const LegalCompliance = () => {
               all aspects of our operations. Our certificates are issued under
               the name 'CROWNQUEST ASSET MANAGEMENT LIMITED' due to regulatory
               and administrative reasons. This name is used for official
-              purposes and represents the same entity as Crown Bankers. Below
+              purposes and represents the same entity as CNEOX. Below
               are our official certificates for both the UK and New Zealand.
             </p>
 

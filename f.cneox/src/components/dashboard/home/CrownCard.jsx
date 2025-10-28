@@ -4,7 +4,7 @@ export default function CrownCard() {
   return (
     <div className="mx-auto w-[360px] h-52 bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl p-4 shadow-lg text-white">
       {/* Bank Name */}
-      <div className="text-lg font-bold mb-4">Crown bankers</div>
+      <div className="text-lg font-bold mb-4">CNEOX</div>
 
       {/* Card Pattern */}
       <div className="bg-blue-600 bg-opacity-20 p-4 rounded-lg relative">

@@ -89,7 +89,7 @@ const ImageSlider = () => {
       <div className="bg-colorBlack">
         <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16 pt-4 ">
           <p className="text-lg md:text-2xl text-white">
-            Crown Bankers: Officially Partnered with Visa, Mastercard, Binance,
+            CNEOX: Officially Partnered with Visa, Mastercard, Binance,
             and Alchemy Pay.
           </p>
         </div>

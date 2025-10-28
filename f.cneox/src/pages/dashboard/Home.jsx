@@ -1,3 +1,4 @@
+// src/pages/dashboard/Home.jsx
 import {
   BarChart,
   LineChart,
@@ -5,7 +6,7 @@ import {
   Wallet,
   DollarSign,
   TrendingUp,
-  Link,
+  Link as LucideLink,
   Award,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -23,7 +24,9 @@ import CryptoPrice from "../../components/dashboard/home/CryptoPrice";
 import bgOfcard from "../../assets/imgs/bgOfcard.jpeg";
 import bgOfcard2 from "../../assets/imgs/bgOfcard2.jpeg";
 import bgOfcard3 from "../../assets/imgs/bgOfcard3.jpg";
+import TradeButton from "../../components/TradeButton";
 
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
@@ -57,12 +60,11 @@ export default function Home() {
     binary_career_level: 0,
   });
 
+  // fetch fresh user details once
   useEffect(() => {
     (async () => {
       try {
         const updatedUserResponse = await userService.getUserData(user);
-        console.log(updatedUserResponse);
-        
         if (updatedUserResponse?.data?.success) {
           updateUserDetails(updatedUserResponse?.data?.data);
         }
@@ -72,51 +74,52 @@ export default function Home() {
     })();
   }, []);
 
+  // dashboard data
   useEffect(() => {
     (async () => {
       try {
         setIsDataLoaded(false);
         const response = await dashboardService.getDashboardData(user);
-        const { success, data } = response?.data;
-        
-        if (success) {
-          if (data) {
-            // Calculate the width for progress bars (showing current level progress)
-            // According to new approach, each level starts from 0 to target amount
-            let lWidth = (parseFloat(data?.left_level_business || 0) / parseFloat(data?.binary_next_level_business || 1)) * 100;
-            let rWidth = (parseFloat(data?.right_level_business || 0) / parseFloat(data?.binary_next_level_business || 1)) * 100;
-            
-            setAllData((prev) => ({
-              ...prev,
-              totalInvestment: data?.total_investment,
-              totalReturns:
-                parseFloat(data?.total_earning) -
-                parseFloat(data?.total_deposit),
-              totalWithdrawal: data?.total_withdrawal,
-              totalEarning: data?.total_earning,
-              totalDeposit: data?.total_deposit,
-              roi_wallet: data?.roi_wallet,
-              referral_binary_wallet: data?.referral_binary_wallet,
-              interest_wallet: data?.interest_wallet,
-              deposit_wallet: data?.total_deposit || 0,
-              toal_voucher_generated: data?.toal_voucher_generated,
-              isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
-              binary_current_level_name: getLevelName(data?.binary_career_level || 0),
-              binary_next_level_name: getLevelName((data?.binary_career_level || 0) + 1),
-              // Total business values
-              totalLeftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
-              totalRightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
-              // Current level progress values
-              leftBusiness: parseFloat(data?.left_level_business || 0)?.toFixed(2),
-              rightBusiness: parseFloat(data?.right_level_business || 0)?.toFixed(2),
-              leftWidth: lWidth,
-              rightWidth: rWidth,
-              target: data?.binary_next_level_business,
-              binary_career_level: data?.binary_career_level || 0,
-              sponsor_email: data?.sponsor_email,
-              sponsor_name: data?.sponsor_name,
-            }));
-          }
+        const { success, data } = response?.data || {};
+        if (success && data) {
+          const lWidth =
+            (parseFloat(data?.left_level_business || 0) /
+              parseFloat(data?.binary_next_level_business || 1)) *
+            100;
+          const rWidth =
+            (parseFloat(data?.right_level_business || 0) /
+              parseFloat(data?.binary_next_level_business || 1)) *
+            100;
+
+          setAllData((prev) => ({
+            ...prev,
+            totalInvestment: data?.total_investment,
+            totalReturns:
+              parseFloat(data?.total_earning || 0) -
+              parseFloat(data?.total_deposit || 0),
+            totalWithdrawal: data?.total_withdrawal,
+            totalEarning: data?.total_earning,
+            totalDeposit: data?.total_deposit,
+            roi_wallet: data?.roi_wallet,
+            referral_binary_wallet: data?.referral_binary_wallet,
+            interest_wallet: data?.interest_wallet,
+            deposit_wallet: data?.total_deposit || 0,
+            toal_voucher_generated: data?.toal_voucher_generated,
+            isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
+            binary_current_level_name: getLevelName(data?.binary_career_level || 0),
+            binary_next_level_name: getLevelName((data?.binary_career_level || 0) + 1),
+            totalLeftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
+            totalRightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
+            leftBusiness: parseFloat(data?.left_level_business || 0)?.toFixed(2),
+            rightBusiness: parseFloat(data?.right_level_business || 0)?.toFixed(2),
+            leftWidth: lWidth,
+            rightWidth: rWidth,
+            target: data?.binary_next_level_business,
+            binary_career_level: data?.binary_career_level || 0,
+            sponsor_email: data?.sponsor_email,
+            sponsor_name: data?.sponsor_name,
+            latestTransactions: data?.latest_transactions || [],
+          }));
         }
       } catch (error) {
         console.log(error);
@@ -135,13 +138,11 @@ export default function Home() {
     return <Loader />;
   }
 
-  // Format user data for UI
+  // Prepare userData object for UI usage
   const userData = {
     userId: user?.user?.userId,
     name: user?.user?.name,
-    balance: 
-      `$${parseFloat(allData?.totalInvestment || 0)}`
-    ,
+    balance: `$${parseFloat(allData?.totalInvestment || 0).toFixed(2)}`,
     sponsorEmail: allData?.sponsor_email || "No sponsor",
     sponsorName: allData?.sponsor_name || "No sponsor",
     currency: "US Dollar",
@@ -164,305 +165,340 @@ export default function Home() {
     career: {
       currentLevel: allData?.binary_career_level || 0,
       nextLevel: allData?.binary_career_level + 1 || 1,
-      // Total business across all levels
       totalLeftBusiness: `$${parseFloat(allData?.totalLeftBusiness || 0).toFixed(2)}`,
       totalRightBusiness: `$${parseFloat(allData?.totalRightBusiness || 0).toFixed(2)}`,
-      // Current level progress
-      leftBusiness: { 
-        current: `$${parseFloat(allData?.leftBusiness || 0).toFixed(2)}`, 
-        target: `$${parseFloat(allData?.target || 0).toFixed(2)}` 
+      leftBusiness: {
+        current: `$${parseFloat(allData?.leftBusiness || 0).toFixed(2)}`,
+        target: `$${parseFloat(allData?.target || 0).toFixed(2)}`,
       },
-      rightBusiness: { 
-        current: `$${parseFloat(allData?.rightBusiness || 0).toFixed(2)}`, 
-        target: `$${parseFloat(allData?.target || 0).toFixed(2)}` 
+      rightBusiness: {
+        current: `$${parseFloat(allData?.rightBusiness || 0).toFixed(2)}`,
+        target: `$${parseFloat(allData?.target || 0).toFixed(2)}`,
       },
     },
   };
 
+  /* ------------------ Framer motion variants ------------------ */
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12, when: "beforeChildren" },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 12, scale: 0.98 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: "easeOut" } },
+  };
+
+  const hoverCard = { scale: 1.02 };
+
   return (
-    <div className="space-y-6 relative">
-      {/* Background design elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-500 opacity-5"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 rounded-full bg-green-500 opacity-5"></div>
-        <div className="absolute bottom-20 left-40 w-72 h-72 rounded-full bg-yellow-500 opacity-5"></div>
-        <div className="absolute -bottom-10 right-1/4 w-80 h-80 rounded-full bg-purple-500 opacity-5"></div>
-        
-        {/* Diagonal lines */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-0 left-1/4 w-0.5 h-full bg-gray-400 transform rotate-45"></div>
-          <div className="absolute top-0 right-1/4 w-0.5 h-full bg-gray-400 transform -rotate-45"></div>
-        </div>
+    <div className="relative min-h-screen px-6 py-8">
+      {/* faint decorative background shapes */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute left-10 top-24 w-64 h-64 rounded-full bg-yellow-400 opacity-6 blur-3xl" />
+        <div className="absolute right-20 top-40 w-96 h-96 rounded-full bg-yellow-400 opacity-6 blur-3xl" />
       </div>
 
-      {/* Stats cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
-        <div className="md:col-span-1">
-          <CryptoPrice />
-        </div>
-        <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 text-4xl">
-          {/* <StatCard
-            title="Your Balance"
-            value={userData.balance}
-            // change="0%"
-            // period="Current"
-            
-            icon={<BarChart className="text-green-500" />}
-          /> */}
-           
-          <StatCard
-            title="Total Investment"
-            value={userData.totals.investment}
-            // change="0%"
-            // period="All time"
-            icon={<Wallet className="text-green-500" />}
-          />
-          <StatCard
-            title="Total Withdrawal"
-            value={userData.totals.withdrawal}
-            // change="0%"
-            // period="All time"
-            icon={<TrendingUp className="text-green-500" />}
-          />
-        </div>
-      </div>
-      
-      {/* Wallets section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <h3 className=" font-semibold tracking-wide text-gray-800 dark:text-white mb-4 text-2xl">
-            Wallet Overview
-          </h3>
-          <div className="grid grid-cols-2 gap-4">
-            
-            
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                ROI Wallet
-              </p>
-              <p className="text-2xl font-semibold">{userData.wallets.roi}</p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                R&B Wallet
-              </p>
-              <p className="text-2xl font-semibold">{userData.wallets.rb}</p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                Extra Income Wallet
-              </p>
-              <p className="text-2xl font-semibold">
-                {userData.wallets.extraIncome}
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                Voucher
-              </p>
-              <p className="text-2xl font-semibold">
-                {userData.wallets.coupons}
-              </p>
-            </div>
-            <div className="col-span-2 flex flex-wrap justify-center items-center mt-4 gap-4">
-              {/* <button
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
-                onClick={() => navigate("/dashboard/deposit")}
-              >
-                Deposit
-              </button> */}
-              
-              {!disbledUserIds?.includes(user?.user?.userId) && (
-               <button
-                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
-                 onClick={() => navigate("/dashboard/investments/all-plans")}
-               >
-                 Invest
-               </button>
-              )}
-              
-              <button
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
-                onClick={() => setIsWithdrawalModalOpen(true)}
-              >
-                Withdraw
-              </button>
+      <motion.div
+        className="relative z-10 space-y-6"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {/* Top row: Crypto price widget + stat cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+          <div className="lg:col-span-4 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <motion.div variants={itemVariants} whileHover={hoverCard}>
+              <StatCard
+                title="Total Investment"
+                value={userData.totals.investment}
+                icon={<Wallet className="text-yellow-400" />}
+                // bg={bgOfcard}
+              />
+            </motion.div>
 
-              {allowedTransferId === user?.user?.userId && (
+            <motion.div variants={itemVariants} whileHover={hoverCard}>
+              <StatCard
+                title="Total Withdrawal"
+                value={userData.totals.withdrawal}
+                icon={<TrendingUp className="text-yellow-400" />}
+                // bg={bgOfcard2}
+              />
+            </motion.div>
+
+            <motion.div variants={itemVariants} whileHover={hoverCard}>
+              <StatCard
+                title="Your Balance"
+                value={userData.balance}
+                icon={<DollarSign className="text-yellow-400" />}
+                // bg={bgOfcard3}
+              />
+            </motion.div>
+
+            <motion.div variants={itemVariants} whileHover={hoverCard}>
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+                <CryptoPrice />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Wallet Overview + Wallet Settings */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <motion.div variants={itemVariants} whileHover={hoverCard}>
+            <div
+              className="rounded-lg shadow-lg p-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm border border-[rgba(0,0,0,0.06)] h-full"
+              style={{ minHeight: 220 }}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-semibold text-white">Account information</h3>
+              </div>
+
+              <div className="space-y-3 mt-2 text-white">
+                <div>
+                  <p className="text-xs text-yellow-400">User ID</p>
+                  <p className="font-medium">{userData.userId}</p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-yellow-400">Name</p>
+                  <p className="font-medium">{userData.name}</p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-yellow-400">Status</p>
+                  <p className="font-medium">{userData.status}</p>
+                </div>
+
+                <div>
+                  <button
+                    onClick={() => {
+                      navigate("/dashboard/settings/profile");
+                    }}
+                    className="text-black bg-yellow-500 rounded px-3 py-1"
+                  >
+                    Update Information
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div className="lg:col-span-2" variants={itemVariants} whileHover={hoverCard}>
+            <div
+              className="rounded-lg shadow-lg p-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm border border-[rgba(0,0,0,0.06)] h-full"
+              style={{ minHeight: 220 }}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <h3 className="text-xl font-semibold text-white leading-tight">Wallet Overview</h3>
+                  <p className="text-xs text-yellow-400 mt-1">Quick access to your wallets and actions</p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => navigate("/dashboard/investments/all-plans")}
+                    className="px-3 py-1.5 rounded-md bg-[black] hover:bg-[rgba(0,0,0,0.8)] text-white text-sm font-semibold shadow"
+                  >
+                    Invest
+                  </button>
+
+                  <button
+                    onClick={() => setIsWithdrawalModalOpen(true)}
+                    className="px-3 py-1.5 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-semibold shadow"
+                  >
+                    Withdraw
+                  </button>
+
+                  {allowedTransferId === user?.user?.userId && (
+                    <button
+                      onClick={() => setIsTransferModalOpen(true)}
+                      className="px-3 py-1.5 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-semibold shadow"
+                    >
+                      Transfer
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }}>
+                  <WalletCard title="ROI Wallet" value={userData.wallets.roi} />
+                </motion.div>
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }}>
+                  <WalletCard title="R&B Wallet" value={userData.wallets.rb} />
+                </motion.div>
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }}>
+                  <WalletCard title="Extra Income Wallet" value={userData.wallets.extraIncome} />
+                </motion.div>
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }}>
+                  <WalletCard title="Voucher" value={userData.wallets.coupons} />
+                </motion.div>
+              </div>
+
+              <div className="mt-4 flex items-center justify-center gap-3">
                 <button
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
-                  onClick={() => setIsTransferModalOpen(true)}
+                  onClick={() => navigate("/dashboard/deposit")}
+                  className="px-4 py-2 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black text-sm"
                 >
-                  Transfer
+                  Deposit
                 </button>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <h3 className="text-2xl font-semibold text-gray-800 tracking-wide dark:text-white mb-4 ml-6">
-            Wallet Settings
-          </h3>
-          <div className="space-y-4">
-            <div>
-              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6 ">
-                User ID: {userData.userId}
-              </p>
-              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6">
-                Name: {userData.name}
-              </p>
-              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6">
-                Status: {userData.status}
-              </p>
-            </div>
-            <UpdateWalletAddressModal  />
-          </div>
-        </div>
-      </div>
-
-      {/* Referral Links and Career Progress */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <div className="flex items-center mb-4">
-            <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-              <Award className="text-green-500" />
-            </div>
-            <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white">
-              Career Progress
-            </h3>
-          </div>
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Current Level
-                </p>
-                <p className="text-lg font-semibold">
-                  {getLevelName(userData.career.currentLevel)}
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Next Level
-                </p>
-                <p className="text-lg font-semibold">
-                  {getLevelName(userData.career.currentLevel + 1)}
-                </p>
+                <button
+                  onClick={() => navigate("/dashboard/transactions")}
+                  className="px-4 py-2 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black text-sm"
+                >
+                  Transactions
+                </button>
               </div>
             </div>
-            
-            {/* Total Business Summary */}
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg mb-4">
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Total Business</h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    Left Total
-                  </p>
-                  <p className="text-base font-semibold">
-                    {userData.career.totalLeftBusiness}
-                  </p>
+          </motion.div>
+        </div>
+
+        {/* Career Progress + Referral Links */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <motion.div variants={itemVariants} whileHover={hoverCard}>
+            <div
+              className="rounded-lg shadow-lg p-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm border border-[rgba(0,0,0,0.06)]"
+              style={{ minHeight: 220 }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center">
+                  <Award className="text-yellow-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    Right Total
-                  </p>
-                  <p className="text-base font-semibold">
-                    {userData.career.totalRightBusiness}
-                  </p>
+                  <h3 className="text-lg font-semibold text-white leading-tight">Career Progress</h3>
+                  <p className="text-xs text-yellow-400 mt-0.5">Track your current career level & targets</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 mb-3 text-white">
+                <div>
+                  <p className="text-xs text-yellow-400">Current Level</p>
+                  <p className="text-base font-semibold mt-1">{getLevelName(userData.career.currentLevel)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-yellow-400">Next Level</p>
+                  <p className="text-base font-semibold mt-1">{getLevelName(userData.career.currentLevel + 1)}</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="p-3 rounded bg-[rgba(255,255,255,0.02)]">
+                  <p className="text-xs text-yellow-400">Total Business</p>
+                  <div className="grid grid-cols-2 gap-4 mt-2">
+                    <div>
+                      <p className="text-[11px] text-yellow-400">Left Total</p>
+                      <p className="text-sm text-white font-semibold mt-1">{userData.career.totalLeftBusiness}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] text-yellow-400">Right Total</p>
+                      <p className="text-sm text-white font-semibold mt-1">{userData.career.totalRightBusiness}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="flex items-baseline justify-between">
+                      <p className="text-sm text-yellow-400">Left Business (Level)</p>
+                      <p className="text-xs text-yellow-300">
+                        {Math.min(allData?.leftWidth || 0, 100).toFixed(0)}%
+                      </p>
+                    </div>
+                    <p className="text-sm text-white font-semibold">
+                      {userData.career.leftBusiness.current} / {userData.career.leftBusiness.target}
+                    </p>
+
+                    <div className="w-full bg-black rounded-full h-2 mt-3 border border-yellow-500">
+                      <div
+                        className="bg-yellow-500 h-2 rounded-full transition-all duration-800"
+                        style={{ width: `${Math.min(allData?.leftWidth || 0, 100)}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline justify-between">
+                      <p className="text-sm text-yellow-400">Right Business (Level)</p>
+                      <p className="text-xs text-yellow-300">
+                        {Math.min(allData?.rightWidth || 0, 100).toFixed(0)}%
+                      </p>
+                    </div>
+                    <p className="text-sm text-white font-semibold">
+                      {userData.career.rightBusiness.current} / {userData.career.rightBusiness.target}
+                    </p>
+
+                    <div className="w-full bg-black rounded-full h-2 mt-3 border border-yellow-500">
+                      <div
+                        className="bg-yellow-500 h-2 rounded-full transition-all duration-800"
+                        style={{ width: `${Math.min(allData?.rightWidth || 0, 100)}%` }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* Current Level Progress */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Left Business (Current Level)
-                </p>
-                <p className="text-lg font-semibold">
-                  {userData.career.leftBusiness.current} /{" "}
-                  {userData.career.leftBusiness.target}
-                </p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                  <div 
-                    className="bg-blue-600 h-2.5 rounded-full" 
-                    style={{ width: `${Math.min(allData?.leftWidth || 0, 100)}%` }}
-                  ></div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} whileHover={hoverCard}>
+            <div
+              className="rounded-lg shadow-lg p-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm border border-[rgba(0,0,0,0.06)]"
+              style={{ minHeight: 220 }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center">
+                  <LucideLink className="text-yellow-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white leading-tight">Referral Links</h3>
+                  <p className="text-xs text-yellow-400 mt-0.5">Share your links to grow your network</p>
                 </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Right Business (Current Level)
-                </p>
-                <p className="text-lg font-semibold">
-                  {userData.career.rightBusiness.current} /{" "}
-                  {userData.career.rightBusiness.target}
-                </p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                  <div 
-                    className="bg-green-600 h-2.5 rounded-full" 
-                    style={{ width: `${Math.min(allData?.rightWidth || 0, 100)}%` }}
-                  ></div>
+
+              <div className="space-y-3 text-white">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="text-xs text-yellow-400 mb-1">Left Link</p>
+                    <div className="break-all bg-[rgba(255,255,255,0.02)] p-3 rounded text-white text-sm border border-[rgba(255,255,255,0.03)]">
+                      {userData.referralLinks.left}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => navigator.clipboard.writeText(userData.referralLinks.left)}
+                    className="min-w-[80px] px-3 py-1.5 bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-medium rounded-md transition-colors shadow"
+                  >
+                    Copy
+                  </button>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="text-xs text-yellow-400 mb-1">Right Link</p>
+                    <div className="break-all bg-[rgba(255,255,255,0.02)] p-3 rounded text-white text-sm border border-[rgba(255,255,255,0.03)]">
+                      {userData.referralLinks.right}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => navigator.clipboard.writeText(userData.referralLinks.right)}
+                    className="min-w-[80px] px-3 py-1.5 bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-medium rounded-md transition-colors shadow"
+                  >
+                    Copy
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Referral Links Card */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <div className="flex items-center mb-4">
-            <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-              <Link className="text-green-500" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-800 tracking-wide dark:text-white">
-              Referral Links
-            </h3>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-base text-gray-600 dark:text-gray-400">
-                  Left Link
-                </p>
-                <p className="text-base text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4 ">
-                  {userData.referralLinks.left}
-                </p>
-              </div>
-              <button
-                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
-                onClick={() =>
-                  navigator.clipboard.writeText(userData.referralLinks.left)
-                }
-              >
-                Copy
-              </button>
-            </div>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-base text-gray-600 dark:text-gray-400">
-                  Right Link
-                </p>
-                <p className="text-base text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4">
-                  {userData.referralLinks.right}
-                </p>
-              </div>
-              <button
-                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
-                onClick={() =>
-                  navigator.clipboard.writeText(userData.referralLinks.right)
-                }
-              >
-                Copy
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <UpdateWalletAddressModal />
+      </motion.div>
 
-      {/* Withdrawal Modal */}
+      {/* Modals */}
       {isWithdrawalModalOpen && (
         <WithdrawalModal
           isWithdrawalModalOpen={isWithdrawalModalOpen}
@@ -473,7 +509,6 @@ export default function Home() {
         />
       )}
 
-      {/* Transfer Modal */}
       {isTransferModalOpen && (
         <TransferModal
           isTransferModalOpen={isTransferModalOpen}
@@ -485,49 +520,62 @@ export default function Home() {
   );
 }
 
+/* ---------- StatCard & WalletCard components (motion-ready) ---------- */
 
-const StatCard = ({ title, value, change, period, icon }) => {
-  let backgroundImage = '';
-
-  if (title === 'Your Balance') {
-    backgroundImage = bgOfcard;
-  } else if (title === 'Total Investment') {
-    backgroundImage = bgOfcard2;
-  } else if (title === 'Total Withdrawal') {
-    backgroundImage = bgOfcard3;
-  }
-
+const StatCard = ({ title, value, change, period, icon, bg }) => {
   return (
-    <div
-      className="rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 bg-cover bg-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+    <motion.div
+      className="rounded-lg shadow-lg overflow-hidden relative bg-black"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      whileHover={{ scale: 1.02 }}
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      <div className="flex items-center mb-4">
-        <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-          {icon}
-        </div>
-        <h3 className="text-2xl font-medium text-gray-700 tracking-wide dark:text-gray-500">
-          {title}
-        </h3>
-      </div>
-      <div className="flex items-end justify-between">
-        <div>
-          <div className="text-6xl font-bold text-gray-800 dark:text-gray-500">
-            {value}
-          </div>
-          <div className="flex items-center mt-1">
-            <span className="text-green-500 text-sm font-medium">{change}</span>
-            <span className="text-gray-500 dark:text-gray-400 text-sm ml-1">
-              {period}
-            </span>
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+              {icon}
+            </div>
+            <div>
+              <h4 className="text-lg font-medium text-yellow-400">{title}</h4>
+              {period && <div className="text-sm text-yellow-300">{period}</div>}
+            </div>
           </div>
         </div>
+
+        <div className="flex items-end justify-between">
+          <div>
+            <div className="text-3xl md:text-4xl font-bold text-white">{value}</div>
+            {change && (
+              <div className="mt-2 text-sm text-yellow-400 font-medium">{change}</div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-
+const WalletCard = ({ title, value }) => {
+  return (
+    <motion.div
+      className="p-4 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)]"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <p className="text-sm text-yellow-400">{title}</p>
+      <p className="mt-2 text-2xl font-semibold text-white">{value}</p>
+    </motion.div>
+  );
+};
 
 // Helper function to get level name from level number
 const getLevelName = (level) => {

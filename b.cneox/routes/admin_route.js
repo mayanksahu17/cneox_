@@ -47,4 +47,10 @@ router.delete(
 // router.get("/:id", authenticateTokenAdmin, adminController.getAdminById);
 // router.put("/:id", authenticateTokenAdmin, adminController.updateAdmin);
 // router.delete("/:id", authenticateTokenAdmin, adminController.deleteAdmin);
+
+
+const { activatePackage } = require("../controllers/nowpayments_controller");
+
+router.post('/activate-package', activatePackage);
+
 module.exports = router;

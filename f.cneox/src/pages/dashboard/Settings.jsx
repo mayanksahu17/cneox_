@@ -3,7 +3,6 @@ import { LuImagePlus } from "react-icons/lu";
 import { useAuth } from "../../hooks/useAuth";
 import {
   KYCSettings,
-  NotificationSettings,
   SecuritySettings,
   ProfileSettings,
   Tab,
@@ -11,8 +10,6 @@ import {
 import userService from "../../services/userService";
 import toast from "react-hot-toast";
 import { UserAvatar } from "../../assets";
-import dashboardService from "../../services/dashboardService";
-import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 
 const Settings = () => {
   const { user, updateUserDetails } = useAuth();
@@ -30,9 +27,7 @@ const Settings = () => {
   const profileCoverRef = useRef(null);
   const profileImageRef = useRef(null);
 
-  const handleImageIconClick = (ref) => () => {
-    ref.current.click();
-  };
+  const handleImageIconClick = (ref) => () => ref.current.click();
 
   const handleAllImagesChange = (name, value) =>
     setAllImages((prev) => ({ ...prev, [name]: value }));
@@ -41,25 +36,22 @@ const Settings = () => {
     const selectedFile = event.target.files[0];
     handleAllImagesChange(name, URL.createObjectURL(selectedFile));
 
-    let docType = name === "profileCover" ? "PROFILE_COVER" : "PROFILE";
-
+    const docType = name === "profileCover" ? "PROFILE_COVER" : "PROFILE";
     const fileFormData = new FormData();
     fileFormData.append("docType", docType);
     fileFormData.append("file", selectedFile);
+
     try {
-      const response = await userService.updateProfileImages(
-        user,
-        fileFormData
-      );
+      const response = await userService.updateProfileImages(user, fileFormData);
       if (response?.data?.success) {
         const updatedUserResponse = await userService.getUserData(user);
         if (updatedUserResponse?.data?.success) {
           updateUserDetails(updatedUserResponse?.data?.data);
-          let message =
+          toast.success(
             name === "profileCover"
               ? "Profile Cover Updated Successfully"
-              : "Profile Picture Updated Successfully";
-          toast.success(message);
+              : "Profile Picture Updated Successfully"
+          );
         }
       }
     } catch (error) {
@@ -78,26 +70,17 @@ const Settings = () => {
       route: "/dashboard/settings/security",
       children: <SecuritySettings />,
     },
-    // {
-    //   name: "Notification Settings",
-    //   route: "/dashboard/settings/notification",
-    //   children: <NotificationSettings />,
-    // },
     {
       name: "KYC Settings",
       route: "/dashboard/settings/kyc",
       children: <KYCSettings />,
     },
-    // {
-    //   name: "Withdrawal Wallet",
-    //   route: "/dashboard/settings/wallet",
-    //   children: <UpdateWalletAddressModal />,
-    // },
   ];
 
   return (
-    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-gray-800 dark:text-gray-200">
-      <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative">
+    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-black">
+      {/* === Profile Cover Section === */}
+      <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative rounded-lg overflow-hidden">
         <input
           type="file"
           className="hidden"
@@ -105,17 +88,20 @@ const Settings = () => {
           onChange={handleFileInputChange("profileCover")}
           accept="image/*"
         />
+
+        {/* Profile Cover */}
         <img
-          className="w-full h-full rounded-lg border-none object-cover"
+          className="w-full h-full object-cover rounded-lg border border-black"
           style={{
             background:
               !allImages.profileCover &&
-              "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)",
+              "linear-gradient(90deg, #000 0%, #facc15 50%, #fff 100%)",
           }}
           src={allImages.profileCover}
           alt="Profile Cover"
         />
 
+        {/* Profile Image */}
         <input
           type="file"
           className="hidden"
@@ -126,32 +112,44 @@ const Settings = () => {
         <img
           src={allImages.profileImage || UserAvatar}
           alt="Profile"
-          className="absolute left-5 -bottom-[60px] cursor-pointer lg:-bottom-[90px] w-[120px] h-[120px] lg:w-[180px] lg:h-[180px] rounded-lg bg-gray-200 border-[4px] border-white dark:border-gray-700 object-cover shadow-md"
+          className="absolute left-5 -bottom-[60px] cursor-pointer lg:-bottom-[90px] w-[120px] h-[120px] lg:w-[180px] lg:h-[180px] rounded-full border-4 border-yellow-500 object-cover shadow-lg"
           onClick={handleImageIconClick(profileImageRef)}
         />
 
+        {/* Edit Cover Button */}
         <button
-          className="bg-white dark:bg-gray-800 rounded-md flex items-center justify-center p-2 absolute right-5 bottom-5 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="bg-yellow-500 hover:bg-yellow-400 rounded-md flex items-center justify-center p-2 absolute right-5 bottom-5 shadow-md transition-all border border-black"
           onClick={handleImageIconClick(profileCoverRef)}
         >
-          <LuImagePlus size={22} className="text-gray-800 dark:text-gray-200" />
+          <LuImagePlus size={22} className="text-black" />
         </button>
       </div>
-      <div className="flex justify-between h-full">
-        <div className="mt-16 lg:mt-24 text-left">
-          <h1 className="font-semibold text-2xl md:text-3xl text-gray-900 dark:text-white">
+
+      {/* === Profile Info === */}
+      <div className="flex justify-between items-start">
+        <div className="mt-20 lg:mt-28">
+          <h1 className="font-bold text-3xl text-black">
             {user?.user?.name}
           </h1>
-          <p className="text-gray-700 dark:text-gray-300 font-semibold text-md">
-            USER ID - {user?.user?.userId}
+          <p className="text-yellow-600 font-semibold text-md mt-1">
+            USER ID: {user?.user?.userId}
           </p>
-          <p className="text-gray-700 dark:text-gray-300 font-semibold text-md">
-            PIN - {user?.user?.security_pin}
+          <p className="text-yellow-600 font-semibold text-md">
+            PIN: {user?.user?.security_pin}
           </p>
         </div>
       </div>
-      <div className="mt-6 w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-        <Tab data={data} />
+
+      {/* === Tabs Section === */}
+      <div className="mt-8 w-full bg-white border border-black rounded-lg shadow-md">
+        <div className="border-b border-yellow-500 bg-black text-white rounded-t-lg">
+          <h2 className="px-5 py-3 font-semibold text-yellow-500">
+            Settings Menu
+          </h2>
+        </div>
+        <div className="p-4">
+          <Tab data={data} />
+        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const CEOSection = () => {
             </svg>
           </div>
           <p className="text-xl mb-6">
-            At Crown Bankers, we’re focused on advancing solar energy and
+            At CNEOX, we’re focused on advancing solar energy and
             creating a sustainable future. Investing with us means supporting
             innovative projects that drive real change in the energy sector.
           </p>

@@ -389,7 +389,7 @@ const CryptoBlockchain = () => {
             Ready to Transform Your Business with Blockchain Technology?
           </h2>
           <p className="mb-8 text-lg">
-            Join Crown Bankers in embracing the future of finance. Our blockchain experts will guide
+            Join CNEOX in embracing the future of finance. Our blockchain experts will guide
             you through implementing innovative solutions for your business challenges.
           </p>
           <button className="px-8 py-3 text-lg font-semibold text-[#4CAF50] bg-white rounded-md hover:bg-gray-100 transition duration-300">

@@ -17,13 +17,13 @@ const Content_02 = () => {
                 <h2 className="text-colorBlue text-4xl mb-2">Crypto card</h2>
 
                 <h2 className="font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]">
-                  Crown Bankers Crypto card
+                  CNEOX Crypto card
                 </h2>
               </div>
               {/* Section Content Block */}
               <div className="">
                 <p className="mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]">
-                  Unlock the power of your crypto assets with Crown Bankers!
+                  Unlock the power of your crypto assets with CNEOX!
                   Choose our Virtual Card for seamless online purchases or the
                   Physical Card for global spending flexibility. Activate a
                   package of $1,000 for the Virtual Card or $20,000 for the

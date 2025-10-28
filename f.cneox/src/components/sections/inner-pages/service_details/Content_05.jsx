@@ -29,7 +29,7 @@ const Content_05 = () => {
               <br />
               <div>
                 <h3 style={{ fontSize: "30px" }}>
-                  Invest in the Best with Crown Bankers
+                  Invest in the Best with CNEOX
                 </h3>
               </div>
               <br />
@@ -37,7 +37,7 @@ const Content_05 = () => {
 
               <h4>Forbes Top 500 Companies</h4>
               <p className="text-lg">
-                Crown Bankers strategically invests in the Forbes Global 500,
+                CNEOX strategically invests in the Forbes Global 500,
                 including industry giants like Apple, Amazon, and Microsoft.
                 This approach ensures
               </p>
@@ -114,7 +114,7 @@ const Content_05 = () => {
               </ul>
               <br />
               <br />
-              <h4>Join Crown Bankers Today!</h4>
+              <h4>Join CNEOX Today!</h4>
               <p className="text-lg">
                 Benefit from our strategic approach to Forbes 500 investments
                 and unlock your investment potential.

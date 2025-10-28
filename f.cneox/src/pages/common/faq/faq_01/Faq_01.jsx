@@ -15,17 +15,17 @@ function Fqa() {
     {
       question: "What are my payment options?",
       answer:
-        "Crown Bankers offers multiple payment options, including bank transfers, credit/debit cards, and select third-party payment processors. You can find more details in the payment section of your account dashboard.",
+        "CNEOX offers multiple payment options, including bank transfers, credit/debit cards, and select third-party payment processors. You can find more details in the payment section of your account dashboard.",
     },
     {
       question: "Do I have to commit to a contract?",
       answer:
-        "No, Crown Bankers does not require a long-term contract for most plans. However, certain investment products may have specific terms. Please review the product details or contact support for more information.",
+        "No, CNEOX does not require a long-term contract for most plans. However, certain investment products may have specific terms. Please review the product details or contact support for more information.",
     },
     {
       question: "How does the free trial work?",
       answer:
-        "Our free trial allows you to explore Crown Bankers' platform for a limited period, typically 14 days, with access to select features. No payment is required upfront, but you’ll need to provide billing information to activate the trial.",
+        "Our free trial allows you to explore CNEOX' platform for a limited period, typically 14 days, with access to select features. No payment is required upfront, but you’ll need to provide billing information to activate the trial.",
     },
     {
       question: "What Payment Methods Are Available?",

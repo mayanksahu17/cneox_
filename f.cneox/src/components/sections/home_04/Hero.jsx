@@ -12,7 +12,7 @@ const Hero = () => {
           {/* Section Container */}
           <div className="global-container">
             <h2 className="text-colorBlue text-4xl mb-2">
-              About Crown Bankers
+              About CNEOX
             </h2>
 
             <h1 className="jos mb-6 font-spaceGrotesk text-3xl md:text-6xl text-left text-white">

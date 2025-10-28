@@ -69,7 +69,7 @@ function TermsAndPrivacy() {
                   Intellectual Property Rights
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Crown Bankers maintains exclusive rights over non-material assets
+                  CNEOX maintains exclusive rights over non-material assets
                   such as trademarks, logos, copyrights, patents, trade secrets, and
                   proprietary software. Unauthorized use, reproduction,
                   distribution, or exploitation of these assets without explicit
@@ -85,7 +85,7 @@ function TermsAndPrivacy() {
                     License to Use
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                    Upon entering the Crown Bankers website, users are granted a
+                    Upon entering the CNEOX website, users are granted a
                     restricted, non-exclusive, and non-transferable license for
                     personal or internal business purposes, aligning with these
                     Terms of Use. No rights for commercial exploitation are
@@ -107,7 +107,7 @@ function TermsAndPrivacy() {
                   <p className="mb-2 text-xl font-bold text-gray-800">Linking</p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
                     The website may contain links to third-party sites for
-                    informational purposes. However, Crown Bankers does not endorse
+                    informational purposes. However, CNEOX does not endorse
                     these sites, and users navigate them at their own risk.
                   </p>
                 </div>
@@ -121,7 +121,7 @@ function TermsAndPrivacy() {
                     Eligibility
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                    By registering with Crown Bankers, users affirm they are of
+                    By registering with CNEOX, users affirm they are of
                     legal age and possess the capacity to enter binding agreements.
                     If registering on behalf of a company, users must be duly
                     authorized to act on its behalf.
@@ -152,7 +152,7 @@ function TermsAndPrivacy() {
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
                     Users pledge not to engage in unauthorized or illegal activities
-                    on the Crown Bankers platform, including fraudulent activities,
+                    on the CNEOX platform, including fraudulent activities,
                     money laundering, or actions contravening relevant laws.
                   </p>
                 </div>
@@ -171,7 +171,7 @@ function TermsAndPrivacy() {
                     Acceptance of Risks
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                    By registering with Crown Bankers, users acknowledge and accept
+                    By registering with CNEOX, users acknowledge and accept
                     the inherent risks associated with investment, understanding the
                     potential for financial losses and gains.
                   </p>
@@ -181,7 +181,7 @@ function TermsAndPrivacy() {
                     Termination of Account
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                    Crown Bankers retains the right to terminate or suspend accounts
+                    CNEOX retains the right to terminate or suspend accounts
                     at any time for reasons including but not limited to the breach
                     of these Terms of Use or engagement in suspicious activities.
                   </p>
@@ -199,7 +199,7 @@ function TermsAndPrivacy() {
                       Extra Income wallet withdrawals are only allowed on the <strong>1st of every month</strong>. Any attempts on other dates will result in a system message indicating this restriction.
                     </li>
                     <li>
-                      In the reports section, charges should <strong>not be displayed</strong> for R&B and Extra Income wallets, as Crown Bankers does not levy any fees on them (0% charge).
+                      In the reports section, charges should <strong>not be displayed</strong> for R&B and Extra Income wallets, as CNEOX does not levy any fees on them (0% charge).
                     </li>
                   </ul>
                 </div>
@@ -223,7 +223,7 @@ function TermsAndPrivacy() {
                   </p>
                   <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
                     For certain payment services, users may be directed to
-                    third-party processors. Crown Bankers is not responsible for the
+                    third-party processors. CNEOX is not responsible for the
                     policies or practices of these processors.
                   </p>
                 </div>
@@ -233,7 +233,7 @@ function TermsAndPrivacy() {
                   Indemnity
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Users agree to protect and indemnify Crown Bankers against claims,
+                  Users agree to protect and indemnify CNEOX against claims,
                   losses, or liabilities arising from their infringement of these
                   terms or any activities on the website conducted under their
                   account.
@@ -244,7 +244,7 @@ function TermsAndPrivacy() {
                   Data Entry
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Data provided on the website is retained by Crown Bankers
+                  Data provided on the website is retained by CNEOX
                   according to the Privacy Policy for verification and operational
                   purposes.
                 </p>
@@ -254,7 +254,7 @@ function TermsAndPrivacy() {
                   Limitation of Liability
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Crown Bankers and its associates make no representations or
+                  CNEOX and its associates make no representations or
                   warranties regarding the utilization or outcomes of using the
                   website. They shall not be held liable for errors,
                   misrepresentations, or losses incurred through platform
@@ -266,7 +266,7 @@ function TermsAndPrivacy() {
                   Amendments
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Crown Bankers reserves the right to alter these terms without
+                  CNEOX reserves the right to alter these terms without
                   prior notice. Users' continued usage implies agreement to revised
                   terms.
                 </p>
@@ -304,7 +304,7 @@ function TermsAndPrivacy() {
                   Introduction
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  Crown Bankers ("we", "our", or "us") is committed to protecting your privacy and ensuring 
+                  CNEOX ("we", "our", or "us") is committed to protecting your privacy and ensuring 
                   the security of your personal information. This Privacy Policy outlines how we collect, 
                   use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>

@@ -11,7 +11,7 @@ const Content3 = () => {
                   Solar Energy
                 </div>
                 <h1 className="font-raleway text-6xl">
-                  Invest in the Future of Solar Energy with Crown bankers
+                  Invest in the Future of Solar Energy with CNEOX
                 </h1>
                 <div className="flex mt-2 flex-col md:flex-row gap-4">
                   <img

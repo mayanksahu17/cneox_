@@ -31,7 +31,7 @@ const Content_02 = () => {
                 {/* Section Content Block */}
                 <div className='text-lg leading-[1.4] lg:text-[21px]'>
                   <p className='mb-7 last:mb-0'>
-                  Wealth growth unfolds at Crown Bankers through innovative strategies. Optimize wealth, seize opportunities, and embark on a prosperous financial journey.
+                  Wealth growth unfolds at CNEOX through innovative strategies. Optimize wealth, seize opportunities, and embark on a prosperous financial journey.
                   </p>
                   <ul className='flex flex-col gap-y-5 font-dmSans text-xl leading-tight tracking-tighter text-black lg:mt-12 lg:text-[28px]'>
                     <li className='flex items-start gap-x-3' style={
@@ -70,7 +70,7 @@ const Content_02 = () => {
                           className='h-full w-full'
                         />
                       </div>
-                      Uncover opportunities for financial prosperity with Crown Bankers' innovative strategies                    </li>
+                      Uncover opportunities for financial prosperity with CNEOX' innovative strategies                    </li>
                   </ul>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Content_02 = () => {
               <div className='jos order-1' data-jos_animation='fade-right'>
                 {/* Section Content Block */}
                 <div className='mb-6'>
-                  <h2 style={{fontSize:"50px"}}>Crown Bankers Crypto card 
+                  <h2 style={{fontSize:"50px"}}>CNEOX Crypto card 
 
 </h2>
                 </div>
@@ -146,7 +146,7 @@ const Content_02 = () => {
               <div className='jos order-1' data-jos_animation='fade-right'>
                 {/* Section Content Block */}
                 <div className='mb-6'>
-                  <h2 style={{fontSize:"50px"}}>Crown Bankers Virtual Card
+                  <h2 style={{fontSize:"50px"}}>CNEOX Virtual Card
  
 
 </h2>
@@ -198,7 +198,7 @@ const Content_02 = () => {
               <div className='jos order-1' data-jos_animation='fade-right'>
                 {/* Section Content Block */}
                 <div className='mb-6'>
-                  <h2 style={{fontSize:"50px"}}>Crown Bankers Physical Card
+                  <h2 style={{fontSize:"50px"}}>CNEOX Physical Card
  
 
 </h2>

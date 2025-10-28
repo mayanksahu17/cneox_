@@ -10,7 +10,7 @@ export default function SimpleAppSection() {
           <div className="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
             🎉 New App Launch
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Download Crown Bankers App</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Download CNEOX App</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experience secure and fast banking with our new mobile application. Manage your finances anytime, anywhere.
           </p>
@@ -23,7 +23,7 @@ export default function SimpleAppSection() {
         <div className="bg-white rounded-2xl shadow-lg p-6 w-full h-full">
             <img
             src="https://res.cloudinary.com/dwyyrm9xw/image/upload/v1750599228/apk_dcz9si.jpg"
-            alt="Crown Bankers App"
+            alt="CNEOX App"
             className="w-full h-full object-contain rounded-xl"
             />
         </div>
@@ -90,7 +90,7 @@ export default function SimpleAppSection() {
         <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-sm">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
           <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            Join thousands of users who trust Crown Bankers for their beast Investment journey.
+            Join thousands of users who trust CNEOX for their beast Investment journey.
           </p>
           <a
             href="/apk/CrownBankers.apk"

@@ -6,7 +6,7 @@ const Roadmap = () => {
       year: "2022",
       title: "A Dream Takes Shape",
       points: [
-        "Conceptualized Crown Bankers as a bridge between renewable energy and financial solutions.",
+        "Conceptualized CNEOX as a bridge between renewable energy and financial solutions.",
         "Built the foundation for a global platform focused on sustainable finance."
       ]
     },
@@ -14,7 +14,7 @@ const Roadmap = () => {
       year: "2023",
       title: "Laying the Foundation",
       points: [
-        "Registered our website and secured the Crown Bankers domain.",
+        "Registered our website and secured the CNEOX domain.",
         "Broke ground on our first solar plant, marking our entry into the renewable energy sector.",
         "Established the pillars for global expansion in sustainable finance."
       ]
@@ -24,9 +24,9 @@ const Roadmap = () => {
       title: "A Year of Transformation",
       points: [
         "Completed our first solar plant, officially contributing to clean energy production.",
-        "Registered Crown Bankers in New Zealand and the UK, expanding our global presence.",
+        "Registered CNEOX in New Zealand and the UK, expanding our global presence.",
         "Opened our new corporate office, reinforcing our commitment to growth and innovation.",
-        "Crown Bankers mobile app launching soon, bringing seamless access to our platform."
+        "CNEOX mobile app launching soon, bringing seamless access to our platform."
       ]
     },
     {
@@ -44,7 +44,7 @@ const Roadmap = () => {
       title: "Pioneering the Future",
       points: [
         "Begin manufacturing EV and solar components, reducing reliance on external suppliers.",
-        "Expand Crown Bankers’ presence to over 30 countries, solidifying our global footprint.",
+        "Expand CNEOX’ presence to over 30 countries, solidifying our global footprint.",
         "Introduce smart AI-driven solutions to optimize energy efficiency and financial management."
       ]
     },
@@ -53,7 +53,7 @@ const Roadmap = () => {
       title: "Smart Technology & Clean Mobility",
       points: [
         "Deploy AI-powered energy tracking, enhancing solar grid efficiency.",
-        "Launch Crown Bankers EV Charging Stations in key global locations.",
+        "Launch CNEOX EV Charging Stations in key global locations.",
         "Expand into smart electric vehicles, integrating autonomous driving and AI-based battery management."
       ]
     },
@@ -61,7 +61,7 @@ const Roadmap = () => {
       year: "2028",
       title: "A Global Leader in Sustainable Finance & Energy",
       points: [
-        "Operate 100+ solar plants worldwide, making Crown Bankers a dominant player in clean energy.",
+        "Operate 100+ solar plants worldwide, making CNEOX a dominant player in clean energy.",
         "Establish fully integrated AI-powered smart grids, optimizing energy distribution.",
         "Expand into financial technology innovation, bridging fintech and sustainability."
       ]
@@ -72,7 +72,7 @@ const Roadmap = () => {
     <section className="bg-gray-50 dark:bg-gray-900 py-16 px-4 sm:px-8 lg:px-16" id="roadmap">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-green-600 mb-12">
-          Crown Bankers Roadmap (2022 – 2028)
+          CNEOX Roadmap (2022 – 2028)
         </h2>
 
         <div className="space-y-12">

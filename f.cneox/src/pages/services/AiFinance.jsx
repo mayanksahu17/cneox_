@@ -233,7 +233,7 @@ const AiFinance = () => {
                 The Power of AI in Financial Services
               </h2>
               <p className="mb-8 text-white/90">
-                At Crown Bankers, we harness cutting-edge artificial intelligence technology to 
+                At CNEOX, we harness cutting-edge artificial intelligence technology to 
                 revolutionize financial operations. Our AI systems process vast amounts of data 
                 in milliseconds, identify patterns invisible to the human eye, and execute 
                 complex tasks with unmatched precision.
@@ -511,7 +511,7 @@ const AiFinance = () => {
             Ready to Transform Your Financial Operations with AI?
           </h2>
           <p className="mb-8 text-lg">
-            Join Crown Bankers in leveraging cutting-edge artificial intelligence to revolutionize your 
+            Join CNEOX in leveraging cutting-edge artificial intelligence to revolutionize your 
             financial processes, enhance decision-making, and drive exceptional business results.
           </p>
           <button className="px-8 py-3 text-lg font-semibold text-[#4CAF50] bg-white rounded-md hover:bg-gray-100 transition duration-300">

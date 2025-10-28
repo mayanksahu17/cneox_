@@ -110,10 +110,10 @@ const SolarAgreement = () => {
               {/* Section 1: Commitment to Renewable Energy */}
               <div>
                 <p className="mb-4 text-2xl font-semibold text-gray-900">
-                  Crown Bankers' Commitment to Renewable Energy
+                  CNEOX' Commitment to Renewable Energy
                 </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  At Crown Bankers, our mission is to integrate sustainable
+                  At CNEOX, our mission is to integrate sustainable
                   energy solutions with financial innovation. As part of our
                   ongoing efforts to expand our solar energy infrastructure, we
                   are proud to share details of a recent purchase agreement with
@@ -169,7 +169,7 @@ const SolarAgreement = () => {
                   Supporting a Sustainable Future
                 </h3>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-                  By investing in cutting-edge solar technologies, Crown Bankers
+                  By investing in cutting-edge solar technologies, CNEOX
                   is driving the shift towards renewable energy. This purchase
                   will help us build more efficient solar plants, ensuring
                   sustainable energy supply for our growing network of partners

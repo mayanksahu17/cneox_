@@ -57,12 +57,12 @@ module.exports = {
         parseFloat(nowPaymentData.voucher_amount) < 0 ||
         parseFloat(nowPaymentData.invested_amount) < 0 ||
         parseFloat(nowPaymentData.invested_amount) !==
-          parseFloat(nowPaymentData.deposit_amount) +
-            parseFloat(nowPaymentData.voucher_amount) ||
+        parseFloat(nowPaymentData.deposit_amount) +
+        parseFloat(nowPaymentData.voucher_amount) ||
         !["self", "downline"].includes(nowPaymentData.type) ||
         (nowPaymentData.voucher_id !== "NA" &&
           parseFloat(nowPaymentData.deposit_amount) !==
-            parseFloat(nowPaymentData.voucher_amount)) ||
+          parseFloat(nowPaymentData.voucher_amount)) ||
         (nowPaymentData.voucher_id === "NA" &&
           parseFloat(nowPaymentData.voucher_amount) > 0)
       ) {
@@ -97,9 +97,9 @@ module.exports = {
       );
       if (
         parseFloat(nowPaymentData?.invested_amount) <
-          parseFloat(packageData?.min_amount) ||
+        parseFloat(packageData?.min_amount) ||
         parseFloat(nowPaymentData?.invested_amount) >
-          parseFloat(packageData?.max_amount)
+        parseFloat(packageData?.max_amount)
       ) {
         return res.status(400).json({
           success: false,
@@ -133,7 +133,7 @@ module.exports = {
           !voucher ||
           voucher?.status != "active" ||
           parseFloat(voucher?.amount) <
-            parseFloat(nowPaymentData?.voucher_amount)
+          parseFloat(nowPaymentData?.voucher_amount)
         ) {
           return res.status(400).json({
             success: false,
@@ -192,7 +192,7 @@ module.exports = {
         .json({ message: "Internal Server Error", success: false });
     }
   },
-  
+
   getDepositData: async (req, res, next) => {
     // const hmacHeader = req.get("HMAC");
 
@@ -313,7 +313,7 @@ module.exports = {
           parseFloat(voucher_amount) < 0 ||
           parseFloat(invested_amount) < 0 ||
           parseFloat(invested_amount) !==
-            parseFloat(deposit_amount) + parseFloat(voucher_amount) ||
+          parseFloat(deposit_amount) + parseFloat(voucher_amount) ||
           !["self", "downline"].includes(type) ||
           (voucher_id !== "NA" &&
             parseFloat(invested_amount) !== parseFloat(voucher_amount) * 2) ||
@@ -450,6 +450,180 @@ module.exports = {
     } else {
       console.log("just updating");
       return res.status(200).json({ message: "Entry Updated", success: false });
+    }
+  },
+
+  activatePackage: async (req, res) => {
+    try {
+      // Required fields (adjust as needed)
+      const {
+        user_id,
+        type, // 'self' | 'downline'
+        sponsor = null,
+        package_id,
+        invested_amount,
+        deposit_amount,
+        voucher_amount = 0,
+        voucher_id = 'NA',
+        email = null,
+        note = null,
+        pay_currency = 'USD'
+      } = req.body;
+
+      // Basic validation
+      if (!user_id || !package_id || !invested_amount || !deposit_amount || !type) {
+        return res.status(400).json({ success: false, message: 'Missing required fields' });
+      }
+
+      // Validate user exists
+      const user = await user_service.getUserById(user_id);
+      if (!user) return res.status(400).json({ success: false, message: 'Invalid user' });
+
+      if (type === 'downline') {
+        const sponsorUser = await user_service.getUserById(sponsor);
+        if (!sponsorUser) return res.status(400).json({ success: false, message: 'Invalid sponsor' });
+      }
+
+      // Validate package bounds
+      // const pkg = await packages_master_service.getPackageById(package_id);
+      // if (!pkg) return res.status(400).json({ success:false, message: 'Invalid package' });
+      // if (parseFloat(invested_amount) < parseFloat(pkg.min_amount) || parseFloat(invested_amount) > parseFloat(pkg.max_amount)) {
+      //   return res.status(400).json({ success:false, message: 'Invalid package amount' });
+      // }
+
+      // Voucher validation (if provided)
+      if (voucher_id !== 'NA' && parseFloat(voucher_amount) > 0) {
+        const voucher = await voucher_service.getVoucherByVoucherId(voucher_id);
+        if (!voucher || voucher.status !== 'active') {
+          return res.status(400).json({ success: false, message: 'Invalid voucher' });
+        }
+        // ownership check
+        if (type === 'downline' && voucher.userId !== sponsor) {
+          return res.status(400).json({ success: false, message: 'Voucher ownership mismatch' });
+        }
+        if (type === 'self' && voucher.userId !== user_id) {
+          return res.status(400).json({ success: false, message: 'Voucher ownership mismatch' });
+        }
+      }
+
+      // Business validation (use same rules as webhook)
+      if (
+        !parseFloat(invested_amount) ||
+        parseFloat(deposit_amount) < 0 ||
+        parseFloat(voucher_amount) < 0 ||
+        parseFloat(invested_amount) < 0 ||
+        parseFloat(invested_amount) !==
+        parseFloat(deposit_amount) + parseFloat(voucher_amount) ||
+        !['self', 'downline'].includes(type) ||
+        (voucher_id !== 'NA' && parseFloat(deposit_amount) !== parseFloat(voucher_amount)) ||
+        (voucher_id === 'NA' && parseFloat(voucher_amount) > 0)
+      ) {
+        return res.status(400).json({ success: false, message: 'Invalid data' });
+      }
+
+      // Build unique txn id (manual prefix)
+      const txn_id = `MANUAL-${generateString(8)}-${Date.now()}`;
+
+      // Create a nowpayment-style record (so transaction history shows)
+      const nowpaymentRecord = {
+        id: txn_id,
+        invoice_id: txn_id,
+        order_id: `MANUAL-OI-${generateString(8)}`,
+        pay_currency,
+        actually_paid: deposit_amount,
+        payment_status: 'finished',
+        custom: JSON.stringify([user_id, type, sponsor, package_id, invested_amount, deposit_amount, voucher_amount, voucher_id]),
+        customer_email: email || user.email || null,
+        source: 'admin_manual',
+        createdBy: req.admin?.id || 'admin',
+        createdAt: new Date()
+      };
+
+      // Save nowpayment record (implement saveTransaction to upsert into your nowpayments table)
+      // await nowpayment_service.saveTransaction(nowpaymentRecord);
+
+      // Idempotency check: ensure investment with txn_id not exists
+      const existingInvestment = await invetsments_service.getInvestmentByTxnId(txn_id);
+      if (existingInvestment) {
+        return res.status(200).json({ success: true, message: 'Investment already exists', data: existingInvestment });
+      }
+
+
+
+      // Create investment using your existing service (which uses connectionPool)
+      // investment_date / expires_on logic similar to webhook
+      const investment_date = new Date(); // or call getUKTime()
+      const pkg = await packages_master_service.getPackageById(package_id);
+
+      // Calculate expiry by adding <duration> days
+      let expires_on = new Date(investment_date);
+      expires_on.setDate(expires_on.getDate() + parseInt(pkg.duration));
+
+      const token_amount = voucher_amount;
+
+      const deposit = await invetsments_service.createInvestment(
+        txn_id,
+        user_id,
+        sponsor,
+        package_id,
+        invested_amount,
+        investment_date,
+        expires_on,
+        deposit_amount,
+        token_amount,
+        type,
+        pay_currency,
+        voucher_id
+      );
+
+      // Update wallet totals (same as webhook)
+   if (type === 'self') {
+      await walletService.updateTotalDeposit(user_id, invested_amount);
+    } else {
+      await walletService.updateTotalDeposit(sponsor, invested_amount);
+        await notificationService.createNotification(
+          sponsor,
+          "user",
+          `Downline investment successful for ${user_id} : $${invested_amount}.`,
+          "investment"
+        );
+        // optionally sendNotificationToUser(req, sponsor);
+      }
+
+      // voucher book-keeping (decrement or mark used) - reuse your voucher service
+      if (voucher_id !== 'NA' && parseFloat(voucher_amount) > 0) {
+        const voucher = await voucher_service.getVoucherByVoucherId(voucher_id);
+        const newAmount = parseFloat(voucher.amount) - parseFloat(voucher_amount);
+        const newStatus = newAmount === 0 ? 'used' : 'active';
+        await voucher_service.updateVoucherAmountAndStatus(voucher_id, newAmount, newStatus);
+      }
+
+      // Mark investment as ready for binary processing (you have updateInvestmentBinarystatus)
+      // If you have a binary processing job, call it here. Example:
+      // await binaryService.processInvestmentBinary(deposit.investment_id);
+      // Or if binary should be updated by a separate worker, set flags:
+      await invetsments_service.updateInvestmentBinarystatus(deposit.investment_id);
+
+      // Notifications
+      await notificationService.createNotification(
+        user_id,
+        "user",
+        `Investment successful : $${invested_amount}.`,
+        "investment"
+      );
+      // optionally sendNotificationToUser(req, user_id);
+      await notificationService.createNotification(
+        null,
+        "admin",
+        `Investment created for ${user_id} of $${invested_amount}.`,
+        "investment"
+      );
+
+      // Return
+      return res.status(201).json({ success: true, data: deposit });
+    } catch (err) {
+      console.error('Admin activation error:', err);
+      return res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
   },
 

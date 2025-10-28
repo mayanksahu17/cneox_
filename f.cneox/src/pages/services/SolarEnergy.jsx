@@ -383,7 +383,7 @@ const SolarEnergy = () => {
                 Expert Guidance & Personalized Solutions
               </h2>
               <p className="mb-8 text-gray-600">
-                At Crown Bankers, our solar energy specialists bring decades of industry experience 
+                At CNEOX, our solar energy specialists bring decades of industry experience 
                 to help you navigate the complexities of renewable energy opportunities. Our approach 
                 combines thorough market analysis with your specific goals to create customized strategies.
               </p>
@@ -439,7 +439,7 @@ const SolarEnergy = () => {
             Ready to Explore Solar Energy Opportunities?
           </h2>
           <p className="mb-8 text-lg">
-            Join Crown Bankers in participating in the solar energy revolution. Our expert team
+            Join CNEOX in participating in the solar energy revolution. Our expert team
             will guide you through opportunities that align with your financial goals
             and values.
           </p>

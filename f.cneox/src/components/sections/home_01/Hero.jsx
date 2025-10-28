@@ -12,10 +12,10 @@ const Hero = () => {
             <div className="mb-14 flex flex-col items-center text-center lg:mb-20">
               <h1 className="jos slide-from-bottom mb-6 max-w-[510px] lg:max-w-[768px] xl:max-w-[1076px]">
                 THINK WEALTH, <br />
-                THINK CROWN BANKERS
+                THINK CNEOX
               </h1>
               <p className="jos slide-from-bottom mb-11 max-w-[700px] text-lg font-semibold sm:text-xl xl:max-w-[980px]">
-                Welcome to Crown Bankers, your gateway to the best investing
+                Welcome to CNEOX, your gateway to the best investing
                 platform. Experience seamless transactions, robust returns, and
                 personalized service for a rewarding and stress-free financial
                 journey.
@@ -55,7 +55,7 @@ const Hero = () => {
                   lineHeight: "35px",
                 }}
               >
-                Crown Bankers: Officially Partnered with Visa, Mastercard,
+                CNEOX: Officially Partnered with Visa, Mastercard,
                 Binance, and Alchemy Pay.
               </p>
             </div>

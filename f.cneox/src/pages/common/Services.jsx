@@ -317,10 +317,10 @@ const Services = () => {
         <div className="relative max-w-6xl px-4 mx-auto md:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <label className="mb-6 text-4xl text-white sm:text-5xl lg:text-6xl font-bethany">
-              Ride the Wave to Financial Freedom with Crown Bankers
+              Ride the Wave to Financial Freedom with CNEOX
             </label>
             <p className="mx-auto text-base leading-relaxed text-white sm:text-lg lg:text-xl">
-              At Crown Bankers, we're dedicated to helping you capitalize on the
+              At CNEOX, we're dedicated to helping you capitalize on the
               most exciting investment opportunities in today's market. Our
               platform simplifies investing in high-growth sectors, ensuring
               your portfolio benefits from cutting-edge advancements. Explore
@@ -333,7 +333,7 @@ const Services = () => {
       {/* Solar Sector Section */}
       <section ref={solarRef} className="py-12 sm:py-16 lg:py-20">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#4CAF50]">
-          Why Invest in the Best with Crown Bankers
+          Why Invest in the Best with CNEOX
         </h2>
         <div className="mx-auto  max-w-7xl md:mx-24 ">
           <div className="flex flex-col lg:flex-row lg:items-left lg:gap-12 ">
@@ -386,7 +386,7 @@ const Services = () => {
                     </h3>
                   </div>
                   <p className="text-sm text-gray-600 sm:text-base">
-                    Crown Bankers' dedicated professionals meticulously research
+                    CNEOX' dedicated professionals meticulously research
                     and diversify portfolios in promising solar companies,
                     ensuring informed and profitable investments without needing
                     to be a solar expert.
@@ -492,7 +492,7 @@ const Services = () => {
       <section ref={forbesRef} className="py-12 sm:py-16 lg:py-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#4CAF50]">
-            Invest in the Best with Crown Bankers
+            Invest in the Best with CNEOX
           </h2>
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
             <div className="mb-8 lg:w-1/2 lg:mb-0">
@@ -500,7 +500,7 @@ const Services = () => {
                 Forbes Top 500 Companies
               </h3>
               <p className="mb-8 text-base text-gray-600 sm:text-lg">
-                Crown Bankers strategically invests in the Forbes Global 500,
+                CNEOX strategically invests in the Forbes Global 500,
                 including industry giants like Apple, Amazon, and Microsoft.
                 This approach ensures
               </p>
@@ -563,7 +563,7 @@ const Services = () => {
               />
               <div className="mt-8 text-center">
                 <h3 className="mb-4 text-2xl font-bold text-gray-800 sm:text-3xl">
-                  Join Crown Bankers Today!
+                  Join CNEOX Today!
                 </h3>
                 <p className="mb-6 text-base text-gray-600 sm:text-lg">
                   Benefit from our strategic approach to Forbes 500 investments
@@ -592,7 +592,7 @@ const Services = () => {
           {/* Header */}
           <div className="pt-8 pb-12 text-center text-white header-content md:pb-16">
             <h1 className="max-w-3xl mx-auto text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl">
-              Extra Income Opportunities at Crown Bankers
+              Extra Income Opportunities at CNEOX
             </h1>
           </div>
 
@@ -654,7 +654,7 @@ const Services = () => {
                 </h2>
                 <div className="space-y-3 text-base text-gray-200 sm:space-y-5 sm:text-lg md:text-xl">
                   <p>
-                    At Crown Bankers, we value the power of community and shared
+                    At CNEOX, we value the power of community and shared
                     success. Our Referral Bonus program is designed to reward
                     your efforts in bringing new investors into our network.
                   </p>
@@ -700,7 +700,7 @@ const Services = () => {
                 </h2>
                 <div className="space-y-6">
                   <p className="text-lg leading-relaxed text-gray-700 binary-text">
-                    Binary Bonus at Crown bankers: The Binary Bonus at Crown
+                    Binary Bonus at CNEOX: The Binary Bonus at Crown
                     Bankers is a rewarding incentive designed for members who
                     introduce new investors to our investment ecosystem. This
                     bonus follows a binary structure, where each member has two
@@ -765,7 +765,7 @@ const Services = () => {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <img
             src="\assets\img\CASH.png"
-            alt="Crown Bankers"
+            alt="CNEOX"
             className="object-contain w-full h-auto"
           />
         </div>

@@ -16,7 +16,6 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
   const notificationRef = useRef(null);
   const profileRef = useRef(null);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -29,116 +28,115 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
         setIsProfileOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
   const toggleNotification = () => {
     setIsNotificationOpen(!isNotificationOpen);
     setIsProfileOpen(false);
   };
-
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsNotificationOpen(false);
   };
-
   const handleLogout = () => {
     logOutUser();
     navigate("/login");
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-      <div className="flex items-center justify-between px-4 py-3">
-        <div className="flex items-center">
+    <header className="sticky top-0 z-40 w-full border-b border-[#0c1b2a] bg-[#000000] text-white">
+      <div className="flex items-center justify-between px-5 py-3">
+        {/* Left Section */}
+        <div className="flex items-center gap-3">
           <button
             onClick={toggleSidebar}
-            className="p-2 mr-2 rounded-md text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 lg:hidden"
+            className="p-2 rounded-md bg-[#0b1c2d] hover:bg-[#11283f] transition lg:hidden"
           >
-            <Menu size={20} />
+            <Menu size={20} className="text-[#cfe6ff]" />
           </button>
+
           <div>
-            <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
+            <h1 className="text-lg font-semibold tracking-wide text-[#f6b50a]">
               {pageTitle}
             </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 hidden md:block">
-              Let's check your update today
+            <p className="text-xs text-[#8fa5bb] hidden md:block">
+              Let’s check your update today
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-3">
-          {/* Theme toggle */}
-          <button
+        {/* Right Section */}
+        <div className="flex items-center space-x-4">
+          {/* Theme Toggle */}
+          {/* <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+            className="p-2 rounded-full bg-[#0b1c2d] hover:bg-[#11283f] transition"
           >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+            {theme === "dark" ? (
+              <Sun size={18} className="text-[#f6b50a]" />
+            ) : (
+              <Moon size={18} className="text-[#cfe6ff]" />
+            )}
+          </button> */}
 
-          {/* Notification */}
+          {/* Notifications */}
           <div className="relative" ref={notificationRef}>
             <button
               onClick={toggleNotification}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 relative"
+              className="p-2 rounded-full bg-[#0b1c2d] hover:bg-[#11283f] transition relative"
             >
-              <Bell size={20} />
-              <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+              <Bell size={18} className="text-[#cfe6ff]" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-[#f6b50a] rounded-full"></span>
             </button>
 
             {isNotificationOpen && (
-              <div className="absolute right-0 mt-2 w-80 z-50">
+              <div className="absolute right-0 mt-3 w-80 z-50 rounded-lg border border-[#132b44] bg-[#0c1b2a] shadow-xl backdrop-blur-md">
                 <Notifications />
               </div>
             )}
           </div>
 
-          {/* User profile */}
+          {/* User Profile */}
           <div className="relative" ref={profileRef}>
             <button
               onClick={toggleProfile}
-              className="flex items-center space-x-2"
+              className="flex items-center gap-2 focus:outline-none"
             >
-              <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border-2 border-green-500">
+              <div className="w-10 h-10 rounded-full bg-[#0b1c2d] border-2 border-[#f6b50a] overflow-hidden">
                 <img
                   src="/assets/logo1.png"
-                  alt="User avatar"
+                  alt="User"
                   className="w-full h-full object-cover"
                 />
               </div>
               <ChevronDown
                 size={16}
-                className="hidden md:block text-gray-500 dark:text-gray-400"
+                className="hidden md:block text-[#9fb0c1]"
               />
             </button>
 
             {isProfileOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg z-50 border border-gray-200 dark:border-gray-700">
-                <div className="py-1">
+              <div className="absolute right-0 mt-3 w-52 rounded-lg border border-[#132b44] bg-[#0c1b2a] shadow-lg z-50">
+                <div className="py-2 text-sm">
                   <Link
                     to="/dashboard/settings/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="block px-4 py-2 text-[#cfe6ff] hover:bg-[#11283f] rounded-md"
                   >
                     Settings
                   </Link>
                   <Link
                     to="/dashboard/tickets/submit-ticket"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="block px-4 py-2 text-[#cfe6ff] hover:bg-[#11283f] rounded-md"
                   >
                     Help & Support
                   </Link>
-                  <div className="border-t border-gray-200 dark:border-gray-700"></div>
+                  <div className="border-t border-[#132b44] my-1"></div>
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                    className="block w-full text-left px-4 py-2 text-[#ffb3b3] hover:bg-[#2a1212] rounded-md"
                   >
                     Sign Out
                   </button>

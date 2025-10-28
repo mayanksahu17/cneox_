@@ -28,3 +28,6 @@ ssh -i "cneox_.pem" ubuntu@ec2-13-49-231-194.eu-north-1.compute.amazonaws.com
 
 server 
 ssh -i "cneox_.pem" ubuntu@ec2-13-48-85-160.eu-north-1.compute.amazonaws.com
+
+
+support chat : https://chatgpt.com/g/g-p-68fd2b3072a88191a70725bfc395aa27-cneox/c/68fe864c-2940-8321-b7a3-21989a3599ea

@@ -37,7 +37,7 @@ const Content_01 = () => {
                 {/* Section Content Block */}
                 <div className="text-lg leading-[1.4] lg:text-[21px]">
                   <p className="mb-7 last:mb-0">
-                    At Crown Bankers, we invest in the future by focusing on
+                    At CNEOX, we invest in the future by focusing on
                     high-growth sectors like EV, cryptocurrency, solar energy,
                     and Forbes Top 500 companies. With a market projected to
                     reach $1.8 trillion by 2030, EVs lead the charge towards
@@ -47,7 +47,7 @@ const Content_01 = () => {
                     portfolios in promising companies. Additionally, we leverage
                     our expertise to invest in Forbes Top 500 companies,
                     maximizing returns through market analysis and exclusive
-                    deals. Invest with Crown Bankers and be part of the
+                    deals. Invest with CNEOX and be part of the
                     innovation driving tomorrow's economy.
                   </p>
                 </div>

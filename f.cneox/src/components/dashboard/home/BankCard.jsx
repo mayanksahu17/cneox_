@@ -9,7 +9,7 @@ export default function BankCard() {
       </div>
       
       {/* Bank Name */}
-      <div className="text-lg font-bold mb-4">Crown bankers</div>
+      <div className="text-lg font-bold mb-4">CNEOX</div>
 
       {/* Card Pattern */}
       <div className="bg-gray-700 bg-opacity-20 p-4 rounded-lg relative">

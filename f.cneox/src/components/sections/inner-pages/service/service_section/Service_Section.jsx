@@ -11,7 +11,7 @@ const Service_Section = () => {
           {/* Section Content Block */}
           <div className="jos mb-10 text-center lg:mb-16 xl:mb-20">
             <div className="mx-auto max-w-md lg:max-w-xl xl:max-w-[950px]">
-              <h2>Grow Your Wealth with Crown Bankers</h2>
+              <h2>Grow Your Wealth with CNEOX</h2>
             </div>
           </div>
           {/* Section Content Block */}

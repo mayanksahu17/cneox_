@@ -13,7 +13,7 @@ const Content12 = () => {
                   Book now
                 </div>
                 <div className="font-raleway text-4xl text-white">
-                  Crown Bankers
+                  CNEOX
                 </div>
                 <div className=" text-4xl text-colorOrangyRed">Crypto Card</div>
                 <div className="flex flex-row justify-between items-center w-full gap-4 mt-4">

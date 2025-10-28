@@ -24,7 +24,7 @@ const Content8 = () => {
                   </div>
                   <div className="flex flex-row justify-between items-center w-full gap-4 mt-4">
                     <div className=" text-white">
-                      At Crown Bankers, we provide four dynamic income streams
+                      At CNEOX, we provide four dynamic income streams
                       to maximize your financial growth: returns on investment
                       in high-growth sectors, a referral bonus for bringing new
                       investors on board, a binary bonus that rewards you for
@@ -65,7 +65,7 @@ const Content8 = () => {
                           </div>
                         </div>
                         <div className="relative text-white font-thin text-sm mt-4">
-                          Join our community-driven success at Crown Bankers!
+                          Join our community-driven success at CNEOX!
                           Refer new investors, earn a 7% to 9% Referral Bonus,
                           and grow together.
                         </div>

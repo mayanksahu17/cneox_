@@ -225,10 +225,10 @@ const WealthManagement = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
             <div className="mb-8 lg:w-1/2 lg:mb-0">
               <h2 className="mb-6 text-3xl font-bold text-[#4CAF50] sm:text-4xl">
-                Why Choose Crown Bankers?
+                Why Choose CNEOX?
               </h2>
               <p className="mb-6 text-gray-600">
-                At Crown Bankers, we combine industry expertise with personalized service to deliver exceptional
+                At CNEOX, we combine industry expertise with personalized service to deliver exceptional
                 wealth management solutions tailored to your unique needs and aspirations.
               </p>
               <ul className="space-y-4">
@@ -304,7 +304,7 @@ const WealthManagement = () => {
                 ★★★★★
               </div>
               <p className="mb-4 italic text-gray-600">
-                "Crown Bankers' wealth management services have been instrumental in growing my retirement 
+                "CNEOX' wealth management services have been instrumental in growing my retirement 
                 portfolio. Their personalized approach and expert guidance have given me confidence in my 
                 financial future."
               </p>
@@ -315,7 +315,7 @@ const WealthManagement = () => {
                 ★★★★★
               </div>
               <p className="mb-4 italic text-gray-600">
-                "The team at Crown Bankers took the time to understand my family's financial goals and 
+                "The team at CNEOX took the time to understand my family's financial goals and 
                 created a wealth management strategy that has consistently delivered results. Their 
                 attention to detail is unmatched."
               </p>
@@ -327,7 +327,7 @@ const WealthManagement = () => {
               </div>
               <p className="mb-4 italic text-gray-600">
                 "As a business owner, I needed a wealth management partner who understood the unique 
-                challenges I face. Crown Bankers has exceeded my expectations with their strategic 
+                challenges I face. CNEOX has exceeded my expectations with their strategic 
                 investment approach and tax optimization strategies."
               </p>
               <div className="font-semibold text-gray-800">- David L., Client since 2020</div>
@@ -344,7 +344,7 @@ const WealthManagement = () => {
           </h2>
           <p className="mb-8 text-lg">
             Schedule a consultation with our wealth management experts today and discover how
-            Crown Bankers can help you achieve your financial goals.
+            CNEOX can help you achieve your financial goals.
           </p>
           <button className="px-8 py-3 text-lg font-semibold text-[#4CAF50] bg-white rounded-md hover:bg-gray-100 transition duration-300">
             Schedule a Consultation

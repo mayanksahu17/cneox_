@@ -36,7 +36,7 @@ const Content_02 = () => {
                 <li>
                   <h4 className="mb-[10px]">Referral bonus</h4>
                   <p className="mb-7 last:mb-0">
-                    At Crown Bankers, we value the power of community and shared
+                    At CNEOX, we value the power of community and shared
                     success. Our Referral Bonus program is designed to reward
                     your efforts in bringing new investors into our network. By
                     referring others, you not only help them unlock financial
@@ -85,7 +85,7 @@ const Content_02 = () => {
               <br />
 
               <p>
-                Binary Bonus at Crown bankers The Binary Bonus at our company a
+                Binary Bonus at CNEOX The Binary Bonus at our company a
                 rewarding incentive designed for members who bring new investors
                 into our dynamic investment ecosystem. This bonus operates on a
                 binary structure, where each member possesses a left and a right

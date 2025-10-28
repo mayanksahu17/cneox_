@@ -358,7 +358,7 @@ export default function Investment({ data }) {
   {/* Mobile View: Vertical Cards */}
   <div className="space-y-6 md:hidden">
     {packageData.map((pkg, index) => (
-      <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 text-center">
+      <div key={index} className="bg-white dark:bg-black rounded-lg shadow-lg p-4 text-center">
         <img
           src={pkg.image}
           alt={pkg.name}
@@ -372,7 +372,7 @@ export default function Investment({ data }) {
             handleDataChange("isOpenModal", true);
             handleDataChange("selectedModalPackage", pkg);
           }}
-          className="mt-3 w-full bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 rounded-md font-medium transition-all duration-200"
+          className="mt-3 w-full bg-[#42c977] hover:bg-yellow-500 text-white py-2.5 rounded-md font-medium transition-all duration-200"
         >
           Purchase
         </button>
@@ -383,7 +383,7 @@ export default function Investment({ data }) {
   {/* Desktop View: Horizontal Cards with Larger Images and Narrower Buttons */}
   <div className="hidden md:flex justify-between gap-6">
     {packageData.map((pkg, index) => (
-      <div key={index} className="w-1/3 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center relative">
+      <div key={index} className="w-1/3 bg-black dark:bg-black-800 rounded-lg shadow-lg p-6 text-center relative">
         <img
           src={pkg.image}
           alt={pkg.name}
@@ -397,7 +397,7 @@ export default function Investment({ data }) {
             handleDataChange("isOpenModal", true);
             handleDataChange("selectedModalPackage", pkg);
           }}
-          className="mt-4 w-3/4 mx-auto bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 rounded-md font-medium transition-all duration-200"
+          className="mt-4 w-3/4 mx-auto bg-[#42c977] hover:bg-yellow-500 text-white py-2.5 rounded-md font-medium transition-all duration-200"
         >
           Purchase
         </button>

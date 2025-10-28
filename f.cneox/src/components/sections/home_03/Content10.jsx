@@ -12,7 +12,7 @@ const Content10 = () => {
                 </div>
                 <div className="flex mt-2 flex-row gap-4">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">
-                    At Crown Bankers, we value the power of community and shared
+                    At CNEOX, we value the power of community and shared
                     success. Our Referral Bonus program is designed to reward
                     your efforts in bringing new investors into our network. By
                     referring others, you not only help them unlock financial

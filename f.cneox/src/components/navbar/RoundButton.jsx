@@ -56,7 +56,7 @@ const RoundButton = ({ text = "Click Me!", className = "" }) => {
   return (
     <button
       ref={buttonRef}
-      className={`relative border-2 border-solid border-[#4CAF50] px-5 py-2 rounded-3xl text-white overflow-hidden hover:text-[#4CAF50] hover:border-white bg-[#4CAF50] z-0 ${className}`}
+      className={`relative bg-yellow-400 border-2 border-solid border-yellow px-5 py-2 rounded-3xl text-white overflow-hidden hover:text-[#000000] hover:border-white bg-[#4CAF50] z-0 ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}

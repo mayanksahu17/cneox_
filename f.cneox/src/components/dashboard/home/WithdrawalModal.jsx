@@ -3,7 +3,6 @@ import withdrawalService from "../../../services/withdrawalService";
 import Modal from "../global/Modal";
 import { IoClose } from "react-icons/io5";
 import Select from "../global/Select";
-import { tokens } from "../../../constants/tokens";
 import Button from "../global/Button";
 import { useAuth } from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -53,25 +52,39 @@ const WithdrawalModal = ({
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: "white",
-      border: "1px solid black",
+      backgroundColor: "#000000",
+      border: "1px solid #facc15",
       borderRadius: "8px",
-      padding: "1px",
-    }),
-    input: (provided) => ({
-      ...provided,
-      color: "#fff !important",
+      padding: "2px",
+      boxShadow: "none",
+      color: "#facc15",
+      minHeight: "42px",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#000",
-      fontWeight: "400",
+      color: "#facc15",
     }),
-    option: (provided) => ({
+    menu: (provided) => ({
       ...provided,
-      color: "#000",
-      fontWeight: "400",
+      backgroundColor: "#000000",
+      border: "1px solid #facc15",
+      borderRadius: "8px",
+      overflow: "hidden",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#facc15" : "#000000",
+      color: state.isFocused ? "#000000" : "#facc15",
       cursor: "pointer",
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "#facc15",
+      opacity: 0.8,
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: "#facc15",
     }),
   };
 
@@ -88,12 +101,13 @@ const WithdrawalModal = ({
       return;
     }
 
-    // Extra Income Wallet restriction
     if (
       withdrawalData.fromWallet?.value === "Interest" &&
       new Date().getDate() !== 1
     ) {
-      alert("Withdrawals from Extra Income Wallet are only allowed on the 1st of every month.");
+      alert(
+        "Withdrawals from Extra Income Wallet are only allowed on the 1st of every month."
+      );
       return;
     }
 
@@ -108,7 +122,7 @@ const WithdrawalModal = ({
       amountUserCanWithdrawal[withdrawalData.fromWallet?.value]
     ) {
       toast.error(
-        `You can only withdrawal $${amountUserCanWithdrawal[
+        `You can only withdraw $${amountUserCanWithdrawal[
           withdrawalData.fromWallet?.value
         ]?.toFixed(2)}`
       );
@@ -165,78 +179,44 @@ const WithdrawalModal = ({
       }
     } catch (error) {
       handleWithdrawalDataChange("isLoading", false);
-      if (error?.response?.data?.message == "Internal Server Error") {
-        console.log(error?.response?.data?.message);
-        
-        toast.error("Something went wrong, please try again later");
-      }else{
-        toast.error(error?.response?.data?.message || "Too many requests, please try again later");
-      }
+      const msg =
+        error?.response?.data?.message ||
+        "Something went wrong, please try again later";
+      toast.error(msg);
     }
   };
 
   return (
     <Modal
       isOpen={isWithdrawalModalOpen}
-      handleClose={() => {
-        setIsWithdrawalModalOpen(false);
-      }}
+      handleClose={() => setIsWithdrawalModalOpen(false)}
     >
-      <div className="flex flex-row items-center justify-between w-full text-black">
-        <p className="text-2xl font-semibold text-black leading-tighter">
-          Withdraw Fund
+      <div className="flex flex-row items-center justify-between w-full">
+        <p className="text-2xl font-semibold text-yellow-500">
+          Withdraw Funds
         </p>
         <IoClose
-          size="20"
-          className="text-black cursor-pointer"
-          onClick={() => {
-            setWithdrawalData({
-              isOTPSentForWithdrawal: false,
-              amount: 0,
-              fromWallet: {
-                label: "R&B Wallet",
-                value: "R&B",
-              },
-              withdrawalMethod: {
-                label: "Withdrawal Wallet",
-                value: "regular",
-              },
-              securityPin: "",
-              currency: {
-                label: "Bitcoin",
-                value: "BTC",
-              },
-              otp: "",
-              isLoading: false,
-            });
-            setIsWithdrawalModalOpen(false);
-          }}
+          size={24}
+          className="text-yellow-500 cursor-pointer hover:text-yellow-400"
+          onClick={() => setIsWithdrawalModalOpen(false)}
         />
       </div>
 
-      <div className="w-full">
-        <p className="text-base">
-          Enter the amount you wish to withdraw from your account. Please note
-          that the withdrawal request will be approved within 0 to 8 hours
-        </p>
-      </div>
+      <p className="text-sm text-yellow-300 mt-2">
+        Enter the amount you wish to withdraw. Requests are processed within
+        0–8 hours.
+      </p>
 
+      {/* Wallet Selection */}
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">Select Wallet</label>
+        <label className="block text-yellow-500 font-medium mb-1">
+          Select Wallet
+        </label>
         <Select
           options={[
-            {
-              label: "R&B Wallet",
-              value: "R&B",
-            },
-            {
-              label: "ROI Wallet",
-              value: "ROI",
-            },
-            {
-              label: "Extra Income Wallet",
-              value: "Interest",
-            },
+            { label: "R&B Wallet", value: "R&B" },
+            { label: "ROI Wallet", value: "ROI" },
+            { label: "Extra Income Wallet", value: "Interest" },
           ]}
           customStyles={customStyles}
           onChange={(val) => handleWithdrawalDataChange("fromWallet", val)}
@@ -244,56 +224,68 @@ const WithdrawalModal = ({
         />
       </div>
 
+      {/* Withdrawal Method */}
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">
+        <label className="block text-yellow-500 font-medium mb-1">
           Withdrawal Method
         </label>
-        <div className="bg-gray-100 border border-gray-300 rounded-md px-3 py-2 mt-1 text-black">
+        <div className="bg-black border border-yellow-500 rounded-md px-3 py-2 text-yellow-400">
           Withdrawal Wallet
         </div>
       </div>
 
+      {/* Amount */}
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">Enter Amount</label>
-        <input
-          type="text"
-          name="amount"
-          className="w-full bg-white px-2.5 py-2 border rounded-md text-black border-solid border-slate-200 outline-none mt-1 !ml-0"
-          onChange={(e) => handleWithdrawalDataChange("amount", e.target.value)}
-          value={withdrawalData.amount}
-        />
-      </div>
-
-      <div className="w-full mt-6">
-        <label className="block font-normal text-black">
-          Enter Your Security Pin
+        <label className="block text-yellow-500 font-medium mb-1">
+          Enter Amount
         </label>
         <input
           type="text"
+          name="amount"
+          className="w-full bg-black px-3 py-2 border border-yellow-500 rounded-md text-yellow-400 outline-none focus:ring-2 focus:ring-yellow-500"
+          onChange={(e) => handleWithdrawalDataChange("amount", e.target.value)}
+          value={withdrawalData.amount}
+          placeholder="Enter amount"
+        />
+      </div>
+
+      {/* Security Pin */}
+      <div className="w-full mt-6">
+        <label className="block text-yellow-500 font-medium mb-1">
+          Security Pin
+        </label>
+        <input
+          type="password"
           name="securityPin"
-          className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 text-black outline-none mt-1 !ml-0"
+          className="w-full bg-black px-3 py-2 border border-yellow-500 rounded-md text-yellow-400 outline-none focus:ring-2 focus:ring-yellow-500"
           value={withdrawalData.securityPin}
           onChange={(e) =>
             handleWithdrawalDataChange("securityPin", e.target.value)
           }
+          placeholder="Enter your security pin"
         />
       </div>
 
+      {/* OTP */}
       {withdrawalData.isOTPSentForWithdrawal && (
-        <div className="w-full mt-4">
-          <label className="block font-normal text-black">Enter OTP</label>
+        <div className="w-full mt-6">
+          <label className="block text-yellow-500 font-medium mb-1">
+            Enter OTP
+          </label>
           <input
             type="text"
             name="otp"
-            className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 text-black !ml-0"
+            className="w-full bg-black px-3 py-2 border border-yellow-500 rounded-md text-yellow-400 outline-none focus:ring-2 focus:ring-yellow-500"
             value={withdrawalData.otp}
             onChange={(e) => handleWithdrawalDataChange("otp", e.target.value)}
+            placeholder="Enter OTP"
           />
         </div>
       )}
 
+      {/* Submit Button */}
       <Button
-        className="mt-3"
+        className="w-full mt-6 bg-yellow-500 text-black font-semibold hover:bg-yellow-600 transition-all"
         onClick={handleWithdrawalSubmit}
         loading={withdrawalData.isLoading}
       >

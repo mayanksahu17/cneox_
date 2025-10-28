@@ -217,7 +217,7 @@ const Footer_01 = () => {
           {/* Footer Bottom */}
           <div className="py-4 mb-8 text-center">
             <p>
-              Copyright 2024, Crown Bankers. All Rights Reserved by CROWNQUEST
+              Copyright 2024, CNEOX. All Rights Reserved by CROWNQUEST
               ASSET MANAGEMENT LIMITED.
             </p>
           </div>

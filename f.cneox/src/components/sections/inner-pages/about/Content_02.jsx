@@ -31,7 +31,7 @@ const Content_02 = () => {
               {/* Section Content Block */}
               <div className='text-lg leading-[1.4] lg:text-[21px]'>
                 <p className='mb-7 last:mb-0'>
-                At Crown Bankers, we envision reshaping financial excellence through innovative solutions and strategic investments
+                At CNEOX, we envision reshaping financial excellence through innovative solutions and strategic investments
                 </p>
                 <p className='mb-7 last:mb-0'>
                 Trailblazing opportunities for growth and stability, we empower clients to navigate evolving markets with confidence. Our commitment to a prosperous future drives every financial decision, ensuring security and success for our clients

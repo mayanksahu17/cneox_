@@ -12,13 +12,13 @@ const Service = () => {
             <div className="jos mx-auto w-full md:w-1/2">
               <h2 className="text-colorBlue text-4xl mb-2">Crypto card</h2>
               <h2 className="font-spaceGrotesk text-4xl font-medium text-white">
-                Elevate Your Crypto Experience with Crown Bankers Cards!
+                Elevate Your Crypto Experience with CNEOX Cards!
               </h2>
             </div>
             <div className="mt-4 md:mt-0 w-full md:w-1/2">
               <p className="mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]">
                 Discover the ultimate flexibility in managing your
-                cryptocurrency with Crown Bankers. Whether you're shopping
+                cryptocurrency with CNEOX. Whether you're shopping
                 online or spending globally, our cards are designed to make your
                 crypto assets work for you. Choose between our virtual and
                 physical cards to fit your lifestyle and enjoy seamless
@@ -37,7 +37,7 @@ const Service = () => {
                 </div>
               </div>
               <p className="mb-7 text-md font-light">
-                Instantly create and use your Crown Bankers Virtual Card for
+                Instantly create and use your CNEOX Virtual Card for
                 secure, hassle-free online purchases. Perfect for everyday use
                 and instant activation with a $1,000 package.
               </p>

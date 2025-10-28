@@ -24,7 +24,7 @@ const Content1 = () => {
                 {/* Section Content Block */}
                 <div className="">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 lg:text-xl xl:text-2xl">
-                    Crown bankers, the financial stewards of the ultra-wealthy,
+                    CNEOX, the financial stewards of the ultra-wealthy,
                     navigate a diverse investment landscape. From harnessing the
                     sun's power with solar energy to riding the wave of the EV
                     revolution, we seek stability in established giants like the

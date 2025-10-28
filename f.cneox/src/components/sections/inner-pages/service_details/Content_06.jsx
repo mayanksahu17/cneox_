@@ -27,14 +27,14 @@ const Content_06 = () => {
               <br />
               <div>
                 <h3 style={{ fontSize: "30px" }}>
-                  Embracing Crypto: Crown Bankers' Strategic Approach
+                  Embracing Crypto: CNEOX' Strategic Approach
                 </h3>
               </div>
               <br />
               <br />
 
               <p>
-                At Crown Bankers, we integrate cryptocurrency investments
+                At CNEOX, we integrate cryptocurrency investments
                 alongside traditional ones. With meticulous research, we
                 identify promising crypto assets to diversify portfolios and
                 achieve high returns. From Bitcoin to DeFi projects, we navigate
@@ -114,7 +114,7 @@ const Content_06 = () => {
                 </li>
               </ul>
               <br />
-              <h4>Explore Crypto Opportunities with Crown Bankers!</h4>
+              <h4>Explore Crypto Opportunities with CNEOX!</h4>
               <p className="text-lg">
                 Join us to leverage the potential of cryptocurrency investments
                 in your portfolio.

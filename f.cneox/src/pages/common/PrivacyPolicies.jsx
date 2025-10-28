@@ -8,18 +8,18 @@ function Privacy() {
         <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
           {/* Section Title */}
           <p className="mb-12 text-4xl font-extrabold text-center text-gray-900 sm:text-4xl">
-            Privacy Policy for Crown Bankers
+            Privacy Policy for CNEOX
           </p>
 
           {/* Privacy Policy Card */}
           <div className="bg-[#e8f5e9] backdrop-blur-md rounded-lg shadow-2xl p-6 sm:p-8">
             {/* Introduction */}
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-              Crown Bankers places a paramount emphasis on ensuring the privacy
+              CNEOX places a paramount emphasis on ensuring the privacy
               and security of our clients' information. This Privacy Policy
               outlines our commitment to protecting the confidentiality of
               personal and financial data and explains how we collect, use, and
-              safeguard this information. By engaging with Crown Bankers, users
+              safeguard this information. By engaging with CNEOX, users
               implicitly consent to the practices described in this policy.
             </p>
 
@@ -32,7 +32,7 @@ function Privacy() {
                 Personal Information
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers collects essential personal details such as name,
+                CNEOX collects essential personal details such as name,
                 contact information, and identification for account creation and
                 verification.
               </p>
@@ -51,7 +51,7 @@ function Privacy() {
                 Usage Information
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers gathers data on user interactions with our
+                CNEOX gathers data on user interactions with our
                 platform, such as login times, page views, and investment
                 history.
               </p>
@@ -76,7 +76,7 @@ function Privacy() {
                 Communication
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers may use contact information to provide important
+                CNEOX may use contact information to provide important
                 updates, service announcements, and relevant promotional
                 content.
               </p>
@@ -99,7 +99,7 @@ function Privacy() {
             <div className="mb-6">
               <p className="mb-2 text-xl font-bold text-gray-800">Encryption</p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers employs industry-standard encryption protocols to
+                CNEOX employs industry-standard encryption protocols to
                 protect data during transmission and storage.
               </p>
             </div>
@@ -133,7 +133,7 @@ function Privacy() {
                 Third-Party Partners
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers may share necessary information with trusted
+                CNEOX may share necessary information with trusted
                 third-party partners for service enhancement, fraud prevention,
                 or regulatory compliance.
               </p>
@@ -156,7 +156,7 @@ function Privacy() {
             <div className="mb-6">
               <p className="mb-2 text-xl font-bold text-gray-800">Cookies</p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers employs cookies to enhance user experience, track
+                CNEOX employs cookies to enhance user experience, track
                 preferences, and gather analytics for website optimization.
               </p>
             </div>
@@ -190,7 +190,7 @@ function Privacy() {
                 Opt-Out Options
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Crown Bankers respects users' choices. Users can opt out of
+                CNEOX respects users' choices. Users can opt out of
                 promotional communications or withdraw consent for data
                 processing.
               </p>
@@ -201,7 +201,7 @@ function Privacy() {
               Children's Privacy
             </p>
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-              Crown Bankers does not knowingly collect or solicit personal
+              CNEOX does not knowingly collect or solicit personal
               information from individuals under the age of 18. If we become
               aware that we have collected personal information from a minor, we
               take immediate steps to delete the information.
@@ -212,7 +212,7 @@ function Privacy() {
               Changes to Privacy Policy
             </p>
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-              Crown Bankers reserves the right to update this Privacy Policy
+              CNEOX reserves the right to update this Privacy Policy
               periodically. Users will be notified of any significant changes,
               and continued use of our services after modifications constitutes
               acceptance of the revised policy.
@@ -236,7 +236,7 @@ function Privacy() {
                 Data Portability
               </p>
               <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-                Upon request, Crown Bankers facilitates the portability of user
+                Upon request, CNEOX facilitates the portability of user
                 data in a commonly used and machine-readable format.
               </p>
             </div>
@@ -255,7 +255,7 @@ function Privacy() {
               Investment Risks
             </p>
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
-              Crown Bankers acknowledges that all investments carry inherent
+              CNEOX acknowledges that all investments carry inherent
               risks. Users are encouraged to thoroughly review investment
               details and seek independent financial advice before making
               decisions.
@@ -267,7 +267,7 @@ function Privacy() {
             </p>
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
               For privacy-related inquiries or to exercise any rights under this
-              policy, users can contact Crown Bankers through the designated
+              policy, users can contact CNEOX through the designated
               channels provided on our website.
             </p>
 
@@ -276,10 +276,10 @@ function Privacy() {
               Conclusion
             </p>
             <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-              Crown Bankers is dedicated to maintaining the privacy and security
+              CNEOX is dedicated to maintaining the privacy and security
               of our users' information. This comprehensive Privacy Policy aims
               to transparently communicate our practices and assure users of our
-              commitment to safeguarding their data. By using Crown Bankers'
+              commitment to safeguarding their data. By using CNEOX'
               services, users affirm their understanding and acceptance of this
               Privacy Policy. For any questions or concerns, we encourage users
               to contact our dedicated privacy support.

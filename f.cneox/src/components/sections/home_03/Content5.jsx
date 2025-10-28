@@ -15,7 +15,7 @@ const Content5 = () => {
                 </h1>
                 <div className="flex mt-2 flex-row gap-4">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">
-                    At Crown Bankers, we integrate cryptocurrency investments
+                    At CNEOX, we integrate cryptocurrency investments
                     alongside traditional ones. With thorough research, we
                     identify promising crypto assets for diversification and
                     high returns. From Bitcoin to DeFi projects, we navigate

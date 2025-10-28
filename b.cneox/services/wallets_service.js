@@ -435,24 +435,46 @@ module.exports = {
       });
     });
   },
-  updateTotalDeposit: async (userId, amount) => {
+
+   applyInvestment: async (userId, investedAmount, opts = {}) => {
+    // opts = { isDirectBusiness: boolean, addToDirectBusinessAmount: number }
     return new Promise((resolve, reject) => {
       connectionPool.getConnection((err, connection) => {
-        if (err) throw err;
+        if (err) return reject(err);
 
-        const updateQuery =
-          "UPDATE wallets_table SET total_deposit = IFNULL(total_deposit, 0) + ? WHERE userId = ?";
+        // Build the base update: increment total_deposit + total_investment
+        // Use IFNULL to avoid null issues
+        let updateQuery = `
+          UPDATE wallets_table
+          SET
+            total_deposit = IFNULL(total_deposit, 0) + ?,
+            total_investment = IFNULL(total_investment, 0) + ?
+        `;
+        const params = [investedAmount, investedAmount];
 
-        connection.query(updateQuery, [amount, userId], (err, result) => {
+        // Optionally increment direct_business
+        if (opts.isDirectBusiness) {
+          updateQuery += `,
+            direct_business = IFNULL(direct_business, 0) + ?
+          `;
+          params.push(opts.addToDirectBusinessAmount != null ? opts.addToDirectBusinessAmount : investedAmount);
+        }
+
+        updateQuery += ` WHERE userId = ?`;
+        params.push(userId);
+
+        connection.query(updateQuery, params, (err, result) => {
           connection.release();
-          if (err) {
-            reject(err);
-            return;
-          }
+          if (err) return reject(err);
           resolve(result);
         });
       });
     });
+  },
+
+
+   updateTotalDeposit: async (userId, amount) => {
+    return module.exports.applyInvestment(userId, amount, { isDirectBusiness: false });
   },
 
   updateTotalInvestment: async (userId, amount) => {

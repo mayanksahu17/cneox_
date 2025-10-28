@@ -31,7 +31,7 @@ const Hero = () => {
           <div className=" flex flex-row items-center gap-20 justify-center w-full ">
             <div className="w-1/2 md:w-1/3 jos  flex flex-col gap-0 md:gap-[50px]">
               <p className="text-lg leading-[1.33] md:text-xl lg:text-2xl">
-                Rule Your Portfolio: Crown Bankers Invest in Forbes 500, EV,
+                Rule Your Portfolio: CNEOX Invest in Forbes 500, EV,
                 Solar, and Crypto!
               </p>
             </div>

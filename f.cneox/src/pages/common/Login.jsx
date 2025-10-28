@@ -1,18 +1,23 @@
+// src/pages/auth/Login.jsx
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { ErrorMessage } from "../../components";
-import toast from "react-hot-toast";
-import { useAuth } from "../../hooks/useAuth";
-import { Navigate, useNavigate } from "react-router-dom";
-import authService from "../../services/authService";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CgSpinner } from "react-icons/cg";
 import RoundButton from "../../components/navbar/RoundButton";
+import { useAuth } from "../../hooks/useAuth";
+import authService from "../../services/authService";
+import toast from "react-hot-toast";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Public path for the background image
+const SIGNIN_BG_PATH = "/assets_/images/auth/signinbg.png";
 
 const Login = () => {
   const handleNavigate = useNavigate();
   const { user, updateUser } = useAuth();
+
   const [showOTPInput, setShowOTPInput] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     userId: "CROWN-",
@@ -23,11 +28,13 @@ const Login = () => {
   const [errors, setErrors] = useState({
     userId: "",
     password: "",
+    otp: "",
   });
 
   const [touched, setTouched] = useState({
-    userId: "",
-    password: "",
+    userId: false,
+    password: false,
+    otp: false,
   });
 
   const handleBlur = (name) => {
@@ -37,7 +44,6 @@ const Login = () => {
 
   const validateInput = (name, value) => {
     let error = "";
-
     switch (name) {
       case "userId":
         error = value.trim() === "" ? `User ID is required` : "";
@@ -51,7 +57,6 @@ const Login = () => {
       default:
         break;
     }
-
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
@@ -59,31 +64,24 @@ const Login = () => {
     isSignInLoading: false,
   });
 
+  const changeLoadingStates = (name, value) =>
+    setLoadingStates((prev) => ({ ...prev, [name]: value }));
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    if (touched[name]) {
-      validateInput(name, value);
-    }
-  };
-
-  const changeLoadingStates = (name, value) => {
-    setLoadingStates((prev) => ({ ...prev, [name]: value }));
+    setFormData((p) => ({ ...p, [name]: value }));
+    if (touched[name]) validateInput(name, value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       changeLoadingStates("isSignInLoading", true);
       const response = await authService.loginUser({
         userId: `${formData.userId}`,
         password: formData.password,
       });
-      
+
       if (response?.data?.success) {
         changeLoadingStates("isSignInLoading", false);
         updateUser({
@@ -93,7 +91,7 @@ const Login = () => {
         handleNavigate("/dashboard");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       changeLoadingStates("isSignInLoading", false);
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
@@ -107,186 +105,236 @@ const Login = () => {
     () =>
       Object.values(errors).some((error) => error !== "") ||
       validationFilteredStates.filter((el) => formData[el] === "")?.length > 0,
-    [errors, formData]
+    [errors, formData, validationFilteredStates]
   );
 
-  if (user) {
-    return <Navigate to="/dashboard" />;
-  }
+  if (user) return <Navigate to="/dashboard" />;
 
-  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => setShowPassword((s) => !s);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
+  /* ----------------- Framer Motion Variants ----------------- */
+  const page = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.06 } },
+  };
+
+  const card = {
+    hidden: { opacity: 0, y: 20, scale: 0.995 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: "easeOut" } },
+  };
+
+  const field = {
+    hidden: { opacity: 0, y: 10 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, delay: i * 0.05 },
+    }),
+  };
+
+  const socialBtn = {
+    hidden: { opacity: 0, y: 6, scale: 0.95 },
+    visible: (i = 0) => ({ opacity: 1, y: 0, scale: 1, transition: { delay: 0.15 + i * 0.04 } }),
+    hover: { scale: 1.12, rotate: 6 },
+  };
+
+  const cta = {
+    hidden: { opacity: 0, y: 8 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.12 } },
+    tap: { scale: 0.98 },
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
-      <div className="flex-grow flex py-4">
-        {/* Left Column - Form */}
-        <div
-          className="w-full items-center justify-center md:w-1/2 flex flex-col p-8 md:p-16"
+    <motion.div className="min-h-screen relative bg-gray-900" variants={page} initial="hidden" animate="visible">
+      {/* Background image (coins) */}
+      <div
+        className="absolute inset-0 bg-center bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `url(${SIGNIN_BG_PATH})`,
+        }}
+        aria-hidden="true"
+      />
+      {/* dark overlay */}
+      <div className="absolute inset-0 bg-black/75" />
+
+      {/* Content container - centered */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-10">
+        {/* Centered card */}
+        <motion.div
+          className="w-full max-w-xl"
+          variants={card}
+          initial="hidden"
+          animate="visible"
         >
-          <div className="mb-8 ml-2">
-            <div className="flex items-center">
-                <img
-              className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto"
-              src="/assets/logo1.png"
-              alt="Crown Bankers Logo"
-            />
+          <motion.div
+            className="bg-gradient-to-b from-black to-[#020202] rounded-2xl shadow-2xl border border-[#0f0f0f] p-8 mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+          >
+            <motion.div className="text-center mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 }}>
+              <motion.img
+                src="/assets/logo1.png"
+                alt="CNEOX"
+                className="mx-auto h-20"
+                whileHover={{ scale: 1.03 }}
+              />
+            </motion.div>
 
-              {/* <span className="ml-2 text-2xl font-bold text-white">BankCo</span> */}
-            </div>
-          </div>
+            <motion.h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-2" initial={{ y: 6, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.4 }}>
+              Sign In
+            </motion.h2>
+            <motion.p className="text-gray-300 text-center mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.06 }}>
+              Sign in your account
+            </motion.p>
 
-          <div className="flex-grow flex flex-col px-4 rounded-md justify-center max-w-md border border-green-800 animate-">
-            <div className="p-4 rounded-t-md">
-              <h2 className="text-3xl font-bold text-white">
-                Sign in to Crown Bankers.
-              </h2>
-            </div>
-
-            <div className="bg-gray-900 py-8">
-              <div className="flex items-center justify-center mb-6">
-                {/* <div className="flex-grow border-t border-gray-700"></div> */}
-                {/* <div className="flex-grow border-t border-gray-700"></div> */}
-              </div>
-
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-4">
-                  <div>
-                    <input
-                      name="userId"
-                      type="text"
-                      className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
-                      placeholder="Username or email"
-                      value={formData.userId}
-                      onChange={handleChange}
-                      onBlur={() => handleBlur("userId")}
-                    />
-                    {errors.userId && touched.userId && (
-                      <p className="text-red-500 text-sm mt-1">{errors.userId}</p>
-                    )}
-                  </div>
-
-                  {!showOTPInput && (
-                    <div className="relative">
-                      <input
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
-                        placeholder="Password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        onBlur={() => handleBlur("password")}
-                      />
-                      <button
-                        type="button"
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                        onClick={togglePasswordVisibility}
-                      >
-                        <svg
-                          xmlns=""
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                          <circle cx="12" cy="12" r="3"></circle>
-                          {!showPassword && <line x1="4" y1="20" x2="20" y2="4"></line>}
-                        </svg>
-                      </button>
-                      {errors.password && touched.password && (
-                        <p className="text-red-500 text-sm mt-1">{errors.password}</p>
-                      )}
-                    </div>
+            <form onSubmit={handleSubmit}>
+              <motion.div className="space-y-4">
+                {/* Email / UserId */}
+                <motion.div custom={0} variants={field} initial="hidden" animate="visible">
+                  <motion.input
+                    name="userId"
+                    type="text"
+                    value={formData.userId}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("userId")}
+                    placeholder="Email"
+                    className="w-full rounded-lg px-4 py-3 bg-[#071022] border border-[#0b1726] placeholder:text-gray-400 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    whileFocus={{ scale: 1.01 }}
+                  />
+                  {errors.userId && touched.userId && (
+                    <motion.p className="text-red-400 text-sm mt-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                      {errors.userId}
+                    </motion.p>
                   )}
+                </motion.div>
 
+                {/* Password */}
+                {!showOTPInput && (
+                  <motion.div className="relative" custom={1} variants={field} initial="hidden" animate="visible">
+                    <motion.input
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      value={formData.password}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur("password")}
+                      placeholder="Password"
+                      className="w-full rounded-lg px-4 py-3 bg-[#071022] border border-[#0b1726] placeholder:text-gray-400 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      whileFocus={{ scale: 1.01 }}
+                    />
+                    <button
+                      type="button"
+                      onClick={togglePasswordVisibility}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                      aria-label="toggle password"
+                    >
+                      {showPassword ? "Hide" : "Show"}
+                    </button>
+                    {errors.password && touched.password && (
+                      <motion.p className="text-red-400 text-sm mt-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                        {errors.password}
+                      </motion.p>
+                    )}
+                  </motion.div>
+                )}
+
+                {/* OTP input (if used) */}
+                <AnimatePresence>
                   {showOTPInput && (
-                    <div>
-                      <input
+                    <motion.div
+                      key="otp"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <motion.input
                         name="otp"
                         type="text"
-                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
-                        placeholder="Enter OTP"
                         value={formData.otp}
                         onChange={handleChange}
+                        placeholder="Enter OTP"
+                        className="w-full rounded-lg px-4 py-3 bg-[#071022] border border-[#0b1726] placeholder:text-gray-400 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        whileFocus={{ scale: 1.01 }}
                       />
-                      {errors.otp && (
-                        <p className="text-red-500 text-sm mt-1">{errors.otp}</p>
-                      )}
-                    </div>
+                      {errors.otp && <motion.p className="text-red-400 text-sm mt-1">{errors.otp}</motion.p>}
+                    </motion.div>
                   )}
+                </AnimatePresence>
 
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-700 bg-gray-800 text-green-500 focus:ring-green-500"
-                        checked={rememberMe}
-                        onChange={(e) => setRememberMe(e.target.checked)}
-                      />
-                      <label
-                        htmlFor="remember-me"
-                        className="ml-2 text-sm text-white"
+                <motion.div className="flex items-center justify-between" custom={2} variants={field} initial="hidden" animate="visible">
+                  <label className="inline-flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      className="h-4 w-4 rounded border-gray-700 bg-[#071022] text-yellow-400"
+                    />
+                    <span className="text-sm text-gray-300">Remember Me?</span>
+                  </label>
+
+                  <Link to="/reset-password" className="text-sm text-yellow-400 hover:underline">
+                    Forgot Password?
+                  </Link>
+                </motion.div>
+
+                {/* CTA button */}
+                <motion.div custom={3} variants={field} initial="hidden" animate="visible">
+                  <motion.div variants={cta} initial="hidden" animate="visible">
+                    <RoundButton
+                      type="submit"
+                      disabled={isButtonDisabled || loadingStates.isSignInLoading}
+                      className="w-full py-3 text-sm rounded-lg"
+                      text={
+                        loadingStates.isSignInLoading ? (
+                          <span className="flex items-center justify-center">
+                            <CgSpinner className="animate-spin mr-2" size={18} />
+                            {!showOTPInput ? "Signing in..." : "Verifying..."}
+                          </span>
+                        ) : !showOTPInput ? (
+                          <span className="font-semibold text-black">Sign In</span>
+                        ) : (
+                          "Verify OTP"
+                        )
+                      }
+                    />
+                  </motion.div>
+                </motion.div>
+
+                {/* Or sign in with others */}
+                <motion.div className="text-center mt-2" custom={4} variants={field} initial="hidden" animate="visible">
+                  <motion.p className="text-gray-400 mb-4">or sign in with others account?</motion.p>
+
+                  <motion.div className="flex justify-center gap-3 mb-3">
+                    {["G", "Fb", "In", "Tw"].map((s, i) => (
+                      <motion.button
+                        key={i}
+                        type="button"
+                        variants={socialBtn}
+                        custom={i}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                        className="h-10 w-10 rounded-full bg-gray-200/8 text-yellow-400 flex items-center justify-center text-sm shadow-sm"
                       >
-                        Remember me
-                      </label>
-                    </div>
-                    <Link
-                      to="/reset-password"
-                      className="text-sm font-medium text-green-500 hover:text-green-400"
-                    >
-                      Forgot Password?
-                    </Link>
-                  </div>
+                        {s}
+                      </motion.button>
+                    ))}
+                  </motion.div>
 
-                  <RoundButton
-                    text={loadingStates.isSignInLoading ? (
-                      <span className="flex items-center justify-center">
-                        <CgSpinner className="animate-spin mr-2" size={18} />
-                        {!showOTPInput ? "Signing in..." : "Verifying..."}
-                      </span>
-                    ) : !showOTPInput ? "Sign in" : "Verify OTP"}
-                    type="submit"
-                    className="w-full py-3 text-sm"
-                    disabled={isButtonDisabled || loadingStates.isSignInLoading}
-                  />
-                  
-                  <p className="mt-1 flex items-center text-base text-gray-300">
-                    Create account? {/* Or{" "} */}
-                    <Link
-                      to="/signup"
-                      className="font-medium text-[#4CAF50] hover:text-[#3d9140] ml-1"
-                    >
-                      sign up
+                  <motion.p className="text-gray-300">
+                    Don't have an account?{" "}
+                    <Link to="/signup" className="text-yellow-400 font-medium hover:underline">
+                      Click here to sign up
                     </Link>
-                  </p>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column - Image */}
-        <div className="hidden md:flex md:w-1/2 bg-white">
-          <div className="w-full h-full flex items-center justify-center">
-            <img
-              src="/assets/img/solar.jpg"
-              alt="Secure Banking"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+                  </motion.p>
+                </motion.div>
+              </motion.div>
+            </form>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

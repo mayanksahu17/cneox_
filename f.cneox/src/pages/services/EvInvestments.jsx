@@ -217,7 +217,7 @@ const EvInvestments = () => {
                 Our Investment Approach
               </h2>
               <p className="mb-6 text-gray-600">
-                At Crown Bankers, we take a strategic approach to EV investments, focusing on high-growth
+                At CNEOX, we take a strategic approach to EV investments, focusing on high-growth
                 opportunities across the electric vehicle ecosystem. Our comprehensive strategy includes:
               </p>
               <ul className="space-y-4">
@@ -288,7 +288,7 @@ const EvInvestments = () => {
             Ready to Invest in the Future of Transportation?
           </h2>
           <p className="mb-8 text-lg text-gray-600">
-            Join Crown Bankers in investing in the electric vehicle revolution. Our expert team
+            Join CNEOX in investing in the electric vehicle revolution. Our expert team
             will guide you through investment opportunities that match your financial goals.
           </p>
           <button className="px-8 py-3 text-lg font-semibold text-white rounded-md bg-[#4CAF50] hover:bg-[#3d8b40] transition duration-300">

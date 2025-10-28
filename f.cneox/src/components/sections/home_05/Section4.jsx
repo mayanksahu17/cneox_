@@ -17,7 +17,7 @@ const CryptoCard = () => {
             Investment Packages and Return
           </h1>
           <p className="text-gray-800 text-base sm:text-lg lg:text-xl leading-relaxed">
-            Unlock the power of renewable energy with Crown Bankers. Explore our
+            Unlock the power of renewable energy with CNEOX. Explore our
             tailored investment plans designed to deliver sustainable energy
             returns while maximizing your financial growth. Invest in a cleaner,
             greener future with us today.

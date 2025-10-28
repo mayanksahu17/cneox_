@@ -401,14 +401,14 @@ function BusinessPlan() {
         <div className="container relative z-10 px-6 py-24 mx-auto md:py-36">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="mb-4 text-xl font-bold text-green-400 hero-animate md:text-3xl">
-              CROWN BANKERS INVESTMENT PLAN
+              CNEOX INVESTMENT PLAN
             </h2>
             <h1 className="mb-6 text-4xl leading-tight hero-animate md:text-7xl font-bethany">
               Go Green, Earn Green
             </h1>
             <p className="max-w-3xl mx-auto mb-8 text-xl hero-animate md:text-2xl text-green-50">
               Rule your portfolio: Invest in Forbes 500, EV, Solar, and Crypto
-              with Crown Bankers!
+              with CNEOX!
             </p>
             <div className="flex flex-wrap justify-center gap-4 hero-animate">
               <Link
@@ -609,7 +609,7 @@ function BusinessPlan() {
         <div className="">
           <div className="container mx-auto md:px-24">
             <h2 className="mb-16 text-3xl font-bold text-center text-white md:text-6xl">
-              Why Invest With Crown Bankers
+              Why Invest With CNEOX
             </h2>
 
             <div className="grid items-center grid-cols-1 gap-10 lg:grid-cols-2">
@@ -705,7 +705,7 @@ function BusinessPlan() {
               </div>
 
               <h2 className="text-5xl md:text-6xl font-bold leading-tight text-[#4CAF50]">
-                Invest in the Future of Solar Energy with Crown bankers
+                Invest in the Future of Solar Energy with CNEOX
               </h2>
 
               <div className="relative w-full h-72">
@@ -862,7 +862,7 @@ function BusinessPlan() {
                 </h2>
 
                 <p className="mt-8 text-lg leading-relaxed text-white/90">
-                  At Crown Bankers, we provide four dynamic income streams to
+                  At CNEOX, we provide four dynamic income streams to
                   maximize your financial growth: returns on investment in
                   high-growth sectors, a referral bonus for bringing new
                   investors on board, a binary bonus that rewards you for
@@ -964,7 +964,7 @@ function BusinessPlan() {
                   </h3>
                 </div>
                 <p className="mb-4 text-white/80">
-                  Join our community-driven success at Crown Bankers! Refer new
+                  Join our community-driven success at CNEOX! Refer new
                   investors, earn a 7% to 9% Referral Bonus, and grow together.
                 </p>
                 <div className="flex justify-end">
@@ -1096,7 +1096,7 @@ function BusinessPlan() {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <img
             src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742979263/cards_mbfp31.png"
-            alt="Crown Bankers"
+            alt="CNEOX"
             className="object-contain w-full h-auto"
           />
         </div>

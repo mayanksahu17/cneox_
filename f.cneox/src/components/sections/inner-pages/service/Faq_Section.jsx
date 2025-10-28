@@ -21,7 +21,7 @@ const Faq_Section = () => {
               {/* Section Content Block */}
               <div className="text-lg leading-[1.4] lg:text-[21px]">
                 <p className="mb-7 last:mb-0">
-                  Welcome to Crown Bankers, your gateway to the best investing
+                  Welcome to CNEOX, your gateway to the best investing
                   platform. Experience seamless transactions, robust returns,
                   and personalized service for a rewarding and stress-free
                   financial journey..
@@ -52,14 +52,14 @@ const Faq_Section = () => {
                     onClick={() => handleAccordion(0)}
                     className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px]  lg:text-[28px]"
                   >
-                    <p>Q: What is Crown Bankers, and what do they offer?</p>
+                    <p>Q: What is CNEOX, and what do they offer?</p>
                     <div className="accordion-icon">
                       <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
                   <div className="accordion-content text-[#ffeffa]">
                     <p>
-                      Crown Bankers is a financial investment platform based in
+                      CNEOX is a financial investment platform based in
                       the UK that offers investment packages in EVs, solar
                       energy, cryptocurrencies, AI platforms, and Forbes Top 500
                       companies.
@@ -78,7 +78,7 @@ const Faq_Section = () => {
                     className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px] text-white"
                   >
                     <p>
-                      Q: How does the investment plan work at Crown Bankers?
+                      Q: How does the investment plan work at CNEOX?
                     </p>
                     <div className="accordion-icon">
                       <img src="assets/img/plus.svg" alt="plus" />
@@ -86,7 +86,7 @@ const Faq_Section = () => {
                   </div>
                   <div className="accordion-content text-[#ffeffa]">
                     <p>
-                      Crown Bankers offers three investment packages - Solar
+                      CNEOX offers three investment packages - Solar
                       Starter Package, Power Growth, and Elite Energy, with
                       different investment ranges, durations, and returns.
                       Investors choose a package based on their investment

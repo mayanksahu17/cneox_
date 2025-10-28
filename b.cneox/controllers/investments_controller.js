@@ -103,27 +103,29 @@ module.exports = {
     }
   },
 
-  getInvestmentsByUserId: async (req, res) => {
-    try {
-      const userId = req.user?.id;
-      const investments = await investmentService.getInvestmentsByUserId(
-        userId
-      );
-
-      if (investments) {
-        res.status(200).json({ data: investments, success: true });
-      } else {
-        res
-          .status(404)
-          .json({ message: "Investment not found", success: false });
-      }
-    } catch (error) {
-      console.error("Error retrieving investments:", error);
-      res
-        .status(500)
-        .json({ message: "Internal Server Error", success: false });
+ // controllers/investmentController.js
+getInvestmentsByUserId: async (req, res) => {
+  try {
+    let userId = req.user?.id;
+    if (!userId) {
+      return res.status(400).json({ message: "Missing user id", success: false });
     }
-  },
+
+    // Normalize numeric ids to CROWN-<num>
+    if (typeof userId === 'number' || (/^\d+$/.test(String(userId)))) {
+      userId = `CROWN-${String(userId)}`;
+    }
+
+    const investments = await investmentService.getInvestmentsByUserId(userId);
+
+    // Return empty array (success) rather than 404 — UI expects array
+    return res.status(200).json({ data: investments || [], success: true });
+  } catch (error) {
+    console.error("Error retrieving investments:", error);
+    return res.status(500).json({ message: "Internal Server Error", success: false });
+  }
+},
+
 
   createInvestment: async ({
     user_id,

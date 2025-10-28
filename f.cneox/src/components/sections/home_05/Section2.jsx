@@ -92,7 +92,7 @@ const BankingInvestmentSection = () => {
         A Leading Provider Of Banking & Investment Solutions
       </h2>
       <p className="max-w-3xl mt-4 text-gray-600">
-        Crown Bankers is focused on delivering modern financial solutions that
+        CNEOX is focused on delivering modern financial solutions that
         reduce operational costs, enhance banking efficiency, and improve the
         overall financial ecosystem.
       </p>

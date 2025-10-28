@@ -88,7 +88,7 @@ export default function DashboardLayout() {
 
         <div className="flex flex-col flex-1 overflow-hidden">
           <Navbar pageTitle={getPageTitle()} toggleSidebar={toggleSidebar} />
-          <main className="flex-1 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-900">
+          <main className="flex-1 overflow-y-auto p-4 bg-black dark:bg-black">
             <Outlet />
             <Whatsapp />
           </main>

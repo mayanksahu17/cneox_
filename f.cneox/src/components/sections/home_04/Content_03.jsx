@@ -19,7 +19,7 @@ const Content_03 = () => {
         data-jos_animation="zoom"
       >
         <h2 className="text-colorBlue font-bold text-2xl md:text-4xl">
-          Crown Bankers
+          CNEOX
         </h2>
         <div className="text-white font-spaceGrotesk text-2xl md:text-6xl font-medium align-start flex w-full">
           An Alternative <br /> Energy Source

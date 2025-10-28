@@ -20,7 +20,7 @@ const Content6 = () => {
                     className="relative h-auto w-full"
                   />
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">
-                    Crown Bankers strategically invests in the Forbes Global
+                    CNEOX strategically invests in the Forbes Global
                     500, encompassing industry leaders such as Apple, Amazon,
                     and Microsoft. This selection represents a significant
                     portion of the global economy, with the Forbes 500

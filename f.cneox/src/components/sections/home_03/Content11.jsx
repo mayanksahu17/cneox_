@@ -20,7 +20,7 @@ const Content11 = () => {
                 <h1 className="text-colorOrangyRed font-raleway text-6xl">
                   Binary Bonus
                 </h1>
-                <h1 className="font-raleway text-6xl">at Crown bankers</h1>
+                <h1 className="font-raleway text-6xl">at CNEOX</h1>
                 <div className="flex mt-2 flex-row gap-4">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">
                     The Binary Bonus at our company a rewarding incentive

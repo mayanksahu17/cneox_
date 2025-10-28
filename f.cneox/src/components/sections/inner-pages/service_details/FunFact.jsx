@@ -46,7 +46,7 @@ const FunFact = () => {
             {/* Section Content Block */}
             <div className="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
               <p className="mb-7 last:mb-0">
-                At Crown Bankers, we envision reshaping financial excellence
+                At CNEOX, we envision reshaping financial excellence
                 through innovative solutions and strategic investments.
                 Trailblazing opportunities for growth and stability, we empower
                 clients to navigate evolving markets with confidence. Our

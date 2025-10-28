@@ -297,45 +297,58 @@ GROUP BY
     });
   },
 
-  getInvestmentsByUserId: async (userId) => {
-    userId = 100000;
-    return new Promise((resolve, reject) => {
-      connectionPool.getConnection((err, connection) => {
-        if (err) throw err;
-        const query = `
-           SELECT
-    i.investment_id,
-    i.txn_id,
-    i.crypto_type,
-    i.user_id,
-    i.sponsor,
-    i.package_id,
-    i.invested_amount,
-    i.deposit_amount,
-    i.token_amount,
-    CONCAT(UCASE(LEFT(i.type, 1)), SUBSTRING(i.type, 2)) AS type,
-    DATE_FORMAT(i.investment_date, '%Y-%m-%d') AS investment_date,
-    DATE_FORMAT(i.expires_on, '%Y-%m-%d') AS expires_on,
-    p.package_name,
-    p.duration
-FROM
-    investments_table i
-JOIN
-    master_table_packages p ON i.package_id = p.package_id
-WHERE
-    i.user_id = ?;
-          `;
-        connection.query(query, [userId], (err, results) => {
-          connection.release();
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve(results);
-        });
+getInvestmentsByUserId: async (userId) => {
+  return new Promise((resolve, reject) => {
+    if (!userId) {
+      return reject(new Error("Missing userId"));
+    }
+
+    // Normalize numeric ids to CROWN-<num>
+    if (typeof userId === 'number' || (/^\d+$/.test(String(userId)))) {
+      userId = `CROWN-${String(userId)}`;
+    }
+
+    connectionPool.getConnection((err, connection) => {
+      if (err) {
+        return reject(err);
+      }
+
+      const query = `
+        SELECT
+          i.investment_id,
+          i.txn_id,
+          i.crypto_type,
+          i.user_id,
+          i.sponsor,
+          i.package_id,
+          i.invested_amount,
+          i.deposit_amount,
+          i.token_amount,
+          CONCAT(UCASE(LEFT(i.type, 1)), SUBSTRING(i.type, 2)) AS type,
+          DATE_FORMAT(i.investment_date, '%Y-%m-%d') AS investment_date,
+          DATE_FORMAT(i.expires_on, '%Y-%m-%d') AS expires_on,
+          p.package_name,
+          p.duration
+        FROM
+          investments_table i
+        JOIN
+          master_table_packages p ON i.package_id = p.package_id
+        WHERE
+          i.user_id = ?;
+      `;
+
+      connection.query(query, [userId], (err, results) => {
+        // always release connection
+        try { connection.release(); } catch (e) {}
+        if (err) {
+          return reject(err);
+        }
+        resolve(results);
       });
     });
-  },
+  });
+},
+
 
   createInvestment: async (
     txn_id,

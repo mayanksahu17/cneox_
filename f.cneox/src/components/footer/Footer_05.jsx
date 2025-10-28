@@ -119,7 +119,7 @@ export default function Footer() {
         {/* Social Media & Copyright */}
         <div className="flex flex-col items-center justify-between pt-6 mt-12 border-t border-gray-800 md:flex-row">
           <div className="mb-4 text-sm text-center text-gray-400 md:mb-0 md:text-left">
-            © Copyright 2024, Crown Bankers. All Rights Reserved by CROWNQUEST
+            © Copyright 2024, CNEOX. All Rights Reserved by CROWNQUEST
             ASSET MANAGEMENT LIMITED.
             <a
               href="https://crownbankers.com"

@@ -47,11 +47,11 @@ const Member = ({
           }
         </div>
         <div className="max-w-full">
-          Adrian Cadiz is the dynamic CEO of Crown Bankers, leading the company
+          Adrian Cadiz is the dynamic CEO of CNEOX, leading the company
           with a strong vision and strategic expertise. A native of the UK,
           Adrian's leadership will drive our operations over the next three
           years, with the option to renew based on his continued commitment.
-          Under his guidance, Crown Bankers is poised to excel in the financial
+          Under his guidance, CNEOX is poised to excel in the financial
           and technological landscapes, shaping a bright future for the company
           and its stakeholders.
         </div>
