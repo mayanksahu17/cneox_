@@ -3,7 +3,7 @@ cd ~/cneox_/f.cneox
 
 # 2) fetch latest changes from origin (adjust branch if needed)
 git fetch --all
-git checkout main        # or the branch you deploy from
+git checkout-new-theme        # or the branch you deploy from
 git pull origin main
 
 # 3) install dependencies (only if package.json changed)
