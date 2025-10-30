@@ -17,20 +17,20 @@ module.exports = {
   getStats: async (req, res, next) => {
     try {
       const stats = await adminService.getStats();
-      //const investments = await invetsments_service.getRecentInvestments(5);
-      // const dailyInvestmentsAndWithdrawal =
-      //   await adminService.getDepositsAndWithdrawals();
-      // const investmentsByPackage =
-      //   await invetsments_service.getInvestmentsByPackage();
-      //const dailyUsers = await user_service.getDailyUsersSignups();
-      // const returnsGiven = await adminService.getReturnsGiven();
+      const investments = await invetsments_service.getRecentInvestments(5);
+      const dailyInvestmentsAndWithdrawal =
+        await adminService.getDepositsAndWithdrawals();
+      const investmentsByPackage =
+        await invetsments_service.getInvestmentsByPackage();
+      const dailyUsers = await user_service.getDailyUsersSignups();
+      const returnsGiven = await adminService.getReturnsGiven();
       return res.status(200).json({
         stats,
-        // investmentsByPackage,
-        // dailyInvestmentsAndWithdrawal,
-        // returnsGiven,
-        // dailyUsers,
-        //investments,
+        investmentsByPackage,
+        dailyInvestmentsAndWithdrawal,
+        returnsGiven,
+        dailyUsers,
+        investments,
         success: true,
       });
     } catch (error) {
@@ -40,7 +40,6 @@ module.exports = {
         .json({ message: "Internal Server Error", success: false });
     }
   },
-
   getActiveUsers: async (req, res) => {
     try {
       const users = await adminService.getUsersWithActivePackages();
@@ -224,7 +223,7 @@ module.exports = {
   signup: async (req, res) => {
     try {
       const { name, email, phone, password, security_pin } = req.body;
-      console.log("v")
+
       // Check if email already exists
       const existingAdmin = await adminService.getAdminByEmail(email);
       if (existingAdmin) {

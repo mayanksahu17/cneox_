@@ -17,16 +17,6 @@ const {
 } = require("../services/binary_tree_service");
 const binary_transaction_service = require("../services/binary_transaction_service");
 const referral_transactions_service = require("../services/referral_transactions_service");
-
-// const connectionPool = require("./db_service");
-const connectionPool = require("../services/db_service");
-
-const xlsx = require('xlsx'); // import the xlsx library
-const fs = require('fs'); // To save the file on the server (optional)
-
-
-
-
 function handleNullOrNaN(value) {
   return value !== null && value !== undefined ? parseFloat(value) : 0;
 }
@@ -328,7 +318,7 @@ module.exports = {
           .json({ message: "Internal Server Error", success: false });
     }
   },
-  
+
   //get user by id
   getUserIdByEmail: async (req, res, next) => {
     try {

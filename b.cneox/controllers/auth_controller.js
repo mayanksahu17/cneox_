@@ -190,13 +190,13 @@ module.exports = {
       }
 
       // Compare hashed password with password entered by the user
-      // const isMatch = await bcrypt.compare(password, userCreds.password);
+      const isMatch = await bcrypt.compare(password, userCreds.password);
 
-      // if (!isMatch) {
-      //   return res
-      //     .status(401)
-      //     .json({ success: false, message: "Password is incorrect." });
-      // }
+      if (!isMatch) {
+        return res
+          .status(401)
+          .json({ success: false, message: "Password is incorrect." });
+      }
       console.log(userCreds);
       const token = jwt.sign(
         { id: userCreds.userId, email: userCreds.email },

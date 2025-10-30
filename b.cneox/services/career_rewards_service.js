@@ -216,13 +216,15 @@ LEFT JOIN
             return;
           }
 
-          const currentLevel = result[0].currentLevel;
+          console.log(result);
+
+          const currentLevel = result[0]?.currentLevel;
           const requiredBusinessVolume =
-            result[0].requiredBusinessVolumeForHighestLevel;
-          const reward_amount = result[0].totalReward;
-          const highestLevel = result[0].highestLevel;
-          const currentLeftBusiness = result[0].currentLeftBusiness;
-          const currentRightBusiness = result[0].currentRightBusiness;
+            result[0]?.requiredBusinessVolumeForHighestLevel;
+          const reward_amount = result[0]?.totalReward;
+          const highestLevel = result[0]?.highestLevel;
+          const currentLeftBusiness = result[0]?.currentLeftBusiness;
+          const currentRightBusiness = result[0]?.currentRightBusiness;
 
           resolve({
             currentLevel,

@@ -1,6 +1,6 @@
 const connectionPool = require("./db_service");
 const statsQuery = `
-  SELECT
+  SELECT 
     (SELECT COUNT(*) FROM users_table) AS total_users,
     (SELECT COUNT(*) FROM users_table WHERE verified = 1) AS total_verified_users,
     (SELECT COUNT(*) FROM users_table WHERE verified = 0) AS total_unverified_users,
@@ -15,7 +15,6 @@ const statsQuery = `
     (SELECT SUM(amount) FROM powerleg_accounts) AS total_powerleg_amount
   FROM DUAL;  -- DUAL is a table automatically provided by Oracle and some other database systems which can be used to select a constant, pseudo columns, or functions, like in this case.
 `;
-
 module.exports = {
   getDepositsAndWithdrawals: async () => {
     return new Promise((resolve, reject) => {
@@ -220,7 +219,6 @@ WHERE WT.userId = ?;
       });
     });
   },
-
   getStats: () => {
     return new Promise((resolve, reject) => {
       connectionPool.getConnection((err, connection) => {
@@ -237,7 +235,6 @@ WHERE WT.userId = ?;
       });
     });
   },
-
   calculateBusiness: async (userId, startDate, endDate) => {
     return new Promise((resolve, reject) => {
       connectionPool.getConnection((err, connection) => {

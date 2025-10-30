@@ -107,7 +107,12 @@ function Signup() {
   };
 
   const handleRadioChangeHasSponsor = (value) =>
-    setFormData((prev) => ({ ...prev, hasSponsor: value }));
+    setFormData((prev) => ({
+      ...prev,
+      hasSponsor: value,
+      sponsorId: value ? prev.sponsorId : "",
+      sponsorName: value ? prev.sponsorName : "",
+    }));
 
   const handlePositionChange = (position) => {
     setFormData((prev) => ({ ...prev, position }));
@@ -262,6 +267,94 @@ function Signup() {
           </motion.p>
 
           <form onSubmit={handleSubmit}>
+            {/* Sponsor & Position */}
+            <motion.div
+              className="space-y-4 mb-6"
+              variants={page}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div className="flex items-center gap-4" variants={field}>
+                <span className="text-gray-200 text-sm">Do you have a sponsor?</span>
+                <label className="inline-flex items-center gap-2 text-gray-300 text-sm">
+                  <input
+                    type="radio"
+                    name="hasSponsor"
+                    checked={formData.hasSponsor === true}
+                    onChange={() => handleRadioChangeHasSponsor(true)}
+                    className="h-4 w-4 text-yellow-400"
+                  />
+                  Yes
+                </label>
+                <label className="inline-flex items-center gap-2 text-gray-300 text-sm">
+                  <input
+                    type="radio"
+                    name="hasSponsor"
+                    checked={formData.hasSponsor === false}
+                    onChange={() => handleRadioChangeHasSponsor(false)}
+                    className="h-4 w-4 text-yellow-400"
+                  />
+                  No
+                </label>
+              </motion.div>
+
+              {formData.hasSponsor && (
+                <AnimatePresence>
+                  <motion.div
+                    className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                  >
+                    <div className="md:col-span-2">
+                      <input
+                        name="sponsorId"
+                        type="text"
+                        value={formData.sponsorId}
+                        onChange={(e) => {
+                          handleChange(e);
+                          setSearchParams({
+                            sponsorId: e.target.value || "",
+                            position: formData.position,
+                          });
+                        }}
+                        onBlur={() => handleBlur("sponsorId")}
+                        placeholder="Sponsor ID (e.g., CROWN-123456)"
+                        className="w-full rounded-lg px-4 py-3 bg-[#071022] border border-[#0b1726] placeholder:text-gray-400 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                      {formData.sponsorName && (
+                        <p className="text-xs text-gray-300 mt-1">
+                          Sponsor: <span className="text-yellow-400">{formData.sponsorName}</span>
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="flex items-center md:justify-end gap-4">
+                      <label className="inline-flex items-center gap-2 text-gray-300 text-sm">
+                        <input
+                          type="radio"
+                          name="position"
+                          checked={formData.position === "left"}
+                          onChange={() => handlePositionChange("left")}
+                          className="h-4 w-4 text-yellow-400"
+                        />
+                        Left
+                      </label>
+                      <label className="inline-flex items-center gap-2 text-gray-300 text-sm">
+                        <input
+                          type="radio"
+                          name="position"
+                          checked={formData.position === "right"}
+                          onChange={() => handlePositionChange("right")}
+                          className="h-4 w-4 text-yellow-400"
+                        />
+                        Right
+                      </label>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              )}
+            </motion.div>
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
               variants={page}

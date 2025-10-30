@@ -7,21 +7,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
-const geoip = require('geoip-lite');
-const XLSX = require("xlsx");
-const { PDFDocument, rgb, StandardFonts } = require("pdf-lib");
-const fs = require("fs");
-const path = require("path");
-app.use(express.json());  
+
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/output", express.static(path.join(__dirname, "output")));
 app.use(cors());
 
-
-
 // Routes
-
 const userRoutes = require("./routes/user_route");
 const authRoutes = require("./routes/auth_route");
 const mailRoutes = require("./routes/mail_route");
@@ -46,6 +38,7 @@ const freeAccountRoute = require("./routes/free_accounts_route.js");
 const kycRoute = require("./routes/kyc_route");
 const bitiumRoute = require("./routes/bitium_route.js");
 const notificationsRoute = require("./routes/notifications_route.js");
+
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/packages", packageRoute);
@@ -69,27 +62,13 @@ app.use("/api/powerleg", powerlegRoute);
 app.use("/api/notifications", notificationsRoute);
 app.use("/api/free-account", freeAccountRoute);
 app.use("/api/kyc", kycRoute);
-
 // app.use("/api/bitium", bitiumRoute);
 app.use("/public", express.static("public"));
 
-
-
-
-
-
-
-
 //Scheduler
 const roiService = require("./services/roi_transactions_service");
-const { processBinaryTransactions   } = require("./services/binary_tree_service");
-// app.get("/api/runcron", async(req, res) => {
-//   console.log("ROI Scheduler started.");
-//   await roiService.processROITransactions();
-//       console.log("ROI executed successfully.");
-//   res.status(200).json({ message: "Cron job executed successfully." });
+const { processBinaryTransactions } = require("./services/binary_tree_service");
 
-// })
 // ROI - MON-FRI 12 AM
 const roiTask = cron.schedule(
   // "*/2 * * * *",
@@ -166,7 +145,6 @@ const io = new Server(server, {
       "https://www.crownbankers.com/",
       "https://admin.crownbankers.com",
       "192.25.14.35",
-      "https://alchemypayinsurance.com"
     ],
     methods: ["GET", "POST"],
   },
