@@ -85,56 +85,46 @@ LEFT JOIN users_table AS ut ON bt.user_id = ut.userId;
     return new Promise((resolve, reject) => {
       connectionPool.getConnection((err, connection) => {
         if (err) throw err;
-        const setRecursionDepth = `SET @@cte_max_recursion_depth = 5000;`;
-
         const selectQuery = `
           WITH RECURSIVE downline AS (
-    -- Start with the root user
-    SELECT
-        bt.user_id,
-        bt.left_child,
-        bt.right_child
-    FROM
-        binary_tree bt
-    WHERE
-        bt.user_id = ?
+            SELECT 
+              bt.user_id,
+              bt.left_child,
+              bt.right_child,
+              CAST(bt.user_id AS CHAR(255)) AS path,
+              1 AS depth
+            FROM binary_tree bt
+            WHERE bt.user_id = ?
 
-    UNION ALL
+            UNION ALL
 
-    -- Recursively find all children (both left and right) of the root user's downline
-    SELECT
-        bt.user_id,
-        bt.left_child,
-        bt.right_child
-    FROM
-        binary_tree bt
-    INNER JOIN
-        downline d ON bt.user_id = d.left_child OR bt.user_id = d.right_child
-)
--- Check if the target user (child_user_id) is part of the downline of the root user
-SELECT
-    *
-FROM
-    downline
-WHERE
-    downline.user_id = ?
-
-          `;
-        connection.query(setRecursionDepth, (err, res) => {
+            SELECT 
+              bt.user_id,
+              bt.left_child,
+              bt.right_child,
+              CONCAT(d.path, '>', bt.user_id) AS path,
+              d.depth + 1 AS depth
+            FROM binary_tree bt
+            JOIN downline d 
+              ON (
+                (d.left_child IS NOT NULL AND bt.user_id = d.left_child) OR 
+                (d.right_child IS NOT NULL AND bt.user_id = d.right_child)
+              )
+            WHERE d.depth < 30
+              AND FIND_IN_SET(bt.user_id, REPLACE(d.path, '>', ',')) = 0
+          )
+          SELECT 1 AS allowed
+          FROM downline
+          WHERE user_id = ?
+          LIMIT 1;
+        `;
+        connection.query(selectQuery, [parent, child], (err, results) => {
+          connection.release();
           if (err) {
-            connection.release();
             reject(err);
             return;
           }
-          console.log(res);
-          connection.query(selectQuery, [parent, child], (err, results) => {
-            connection.release();
-            if (err) {
-              reject(err);
-              return;
-            }
-            resolve(results);
-          });
+          resolve(results);
         });
       });
     });

@@ -10,6 +10,11 @@ module.exports = {
       const currentUserNumericId = parseInt(user_id.split("-")[1]);
       const requestedUserNumericId = parseInt(userId.split("-")[1]);
       console.log(currentUserNumericId, requestedUserNumericId);
+      // If requesting own tree, allow directly without downline traversal
+      if (user_id === userId) {
+        const binaryTree = await referralService.getBinaryTreeByUserId1(userId);
+        return res.status(200).json({ data: binaryTree, success: true });
+      }
       // Check if the requested user id is greater than or equal to the current user's id
       if (currentUserNumericId > requestedUserNumericId) {
         return res.status(403).json({
